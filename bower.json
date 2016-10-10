@@ -1,0 +1,29 @@
+{
+  "name": "zeev",
+  "description": "This is a web of zeev",
+  "main": "views/index.ejs",
+  "authors": [
+    "zeev <zeevkell@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "zeev",
+    "javascript",
+    "HTML",
+    "CSS",
+    "D3"
+  ],
+  "homepage": "http://www.zeevkell.com/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "^3.1.1",
+    "normalize-css": "^5.0.0",
+    "d3": "^4.2.6"
+  }
+}
