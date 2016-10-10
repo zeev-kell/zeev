@@ -1,0 +1,5 @@
+::ffff:127.0.0.1 - GET / HTTP/1.1 200 1226 - 1.348 ms
+::ffff:127.0.0.1 - GET /common/css/index.css HTTP/1.1 404 809 - 1.895 ms
+::ffff:127.0.0.1 - GET /public/css/index.css HTTP/1.1 404 809 - 3.300 ms
+::ffff:127.0.0.1 - GET /public/js/index.js HTTP/1.1 304 - - 2.296 ms
+::ffff:127.0.0.1 - GET /browser-sync/socket.io.min.1.5.0.js.map HTTP/1.1 404 809 - 0.973 ms

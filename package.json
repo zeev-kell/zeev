@@ -1,28 +1,28 @@
 {
-  "name": "zeev",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "body-parser": "~1.15.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.2.0",
-    "ejs": "~2.4.1",
-    "express": "~4.13.4",
-    "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.17.2",
-    "file-stream-rotator": "0.0.7",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-less": "^3.1.0",
-    "gulp-nodemon": "^2.2.1",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
-    "yargs": "^6.0.0"
-  }
+    "name": "zeev",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www"
+    },
+    "dependencies": {
+        "body-parser": "~1.15.1",
+        "cookie-parser": "~1.4.3",
+        "debug": "~2.2.0",
+        "ejs": "~2.4.1",
+        "express": "~4.13.4",
+        "morgan": "~1.7.0",
+        "serve-favicon": "~2.3.0"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.17.2",
+        "file-stream-rotator": "0.0.7",
+        "gulp": "^3.9.1",
+        "gulp-clean": "^0.3.2",
+        "gulp-less": "^3.1.0",
+        "gulp-nodemon": "^2.2.1",
+        "gulp-notify": "^2.2.0",
+        "gulp-plumber": "^1.1.0",
+        "yargs": "^6.0.0"
+    }
 }

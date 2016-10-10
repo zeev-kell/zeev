@@ -15,49 +15,27 @@ app.set('view engine', 'ejs');
 // app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-/* 日志模块 */
+/* 鏃ュ織妯″潡 */
 if (process.env.NODE_ENV == "development") {
-	require("./logs")(app);
+    require("./logs")(app);
 }
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, './public')));
+app.use('/common', express.static(path.join(__dirname, './common')));
 
-/* 所有的路由 */
+/* 鎵�鏈夌殑璺敱 */
 require('./routes')(app);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-	var err = new Error('Not Found');
-	err.status = 404;
-	next(err);
-});
+var errors = require("./errors");
 
-// error handlers
+// 404 Handler
+app.use(errors.error404);
 
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-	app.use(function (err, req, res, next) {
-		res.status(err.status || 500);
-		res.render('error', {
-			message: err.message,
-			error  : err
-		});
-	});
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function (err, req, res, next) {
-	res.status(err.status || 500);
-	res.render('error', {
-		message: err.message,
-		error  : {}
-	});
-});
+// 500 Handler
+app.use(errors.error500);
 
 
 module.exports = app;
