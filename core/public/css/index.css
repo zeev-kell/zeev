@@ -1,0 +1,66 @@
+/*    默认值为0 1 auto
+        flex-grow,
+            属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+        flex-shrink
+            属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+        flex-basis
+            属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+            浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+    */
+html,
+body {
+  border: medium none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #2c2e2f;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1 0 100%;
+  -moz-box-flex: 1 0 100%;
+  -webkit-flex: 1 0 100%;
+  -ms-flex: 1 0 100%;
+  flex: 1 0 100%;
+}
+.page-container {
+  border-collapse: collapse;
+  border-spacing: 0;
+  height: 100%;
+  vertical-align: top;
+  width: 100%;
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  -o-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-flex: 1 1 100%;
+  -moz-box-flex: 1 1 100%;
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  overflow-y: auto;
+}
+@media all and (min-width: 1400px) {
+  body,
+  html {
+    font-size: 16px;
+  }
+}

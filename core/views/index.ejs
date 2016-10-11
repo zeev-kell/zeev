@@ -20,15 +20,19 @@
 
     <title><%= title %></title>
 
+    <link rel='stylesheet' href='bower_components/normalize-css/normalize.css' />
+
     <!-- build:css  /common/css/zeev.css -->
-    <link rel="stylesheet" href="/common/css/index.css" type="text/css">
+    <link rel='stylesheet' href='public/css/index.css' />
+    <link rel='stylesheet' href='public/css/flexbox.css' />
     <!-- endbuild -->
-    
-    <link rel='stylesheet' href='/public/css/index.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <script type="text/javascript" src="/public/js/index.js"></script>
+  <div class="flex-row full column center">
+    <h1>Ze'ev Kell</h1>
+    <p>The <span id="keyword"></span></p>
+  </div>
+    <script type="text/javascript" src="common/js/txt-rotate.js"></script>
+    <script type="text/javascript" src="index/index.js"></script>
   </body>
 </html>
