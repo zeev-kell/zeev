@@ -19,5 +19,3 @@ config
 # bower_components
 bower_components
 
-# WebStorm
-.idea
