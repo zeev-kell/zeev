@@ -1,21 +1,5 @@
-# Runtime data
-pids
-*.pid
-*.seed
-
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-dist
-
-# Dependency directory
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
-node_modules
-
-# Debug log from npm
-npm-debug.log
-
-# Config
-config
-
-# bower_components
-bower_components
-
+# Created by .ignore support plugin (hsz.mobi)
+/.idea
+/bower_components
+/node_modules
+/logs/**/*.log
