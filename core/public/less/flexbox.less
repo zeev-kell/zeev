@@ -1,4 +1,27 @@
 @import "common";
+.flex {
+    .display-flex();
+    -webkit-box-flex: 0;
+    .flex(0 1 auto);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex.full {
+    .flex(1 0 100%);
+}
+
+.flex.center {
+    .align-items(center);
+    .justify-content(center);
+}
+
+.flex-column {
+    .flex-direction(column);
+}
+
 .flex-row {
     .display-flex();
     -webkit-box-flex: 0;

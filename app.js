@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var mongodb = require("./mongodb");
 mongodb();
 var app = express();
-//app.use(mongodb.session);
+// app.use(mongodb.session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'core', 'views'));
@@ -20,12 +20,13 @@ app.use(favicon(path.join(__dirname, 'core', 'public', 'favicon.ico')));
 
 /* 日志模块 */
 if (process.env.NODE_ENV == "development") {
-	require("./logs")(app);
+    require("./logs")(app);
 }
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/admin', express.static(path.join(__dirname, 'core', 'admin')));
 app.use('/bower_components', express.static(path.join(__dirname, 'core', 'bower_components')));
 app.use('/essay', express.static(path.join(__dirname, 'core', 'essay')));
 app.use('/index', express.static(path.join(__dirname, 'core', 'index')));
