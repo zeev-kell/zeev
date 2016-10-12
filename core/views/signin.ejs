@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="zeevkell 的小站">
+    <meta name="keywords" content="zeevkell zeev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="zeev">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- remove -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <!-- endbuild -->
+
+    <!--IE使用可用的最高版本的模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="initial-scale=1">
+
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/bower_components/angular/angular-csp.css"/>
+    <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
+    <link rel="stylesheet" href="/public/libs/v-busy/v-busy.css" type="text/css">
+    <link rel='stylesheet' href='/public/css/flexbox.css'/>
+
+    <!-- build:css  /common/css/signin.css -->
+    <link rel="stylesheet" href="/public/css/signin.css" type="text/css">
+    <!-- endbuild -->
+
+</head>
+<body class="ng-cloak" ng-cloak="">
+<div class="flex-row full center">
+    <div ng-controller="signinCtrl as sgCtrl" class="signin flex-row">
+        <form class="signin-form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="name" ng-model="sgCtrl.user.name"
+                       required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="password" class="form-control"
+                       ng-model="sgCtrl.user.password" required>
+            </div>
+            <div ng-if="sgCtrl.messages" class="alert" ng-bind="sgCtrl.messages"></div>
+            <div style="margin-bottom: 30px;"></div>
+            <div class="form-group">
+                <button type="submit" class="btn-submit" v-busy="" v-busy-click="sgCtrl.signin()"
+                        v-busy-label="Singin..." v-pressable="">
+                    Singin
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- build:js  /common/libs/signin.js -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/public/libs/v-busy/v-busy.js"></script>
+<!-- endbuild -->
+
+<script type="text/javascript">
+    angular.module("app", ["vBusy"])
+            .run(["$rootScope", "$http", function ($rootScope, $http) {
+            }]).controller("signinCtrl", ["$http", "$window", function ($http, $window) {
+                var _this = this;
+                _this.messages = null;
+                _this.signin = function () {
+                    _this.messages = null;
+                    return $http({
+                        method: "POST",
+                        url   : 'signin',
+                        data  : _this.user
+                    }).success(function (data, status, headers, config) {
+                        $window.location.href = "/admin/";//--需要重定向--
+                    }).error(function (response) {
+                        console.log(response);
+                        _this.messages = response ? response.message || response : "服务器繁忙！";
+                    })
+                }
+            }])
+</script>
+</body>
+</html>

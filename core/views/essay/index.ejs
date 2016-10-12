@@ -4,21 +4,25 @@
     <div class="post-side hidden-xs">
         <div class="sidebar">
             <aside>
-                <h4>Epcot Center</h4>
+                <h3 class="aside-title">标签</h3>
 
-                <p>The Epcot Center is a theme park in Disney World, Florida.</p>
+                <div class="aside-wrap tags-wrap">
+                    <% for(var i = 0;i < tags.length;i++){ %>
+                    <a class="tag" href="tags/<%= tags[i]._id %>"><%= tags[i].name %></a>
+                    <% } %>
+                </div>
             </aside>
         </div>
     </div>
     <div class="posts">
         <div class="posts-wrap">
-            <% for(var i = 0;i < 5;i++){ %>
+            <% for(var i = 0;i < posts.length;i++){ %>
             <article>
                 <h1>
-                    <a href="post/123">Internet Explorer 9</a>
+                    <a href="post/<%= posts[i]._id %>"><%= posts[i].title %></a>
                 </h1>
 
-                <p>Windows Internet Explorer 9(缩写为 IE9 )在2011年3月14日21:00 发布。</p>
+                <p><%- posts[i].html %></p>
             </article>
             <% } %>
         </div>

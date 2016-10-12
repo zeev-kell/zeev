@@ -5,7 +5,10 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongodb = require("./mongodb");
+mongodb();
 var app = express();
+//app.use(mongodb.session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'core', 'views'));

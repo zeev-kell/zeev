@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var debug = require('debug')("zeev:user");
+var debug = require('debug')("zeev:/");
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send("user");
+  res.send("/");
 });
 
 module.exports = router;
