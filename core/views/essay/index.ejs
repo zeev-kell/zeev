@@ -1,0 +1,29 @@
+<%- include header.ejs %>
+<%- include navigation.ejs %>
+<div class="container-fluid post-container">
+    <div class="post-side hidden-xs">
+        <div class="sidebar">
+            <aside>
+                <h4>Epcot Center</h4>
+
+                <p>The Epcot Center is a theme park in Disney World, Florida.</p>
+            </aside>
+        </div>
+    </div>
+    <div class="posts">
+        <div class="posts-wrap">
+            <% for(var i = 0;i < 5;i++){ %>
+            <article>
+                <h1>
+                    <a href="post/123">Internet Explorer 9</a>
+                </h1>
+
+                <p>Windows Internet Explorer 9(缩写为 IE9 )在2011年3月14日21:00 发布。</p>
+            </article>
+            <% } %>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/public/js/base.js"></script>
+<script type="text/javascript" src="/essay/js/index.js"></script>
+<%- include footer.ejs %>

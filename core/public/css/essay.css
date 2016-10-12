@@ -10,3 +10,42 @@
 .navbar {
   border-radius: 0;
 }
+.navbar .navbar-brand {
+  padding: 0;
+  margin-left: 1rem;
+}
+.navbar .navbar-brand > img {
+  height: 100%;
+  border-radius: 50%;
+}
+@media (min-width: 1200px) {
+  .container-fluid {
+    width: 1200px;
+  }
+}
+.posts {
+  padding-right: 350px;
+}
+.posts .posts-wrap {
+  padding: 10px;
+}
+.posts .posts-wrap article {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .posts {
+    padding-right: 0px;
+  }
+}
+.post-side {
+  float: right;
+  width: 350px;
+  padding: 10px;
+}
+.post-side .sidebar aside {
+  border: 1px #bbbbbb solid;
+  padding: 10px;
+}

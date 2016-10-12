@@ -1,3 +1,16 @@
 .navbar {
   border-radius: 0;
 }
+.navbar .navbar-brand {
+  padding: 0;
+  margin-left: 1rem;
+}
+.navbar .navbar-brand > img {
+  height: 100%;
+  border-radius: 50%;
+}
+@media (min-width: 1200px) {
+  .container-fluid {
+    width: 1200px;
+  }
+}

@@ -1,2 +1,31 @@
 @import "common";
 @import "theme";
+
+.posts {
+  padding-right : 350px;
+  .posts-wrap {
+    padding : 10px;
+    article {
+      border-bottom  : 1px solid #eee;
+      margin-bottom  : 30px;
+      padding-bottom : 30px;
+      position       : relative;
+    }
+  }
+}
+
+@media (max-width : 767px) {
+  .posts {
+    padding-right : 0px;
+  }
+}
+
+.post-side {
+  float   : right;
+  width   : 350px;
+  padding : 10px;
+  .sidebar aside {
+    border  : 1px #bbbbbb solid;
+    padding : 10px;
+  }
+}
