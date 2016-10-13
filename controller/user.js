@@ -6,7 +6,7 @@ var debug = require('debug')('zeev:user');
 var handleError = require("../utils").handleError;
 var User = global.dbHelper.getModel("User");
 
-module.exports.adminRequired = function(req, res, next) {
+exports.adminRequired = function(req, res, next) {
     //	var user = req.session || req.session.user;
     var user = null,
         method = req.method;
@@ -20,7 +20,7 @@ module.exports.adminRequired = function(req, res, next) {
     next();
 }
 
-module.exports.signin = function(req, res) {
+exports.signin = function(req, res) {
     var _user = {
         name: req.body.name,
         password: req.body.password

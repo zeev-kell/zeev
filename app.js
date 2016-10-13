@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var hbs = require('hbs');
+var ejs = require('ejs');
 
 var mongodb = require("./mongodb");
 mongodb();
@@ -12,16 +14,19 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'core', 'views'));
+//ejs.delimiter = '%';
+//ejs.open = '{{';
+//ejs.close = '}}';
 app.set('view engine', 'ejs');
+require("./utils/ejs")(app);
+//app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(favicon(path.join(__dirname, 'core', 'public', 'favicon.ico')));
 
 /* 日志模块 */
-if (process.env.NODE_ENV == "development") {
-    require("./logs")(app);
-}
+require("./logs")(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

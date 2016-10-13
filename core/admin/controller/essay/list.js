@@ -8,8 +8,8 @@ angular.module("app.controller", [])
 		var _this = this;
 		$http({
             method: "GET",
-            url: "post"
+            url: "/post"
         }).success(function (data) {
-            _this.posts = data.result;
+            _this.posts = data;
         });
 	}])

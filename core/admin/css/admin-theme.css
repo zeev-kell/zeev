@@ -1,0 +1,315 @@
+.form-control,
+.form-control:focus,
+.has-error .form-control:focus,
+.has-success .form-control:focus,
+.has-warning .form-control:focus,
+.navbar-collapse,
+.navbar-form,
+.navbar-form-custom .form-control:focus,
+.navbar-form-custom .form-control:hover,
+.open .btn.dropdown-toggle,
+.panel,
+.popover,
+.progress,
+.progress-bar,
+.well {
+  box-shadow: none;
+}
+.btn,
+.dropdown-menu {
+  border-radius: 0;
+}
+.btn-primary {
+  background-color: #34495E;
+  border-color: #34495E;
+  color: #FFFFFF;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: #3F5872;
+  border-color: #3F5872;
+  color: #FFFFFF;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary.disabled:hover,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled],
+.btn-primary[disabled]:hover,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:active,
+.btn-primary.active[disabled],
+fieldset[disabled] .btn-primary,
+fieldset[disabled] .btn-primary:hover,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary:active,
+fieldset[disabled] .btn-primary.active {
+  background-color: #293A4A;
+  border-color: #293A4A;
+}
+.badge.badge-green,
+.badge.badge-success {
+  background-color: #8DC63F;
+}
+.dropdown-menu > li > a > i {
+  display: inline-block;
+  margin-right: 5px;
+}
+.breadcrumb {
+  background-color: transparent;
+}
+.breadcrumb li i {
+  margin-right: 4px;
+}
+.breadcrumb li a {
+  color: #979898;
+}
+body.default .sidebar-menu {
+  background: #2C2E2F;
+}
+body.default .logo-env {
+  border-bottom-color: #313437;
+  color: #FFFFFF;
+}
+body.default .main-menu li.active > a {
+  color: #FFFFFF;
+}
+body.default .main-menu li.expanded > a {
+  color: #FFFFFF;
+}
+body.default .sidebar-user-info {
+  background-color: #27292A;
+  border-bottom: 1px solid #323435;
+}
+/* --- panel --- */
+.blog-box p {
+  font-size: 12px;
+}
+.blog-box h4 {
+  font-weight: bold;
+  margin-top: 0;
+}
+.blog-box .panel-heading {
+  background: #FFFFFF;
+  border-top: 1px solid #E4E5E7;
+  border-left: 1px solid #E4E5E7;
+  border-right: 1px solid #E4E5E7;
+  border-radius: 2px;
+  padding: 10px 20px;
+  position: relative;
+  font-weight: 500;
+}
+.blog-box .panel-heading .media-body {
+  line-height: 16px;
+}
+.blog-box .panel-heading .media-body h5 {
+  margin-top: 0;
+}
+.blog-box .panel-heading .media img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.blog-box .panel-image {
+  border-left: 1px solid #E4E5E7;
+  border-right: 1px solid #E4E5E7;
+  position: relative;
+}
+.blog-box .panel-image .title {
+  position: absolute;
+  bottom: 10px;
+  padding: 0 20px;
+  color: #FFFFFF;
+}
+.blog-box .panel-image .title h4 {
+  margin-bottom: 0px;
+}
+.blog-box .panel-image .title a {
+  color: #FFFFFF !important;
+}
+.blog-box .panel-footer {
+  color: #909295;
+}
+.blog-article-box .panel-heading {
+  background: #FFFFFF;
+  border-top: 1px solid #E4E5E7;
+  border-left: 1px solid #E4E5E7;
+  border-right: 1px solid #E4E5E7;
+  border-radius: 2px;
+  padding: 80px 10px;
+  position: relative;
+  font-weight: 500;
+  text-align: center;
+}
+.blog-article-box .panel-heading h4 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #515355;
+}
+.blog-article-box .panel-heading .panel-body {
+  padding: 50px 70px;
+}
+.blog-article-box .panel-heading .panel-body p {
+  font-family: "Times New Roman", Georgia, Serif;
+  font-size: 20px;
+  line-height: 32px;
+  color: #515355;
+}
+@media (max-width: 768px) {
+  .blog-article-box .panel-body {
+    padding: 10px 20px;
+  }
+  .blog-article-box .panel-body p {
+    font-family: "Times New Roman", Georgia, Serif;
+    font-size: 16px;
+    line-height: 28px;
+  }
+  .blog-article-box .panel-heading {
+    padding: 20px 20px;
+  }
+}
+.hpanel > .panel-heading {
+  color: inherit;
+  font-weight: 600;
+  padding: 10px 4px;
+  transition: all .3s;
+  border: 1px solid transparent;
+}
+.hpanel .hbuilt.panel-heading {
+  border-bottom: none;
+}
+.hpanel > .panel-footer,
+.hpanel > .panel-section {
+  color: inherit;
+  border: 1px solid #E4E5E7;
+  border-top: none;
+  font-size: 90%;
+  background: #F7F9FA;
+  padding: 10px 15px;
+}
+.hpanel.panel-collapse > .panel-heading,
+.hpanel .hbuilt {
+  background: #FFFFFF;
+  border-color: #E4E5E7;
+  border: 1px solid #E4E5E7;
+  padding: 10px 10px;
+  border-radius: 2px;
+}
+.hpanel .panel-body {
+  background: #FFFFFF;
+  border: 1px solid #E4E5E7;
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+}
+.hpanel.panel-group .panel-body:first-child {
+  border-top: 1px solid #E4E5E7;
+}
+.hpanel.panel-group .panel-body {
+  border-top: none;
+}
+.panel-collapse .panel-body {
+  border: none;
+}
+.hpanel {
+  background-color: none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 25px;
+}
+.splash {
+  background: rgba(255, 255, 255, 0.5);
+  bottom: 0;
+  color: gray;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2000;
+}
+.splash-title {
+  margin: 15% auto;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+.spinner {
+  font-size: 15px;
+  height: 50px;
+  margin: 20px auto;
+  text-align: center;
+  width: 60px;
+}
+.spinner > div {
+  animation: 1.2s ease-in-out 0s normal none infinite running sk-stretchdelay;
+  background-color: #62CB31;
+  display: inline-block;
+  height: 100%;
+  width: 8px;
+}
+.spinner .rect2 {
+  animation-delay: -1.1s;
+}
+.spinner .rect3 {
+  animation-delay: -1s;
+}
+.spinner .rect4 {
+  animation-delay: -0.9s;
+}
+.spinner .rect5 {
+  animation-delay: -0.8s;
+}
+@keyframes sk-stretchdelay {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+@keyframes bounceIn {
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+.bounceIn {
+  animation-duration: 0.75s;
+  animation-name: bounceIn;
+}

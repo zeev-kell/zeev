@@ -80,9 +80,9 @@ module.exports = function(gulp, config) {
             "./core/views/**/*.*"
         ]).on('change', reload);
 
-        gulp.watch([
-            "./core/public/less/**/*.*"
-        ], ['css:watch']);
+        gulp.watch(config.less.map(function(less){
+            return less + "/less/**/*.less"
+        }), ['css:watch']);
 
     });
 

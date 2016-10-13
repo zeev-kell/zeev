@@ -24,5 +24,9 @@ var accessLogStream = FileStreamRotator.getStream({
 
 module.exports = function (app) {
 	//app.use(logger('This is a customer format. :method :url :status :response-time ms'));
-	app.use(logger('short', { stream: accessLogStream }));
+	if (process.env.NODE_ENV !== "development") {
+		app.use(logger('short', { stream: accessLogStream }));
+	}else{
+		app.use(logger('short'));
+	}
 }

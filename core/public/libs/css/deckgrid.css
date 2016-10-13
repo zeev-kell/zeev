@@ -1,0 +1,144 @@
+
+.animation-fade {
+	opacity: 0;
+}
+
+.animation-faded {
+	opacity: 1;
+}
+
+.animation-faded {
+	-webkit-transition: opacity 1s linear .2s;
+	-moz-transition: opacity 1s linear .2s;
+	-o-transition: opacity 1s linear .2s;
+	transition: opacity 1s linear .2s;
+}
+
+.deckgrid {
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.deckgrid[deckgrid]::before {
+	content: '5 .column.size-1-5';
+	font-size: 0;
+	visibility: hidden;
+}
+
+.deckgrid .column {
+	float: left;
+}
+
+.photo {
+	background: #FFFFFF url(images/spinner.gif) center 30px no-repeat;
+	border: 1px solid rgba(0, 0, 0, .15);
+	border-radius: 3px;
+	margin: 0 10px 10px 0;
+	position: relative;
+}
+
+.photo .photo-index {
+	background: rgba(0, 0, 0, .9);
+	color: #FFFFFF;
+	position: absolute;
+	height: 100%;
+	text-align: center;
+	width: 100%;
+	z-index: 99;
+}
+
+.photo .photo-index p:first-child {
+	margin-top: 10px;
+}
+
+.photo .photo-wrapper {
+	min-height: 60px;
+}
+
+.photo .photo-description {
+	padding: 15px;
+}
+
+.deckgrid .column {
+	min-height: 1px;
+	padding-left: 15px;
+	padding-right: 15px;
+	position: relative;
+}
+
+.deckgrid .column.size-1-5 {
+	width: 20%;
+}
+
+.deckgrid .column.size-1-4 {
+	width: 25%;
+}
+
+.deckgrid .column.size-1-3 {
+	width: 33%;
+}
+
+.deckgrid .column.size-1-2 {
+	width: 50%;
+}
+
+.deckgrid .column.size-1-1 {
+	width: 100%;
+}
+
+@media screen and (min-width: 1601px) {
+
+	.deckgrid[deckgrid]::before {
+		content: '5 .column.size-1-5';
+	}
+
+	.deckgrid[deckgrid].deckgrid-lg-4::before {
+		content: '4 .column.size-1-4';
+	}
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+	.deckgrid[deckgrid]::before {
+		content: '4 .column.size-1-4';
+	}
+
+	.deckgrid[deckgrid].deckgrid-lg-4::before {
+		content: '3 .column.size-1-3';
+	}
+}
+
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+
+	.deckgrid[deckgrid]::before {
+		content: '3 .column.size-1-3';
+	}
+
+	.deckgrid[deckgrid].deckgrid-lg-4::before {
+		content: '2 .column.size-1-2';
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+
+	.deckgrid[deckgrid]::before {
+		content: '2 .column.size-1-2';
+	}
+
+	.deckgrid[deckgrid].deckgrid-lg-4::before {
+		content: '1 .column.size-1-1';
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+	.deckgrid[deckgrid]::before {
+		content: '1 .column.size-1-1';
+	}
+}
+
+@media only screen and (max-device-width: 320px), only screen and (max-width: 480px) {
+
+	.deckgrid[deckgrid]::before {
+		content: '1 .column.size-1-1';
+	}
+}

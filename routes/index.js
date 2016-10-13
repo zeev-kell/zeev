@@ -3,6 +3,7 @@ var router = express.Router();
 var essay = require('./essay');
 var admin = require('./admin');
 var userCtrl = require('../controller/user');
+var postCtrl = require('../controller/post');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -20,6 +21,12 @@ router.get('/signin/', function (req, res, next) {
 });
 
 router.post('/signin/', userCtrl.signin);
+
+router.get('/post', postCtrl.getPosts);
+
+router.get('/post/:id', postCtrl.getPostInfo);
+
+router.put('/post/:id', postCtrl.updatePost);
 
 module.exports = function (app) {
 	app.use("/", router);

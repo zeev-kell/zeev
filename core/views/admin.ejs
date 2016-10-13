@@ -20,145 +20,151 @@
 
     <title><%= title %></title>
 
-    <link rel="stylesheet" href="/bower_components/angular/angular-csp.css" />
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="/bower_components/angular-bootstrap/ui-bootstrap-csp.css" />
-    <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css" />
-    <link rel="stylesheet" href="/public/libs/v-busy/v-busy.css" />
+    <link rel="stylesheet" href="/bower_components/angular/angular-csp.css"/>
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/bower_components/angular-bootstrap/ui-bootstrap-csp.css"/>
+    <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css"/>
+    <link rel="stylesheet" href="/public/libs/ng-sweet-alert/lib/sweet-alert.css">
+    <link rel="stylesheet" href="/public/libs/v-busy/v-busy.css"/>
 
     <!-- build:css  /common/css/zeev.css -->
-    <link rel='stylesheet' href='/public/css/admin.css'/>
+    <link rel='stylesheet' href='/admin/css/index.css'/>
     <link rel='stylesheet' href='/public/css/flexbox.css'/>
     <!-- endbuild -->
 </head>
 
 <body class="default ng-cloak" ng-cloak="">
 
-    <div class="splash animated-panel" layout-loading="">
-        <div class="splash-title">
-            <div class="spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
-            </div>
+<div class="splash animated-panel" layout-loading="">
+    <div class="splash-title">
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
         </div>
     </div>
+</div>
 
-    <div class="page-container">
-        <div class="sidebar-menu fixed toggle-others">
-            <header class="logo-env">
-                <div class="logo">
-                    <a ui-sref="index">
-                        To web
-                    </a>
-                </div>
-                <div class="settings-icon">
-                    <a data-animate="true" data-toggle="settings-pane" href="#"> <i class="fa fa-cog"></i> </a>
-                </div>
-            </header>
-            <section class="sidebar-user-info-inner">
-                <div class="sidebar-user-info">
-                    <a class="user-profile">
-                        <img width="60" height="60" alt="user-pic" class="img-circle img-corona" src="/public/img/logo.jpg">
+<div class="page-container">
+    <div class="sidebar-menu fixed toggle-others">
+        <header class="logo-env">
+            <div class="logo">
+                <a ui-sref="index">
+                    To web
+                </a>
+            </div>
+            <div class="settings-icon">
+                <a data-animate="true" data-toggle="settings-pane" href="#"> <i class="fa fa-cog"></i> </a>
+            </div>
+        </header>
+        <section class="sidebar-user-info-inner">
+            <div class="sidebar-user-info">
+                <a class="user-profile">
+                    <img width="60" height="60" alt="user-pic" class="img-circle img-corona" src="/public/img/logo.jpg">
                         <span>
                         <strong ng-bind="user.token.username">Ze'ev Kell</strong>
                         Page admin
                     </span>
-                    </a>
-                    <ul class="user-links list-unstyled">
-                        <li class="active">
-                            <a title="Edit profile">
-                                <i class="fa fa-user"></i> Edit
+                </a>
+                <ul class="user-links list-unstyled">
+                    <li class="active">
+                        <a title="Edit profile">
+                            <i class="fa fa-user"></i> Edit
+                        </a>
+                    </li>
+                    <li>
+                        <a title="Mailbox"> <i class="glyphicon glyphicon-envelope"></i> Mailbox
+                        </a>
+                    </li>
+                    <li class="logout-link">
+                        <a title="Log out"> <i class="fa fa-power-off"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <ng-include src="'views/navigation.html'"></ng-include>
+    </div>
+    <div class="page-content">
+        <nav class="navbar user-info-navbar fixed">
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+                <li class="hover-line">
+                    <a data-toggle="sidebar" href="#"> <i class="fa fa-bars"></i> </a>
+                </li>
+                <li class="dropdown hover-line">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <i
+                                class="fa fa-envelope-o"></i> <span class="badge badge-green">15</span> </a>
+                </li>
+            </ul>
+            <ul class="user-info-menu right-links list-inline list-unstyled">
+                <li class="dropdown user-profile" uib-dropdown>
+                    <a uib-dropdown-toggle class="dropdown-toggle">
+                        <img width="28" class="img-circle img-inline userpic-32" alt="user-image"
+                             src="/public/img/logo.jpg"> <span>
+                            {{user.token.username}}
+                            <i class="fa fa-angle-down"></i> </span> </a>
+                    <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
+                        <li>
+                            <a> <i class="fa fa-edit"></i> New
                             </a>
                         </li>
                         <li>
-                            <a title="Mailbox"> <i class="glyphicon glyphicon-envelope"></i> Mailbox
-                            </a>
-                        </li>
-                        <li class="logout-link">
-                            <a title="Log out"> <i class="fa fa-power-off"></i>
+                            <a> <i class="fa fa-edit"></i> New
                             </a>
                         </li>
                     </ul>
-                </div>
-            </section>
-            <ng-include src="'views/navigation.html'"></ng-include>
-        </div>
-        <div class="page-content">
-            <nav class="navbar user-info-navbar fixed">
-                <ul class="user-info-menu left-links list-inline list-unstyled">
-                    <li class="hidden-sm hidden-xs">
-                        <a data-toggle="sidebar" href="#"> <i class="fa fa-bars"></i> </a>
-                    </li>
-                    <li class="dropdown hover-line">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <i class="fa fa-envelope-o"></i> <span class="badge badge-green">15</span> </a>
-                    </li>
-                </ul>
-                <ul class="user-info-menu right-links list-inline list-unstyled">
-                    <li class="dropdown user-profile" uib-dropdown>
-                        <a uib-dropdown-toggle class="dropdown-toggle">
-                            <img width="28" class="img-circle img-inline userpic-32" alt="user-image" src="/public/img/logo.jpg"> <span>
-                            {{user.token.username}}
-                            <i class="fa fa-angle-down"></i> </span> </a>
-                        <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
-                            <li>
-                                <a> <i class="fa fa-edit"></i> New
-                                </a>
-                            </li>
-                            <li>
-                                <a> <i class="fa fa-edit"></i> New
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a data-toggle="chat" href="#"> <i class="fa fa-comments-o"></i> </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="main-content">
-                <div id="loading-bar-container"></div>
-                <div class="ui-view-index-container" ui-view=""></div>
-            </div>
+                </li>
+                <li>
+                    <a data-toggle="chat" href="#"> <i class="fa fa-comments-o"></i> </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <div id="loading-bar-container"></div>
+            <div class="ui-view-index-container" ui-view=""></div>
         </div>
     </div>
+</div>
 
 </body>
-    <script type="text/javascript" src="/public/js/base.js"></script>
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/moment/moment.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/angular-animate/angular-animate.js"></script>
-    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
-    <script src="/bower_components/oclazyload/dist/ocLazyLoad.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
-    <script src="/public/libs/v-busy/v-busy.js"></script>
+<script type="text/javascript" src="/public/js/base.js"></script>
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/moment/moment.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
+<script src="/bower_components/oclazyload/dist/ocLazyLoad.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="/public/libs/v-busy/v-busy.js"></script>
+<script src="/public/libs/ng-sweet-alert/lib/SweetAlert.js"></script>
+<script src="/public/libs/ng-sweet-alert/src/ngSweetAlertFull.js"></script>
 
 
-    <script src="/admin/index.js"></script>
+<script src="/admin/index.js"></script>
 
-    <script src="/admin/config/index.js"></script>
-    <script src="/admin/config/interceptorConfig.js"></script>
-    <script src="/admin/config/ocLazyLoadConfig.js"></script>
-    <script src="/admin/config/stateConfig.js"></script>
-
-
-    <script src="/admin/service/index.js"></script>
-    <script src="/admin/service/authorizationService.js"></script>
-    <script src="/admin/service/httpInterceptor.js"></script>
-
-    <script src="/admin/directive/index.js"></script>
-    <script src="/admin/directive/bar-menu.js"></script>
-    <script src="/admin/directive/layout-loading.js"></script>
+<script src="/admin/config/index.js"></script>
+<script src="/admin/config/interceptorConfig.js"></script>
+<script src="/admin/config/ocLazyLoadConfig.js"></script>
+<script src="/admin/config/stateConfig.js"></script>
 
 
-    <script src="/admin/controller/index.js"></script>
-    <script src="/admin/components/index.js"></script>
+<script src="/admin/service/index.js"></script>
+<script src="/admin/service/authorizationService.js"></script>
+<script src="/admin/service/httpInterceptor.js"></script>
+
+<script src="/admin/directive/index.js"></script>
+<script src="/admin/directive/bar-menu.js"></script>
+<script src="/admin/directive/layout-loading.js"></script>
+
+
+<script src="/admin/controller/index.js"></script>
+<script src="/admin/components/index.js"></script>
 </html>

@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 var debug = require('debug')('zeev:schema');
 
-var PostSchema = new mongoose.Schema({
+var PostSchema = new Schema({
 	title           : { type: String, required: true },
 	slug            : { type: String, max: 150, unique: false },
 	markdown        : { type: String, max: 16777215, required: false },
@@ -20,21 +20,32 @@ var PostSchema = new mongoose.Schema({
 	meta_description: { type: String, max: 200, required: false },
 	author          : { type: ObjectId, ref: "User" },
 	tags            : [{ type: ObjectId, ref: "Tag" }],
-	created_at      : { type: Date, default: Date.now() },
-	updated_at      : { type: Date, default: Date.now() },
 	published_at    : { type: Date, default: Date.now() },
 	review          : { type: Number, default: 0 }
-})
+}, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } })
 
 PostSchema.pre('save', function (next) {
 	debug("save:post");
 	next();
 })
-
-PostSchema.pre('update', function (next) {
-	debug("update:post");
-	next();
-});
+//
+//PostSchema.pre('update', function (error, res, next) {
+//	debug("update:post");
+//	next();
+//});
+//
+//PostSchema.post('init', function (doc) {
+//	debug('%s has been initialized from the db', doc._id);
+//});
+//PostSchema.post('validate', function (doc) {
+//	debug('%s has been validated (but not saved yet)', doc._id);
+//});
+//PostSchema.post('save', function (doc) {
+//	debug('%s has been saved', doc._id);
+//});
+//PostSchema.post('remove', function (doc) {
+//	debug('%s has been removed', doc._id);
+//});
 
 PostSchema.statics = {
 	getList   : function () {

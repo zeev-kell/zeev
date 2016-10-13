@@ -1,58 +1,47 @@
 @import "common";
-.flex {
-    .display-flex();
-    -webkit-box-flex: 0;
-    .flex(0 1 auto);
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-
-.flex.full {
-    .flex(1 0 100%);
-}
-
-.flex.center {
-    .align-items(center);
-    .justify-content(center);
-}
-
-.flex-column {
-    .flex-direction(column);
-}
 
 .flex-row {
-    .display-flex();
-    -webkit-box-flex: 0;
-    .flex(0 1 auto);
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    .flex-direction(row);
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+  .display-flex();
+  -webkit-box-flex      : 0;
+  .flex(0 1 auto);
+  -webkit-box-orient    : horizontal;
+  -webkit-box-direction : normal;
+  .flex-direction(row);
+  .flex-wrap();
 }
 
 .flex-row.full {
-    .flex(1 0 100%);
+  .flex(1 1 100%);
+}
+
+.flex-row.auto {
+  overflow : auto;
 }
 
 .flex-row.column {
-    .flex-direction(column);
+  .flex-direction(column);
 }
 
 .flex-row.center {
-    .align-items(center);
-    .justify-content(center);
+  .align-items(center);
+  .justify-content(center);
+}
+
+.flex-row.end {
+  .justify-content(end);
+}
+
+.items-end {
+  .align-items(end);
 }
 
 .flex-row.reverse {
-    -webkit-box-orient: horizontal;
-    .flex-direction(row-reverse);
+  -webkit-box-orient : horizontal;
+  .flex-direction(row-reverse);
 }
 
 .flex-col.reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-    .flex-direction(column-reverse);
+  -webkit-box-orient    : vertical;
+  -webkit-box-direction : reverse;
+  .flex-direction(column-reverse);
 }

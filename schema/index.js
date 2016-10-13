@@ -14,7 +14,20 @@ var mongoose = require("mongoose");
  *   Entity  由Model创建的实体，他的操作也会影响数据库
  *              var personEntity = new PersonModel({name:'Krouky'});
  */
+/*
+	.populate({
+		path: 'fans',
+		match: { age: { $gte: 21 }},
+		select: 'name -_id',
+		options: { limit: 5 }
+	})
 
+	{ timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } }
+	populate
+	virtual
+	validateBeforeSave
+
+*/
 mongoose.model("User", require("./user"));
 mongoose.model("Message", require("./message"));
 mongoose.model("Visitor", require("./visitor"));
@@ -23,14 +36,14 @@ mongoose.model("Post", require("./post"));
 mongoose.model("Tag", require("./tag"));
 
 var _getModel = function (type) {
-    return mongoose.model(type);
+	return mongoose.model(type);
 }
 
 module.exports = {
-    getModel : function (type) {
-        return _getModel(type);
-    },
-    getSchema: function (type) {
-        return require("./" + type);
-    }
+	getModel : function (type) {
+		return _getModel(type);
+	},
+	getSchema: function (type) {
+		return require("./" + type);
+	}
 }

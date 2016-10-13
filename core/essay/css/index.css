@@ -1,0 +1,114 @@
+/*    默认值为0 1 auto
+        flex-grow,
+            属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+        flex-shrink
+            属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+        flex-basis
+            属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+            浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+    */
+.navbar {
+  border-radius: 0;
+}
+.navbar .navbar-brand {
+  padding: 0;
+  margin-left: 1rem;
+}
+.navbar .navbar-brand > img {
+  height: 100%;
+  border-radius: 50%;
+}
+@media (min-width: 1200px) {
+  .container-fluid {
+    width: 1200px;
+  }
+}
+.posts {
+  padding-right: 350px;
+}
+.posts .posts-wrap {
+  padding: 0 10px;
+}
+.posts .posts-wrap article {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .posts {
+    padding-right: 0px;
+  }
+}
+.post-side {
+  float: right;
+  width: 350px;
+  padding: 10px 0;
+}
+.post-side .sidebar aside {
+  padding: 10px;
+}
+.post-side .aside-title {
+  border-bottom: 1px solid #bbbbbb;
+  padding: 0px 0 0 15px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  position: relative;
+}
+.post-side .aside-title:before {
+  display: block;
+  content: " ";
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  background-color: #006600;
+  top: 0;
+  left: 0;
+}
+.post-side .aside-title:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+.tags-wrap .tag {
+  background-color: #EEEEEE;
+  border: 1px solid #e5e5e5;
+  color: #666666;
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 3px 6px 0;
+  padding: 2px 8px;
+  position: relative;
+  -moz-transition: all 200ms ease 0s;
+  -o-transition: all 200ms ease 0s;
+  -webkit-transition: all 200ms ease 0s;
+  transition: all 200ms ease 0s;
+  text-decoration: none;
+}
+.tags-wrap .tag:hover {
+  background-color: #777777;
+  color: #FFFFFF;
+  border: 1px solid #666666;
+}
+.post-dynamic ul {
+  color: #aaa;
+  display: table;
+  font-size: 12px;
+  margin: 5px 0 10px;
+  padding: 0;
+}
+.post-dynamic ul li {
+  cursor: default;
+  display: list-item;
+  float: left;
+  list-style: outside none none;
+  margin-right: 20px;
+}
+.post-dynamic ul a {
+  color: #666;
+  text-decoration: none;
+}

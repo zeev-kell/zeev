@@ -4,11 +4,11 @@
 var express = require('express');
 var router = express.Router();
 var debug = require('debug')("zeev:essay");
-var essayCtrl = require('../controller/essay');
+var postCtrl = require('../controller/post');
 
 /* GET users listing. */
-router.get('/', essayCtrl.index);
+router.get('/', postCtrl.renderIndex);
 
-router.get('/post/:id', essayCtrl.getPostInfo);
+router.get('/post/:id', postCtrl.renderPostInfo);
 
 module.exports = router;
