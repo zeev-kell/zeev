@@ -7,6 +7,15 @@
             属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
             浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
     */
+html,
+body {
+  color: #333333;
+  font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+a {
+  color: #61b2a7;
+}
 .navbar {
   border-radius: 0;
 }
@@ -28,6 +37,7 @@
 }
 .posts .posts-wrap {
   padding: 0 10px;
+  margin-top: 10px;
 }
 .posts .posts-wrap article {
   border-bottom: 1px solid #eee;
@@ -49,7 +59,6 @@
   padding: 10px;
 }
 .post-side .aside-title {
-  border-bottom: 1px solid #bbbbbb;
   padding: 0px 0 0 15px;
   font-size: 1.5rem;
   margin-bottom: 10px;
@@ -61,7 +70,7 @@
   position: absolute;
   height: 100%;
   width: 10px;
-  background-color: #006600;
+  background-color: #666666;
   top: 0;
   left: 0;
 }
@@ -71,8 +80,27 @@
   position: absolute;
   height: 1px;
   width: 100%;
-  bottom: 0;
+  background-color: #666666;
+  bottom: -5px;
   left: 0;
+}
+.post-title {
+  margin: 0 0 5px;
+  padding: 0;
+}
+.post-title a:hover {
+  text-decoration: none;
+}
+.post-title a {
+  color: #666666;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.post-meta {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 .tags-wrap .tag {
   background-color: #EEEEEE;
@@ -98,7 +126,7 @@
   color: #aaa;
   display: table;
   font-size: 12px;
-  margin: 5px 0 10px;
+  margin: 0 0 12px;
   padding: 0;
 }
 .post-dynamic ul li {
@@ -106,9 +134,19 @@
   display: list-item;
   float: left;
   list-style: outside none none;
-  margin-right: 20px;
+  margin-right: 0px;
+}
+.post-dynamic ul li + li:before {
+  display: inline-block;
+  content: "•";
+  text-align: center;
+  width: 15px;
 }
 .post-dynamic ul a {
   color: #666;
   text-decoration: none;
+  font-weight: bold;
+}
+.post-dynamic ul .author {
+  color: #666666;
 }

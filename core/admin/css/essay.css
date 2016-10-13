@@ -210,3 +210,6 @@
   cursor: pointer;
   background-color: #BDBDBD;
 }
+.bg-img-cover {
+  background-color: #999;
+}

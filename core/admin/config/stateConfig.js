@@ -51,7 +51,21 @@ angular.module('app.config')
 						url        : "/list",
 						src        : ['controller/essay/list.js', 'akoenig.deckgrid'],
 						templateUrl: 'views/essay/list.html',
-						controller : 'essayListCtrl as elCtrl'
+						controller : 'essayListCtrl as eLCtrl'
+					}),
+					lazyLoadState({
+						name       : 'new',
+						url        : "/new",
+						src        : ['controller/essay/new.js','showdown'],
+						templateUrl: 'views/essay/new.html',
+						controller : 'essayNewCtrl as eNCtrl'
+					}),
+					lazyLoadState({
+						name       : 'info',
+						url        : "/info/:id",
+						src        : ['controller/essay/info.js'],
+						templateUrl: 'views/essay/info.html',
+						controller : 'essayInfoCtrl as eICtrl'
 					}),
 					lazyLoadState({
 						name       : 'editor',

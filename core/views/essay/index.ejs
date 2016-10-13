@@ -16,19 +16,22 @@
     </div>
     <div class="posts">
         <div class="posts-wrap">
-            <% for(var i = 0;i < posts.length;i++){ %>
+            <% for(var i = 0;i < posts.length;i++){ var post = posts[i]; %>
             <article class="post">
-                <h1 class="post-title">
-                    <a href="post/<%= posts[i]._id %>"><%= posts[i].title %></a>
-                </h1>
+                <h2 class="post-title">
+                    <a href="post/<%= post._id %>"><%= post.title %></a>
+                </h2>
 
                 <div class="post-dynamic">
                     <ul>
-                        <li>zeev 发布于 <%= moment(posts[i].created_at) %> </li>
-                        <li>栏目：
-                            <% if (posts[i].tags){ %>
-                            <% for(var j = 0;j < posts[i].tags.length;j++){ %>
-                                <a class="tag" href="tags/<%= posts[i].tags[j]._id %>"><%= posts[i].tags[j].name %></a>
+                        <% if(post.author) {%>
+                            <li class="author"><a><%= getParse(post,"author.name") %></a></li>
+                        <% } %>
+                        <li><%= moment(post.created_at) %></li>
+                        <li>标签：
+                            <% if (post.tags && post.tags.length > 0){ %>
+                            <% for(var j = 0;j < post.tags.length;j++){ %>
+                                <a class="tag" href="tags/<%= post.tags[j]._id %>"><%= post.tags[j].name %></a>
                             <% } %>
                             <% }else{ %>
                             <a>未分类</a>
@@ -38,7 +41,8 @@
                         <li class="hidden-xs"><strong>0</strong> 个不明物体</li>
                     </ul>
                 </div>
-                <div class="post-meta"><%- posts[i].html %></div>
+                <div class="post-meta"><p><%- post.html %></p></div>
+                <a class="btn-link" href="post/<%= post._id %>">阅读全文 »</a>
             </article>
             <% } %>
         </div>

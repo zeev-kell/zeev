@@ -13,8 +13,7 @@
         </div>
     </div>
     <div class="panel-body">
-        <a ui-sref="^.info({id:card._id})"><h4 ng-bind="::card.title"></h4></a>
-
+        <h4><a ui-sref="^.info({id:card._id})" ng-bind="::card.title"></a></h4>
         <p ng-if="card.image">
             <img class="img-responsive" ng-src="{{::card.image}}">
         </p>

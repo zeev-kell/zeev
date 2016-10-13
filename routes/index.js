@@ -4,6 +4,7 @@ var essay = require('./essay');
 var admin = require('./admin');
 var userCtrl = require('../controller/user');
 var postCtrl = require('../controller/post');
+var tagCtrl = require('../controller/tag');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -27,6 +28,10 @@ router.get('/post', postCtrl.getPosts);
 router.get('/post/:id', postCtrl.getPostInfo);
 
 router.put('/post/:id', postCtrl.updatePost);
+
+router.post('/post', postCtrl.addPost);
+
+router.get('/tag', tagCtrl.getTags);
 
 module.exports = function (app) {
 	app.use("/", router);

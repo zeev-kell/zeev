@@ -1,3 +1,12 @@
+html,
+body {
+  color: #333333;
+  font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+a {
+  color: #61b2a7;
+}
 .navbar {
   border-radius: 0;
 }
