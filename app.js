@@ -18,7 +18,9 @@ app.set('views', path.join(__dirname, 'core', 'views'));
 //ejs.open = '{{';
 //ejs.close = '}}';
 app.set('view engine', 'ejs');
+
 require("./utils/ejs")(app);
+
 //app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public

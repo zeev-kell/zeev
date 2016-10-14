@@ -48,14 +48,14 @@ PostSchema.pre('save', function (next) {
 //});
 
 PostSchema.statics = {
-	getList   : function () {
+	getList      : function (options) {
 		return this
-			.find({})
+			.find(options || {})
 			.populate({ path: 'author', select: 'name' })
 			.populate({ path: 'tags', select: '_id name' })
 			.sort({ 'updated_at': -1 })
 	},
-	getOneById: function (id) {
+	getOneById   : function (id) {
 		return this
 			.findOne({ _id: id })
 			.populate({ path: 'author', select: 'name' })

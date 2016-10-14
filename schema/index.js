@@ -27,6 +27,17 @@ var mongoose = require("mongoose");
 	virtual
 	validateBeforeSave
 
+	.aggregate([
+     {
+        $group : {
+           _id : { month: { $month: "$date" }, day: { $dayOfMonth: "$date" }, year: { $year: "$date" } }, //-- 按照 年月日 分组
+           totalPrice: { $sum: { $multiply: [ "$price", "$quantity" ] } }, //-- 计算  $price * $quantity 总和
+           averageQuantity: { $avg: "$quantity" },//-- 计算平均值
+           count: { $sum: 1 }//-- 条数
+        }
+      }
+   ])
+
 */
 mongoose.model("User", require("./user"));
 mongoose.model("Message", require("./message"));

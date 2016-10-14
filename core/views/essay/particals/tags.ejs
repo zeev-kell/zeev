@@ -1,0 +1,8 @@
+<aside>
+    <h3 class="aside-title">标签</h3>
+    <div class="aside-wrap tags-wrap">
+        <% for(var i = 0;i < tags.length;i++){ %>
+        <a class="tag hvr-rectangle-out" href="/essay/tags/<%= tags[i]._id %>"><%= tags[i].name %></a>
+        <% } %>
+    </div>
+</aside>

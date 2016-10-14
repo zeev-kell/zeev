@@ -9,6 +9,12 @@ var postCtrl = require('../controller/post');
 /* GET users listing. */
 router.get('/', postCtrl.renderIndex);
 
+router.get('/archive', postCtrl.renderArchive);
+
+router.get('/archive/:id', postCtrl.renderArchive);
+
+router.get('/tags/:id', postCtrl.renderTags);
+
 router.get('/post/:id', postCtrl.renderPostInfo);
 
 module.exports = router;

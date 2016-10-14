@@ -3,15 +3,8 @@
 <div class="container-fluid post-container">
     <div class="post-side hidden-xs">
         <div class="sidebar">
-            <aside>
-                <h3 class="aside-title">标签</h3>
-
-                <div class="aside-wrap tags-wrap">
-                    <% for(var i = 0;i < tags.length;i++){ %>
-                    <a class="tag" href="tags/<%= tags[i]._id %>"><%= tags[i].name %></a>
-                    <% } %>
-                </div>
-            </aside>
+            <%- include("particals/tags",{tags:tags}) %>
+            <%- include("particals/archives",{archives:archives}) %>
         </div>
     </div>
     <div class="posts">
@@ -19,35 +12,47 @@
             <% for(var i = 0;i < posts.length;i++){ var post = posts[i]; %>
             <article class="post">
                 <h2 class="post-title">
-                    <a href="post/<%= post._id %>"><%= post.title %></a>
+                    <a href="/essay/post/<%= post._id %>"><%= post.title %></a>
                 </h2>
 
                 <div class="post-dynamic">
                     <ul>
-                        <% if(post.author) {%>
-                            <li class="author"><a><%= getParse(post,"author.name") %></a></li>
+                        <% if(post.author) { %>
+                        <li class="author"><a><%= getParse(post, "author.name") %></a></li>
                         <% } %>
                         <li><%= moment(post.created_at) %></li>
-                        <li>标签：
-                            <% if (post.tags && post.tags.length > 0){ %>
-                            <% for(var j = 0;j < post.tags.length;j++){ %>
-                                <a class="tag" href="tags/<%= post.tags[j]._id %>"><%= post.tags[j].name %></a>
-                            <% } %>
-                            <% }else{ %>
-                            <a>未分类</a>
-                            <% } %>
+                        <li><span>标签：</span>
+
+                            <div class="btn-group">
+                                <% if (post.tags && post.tags.length > 0){ %>
+                                <a class="tag" href="/essay/tags/<%= post.tags[0]._id %>"><%= post.tags[0].name %></a>
+                                <% if (post.tags.length > 1){ %>
+                                <a type="button" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle</span>
+                                </a>
+                                <ul class="tags-menu" role="menu">
+                                    <% for(var j = 1;j < post.tags.length;j++){ %>
+                                    <li><a class="hvr-sweep-to-bottom"
+                                           href="/essay/tags/<%= post.tags[j]._id %>"><%= post.tags[j].name %></a>
+                                    </li>
+                                    <% } %>
+                                </ul>
+                                <% } %>
+                                <% }else{ %>
+                                <a>未分类</a>
+                                <% } %>
+                            </div>
                         </li>
-                        <li class="hidden-xs">共 <strong>0</strong> 人围观</li>
+                        <li class="hidden-xs">共 <strong>0</strong>人围观</li>
                         <li class="hidden-xs"><strong>0</strong> 个不明物体</li>
                     </ul>
                 </div>
                 <div class="post-meta"><p><%- post.html %></p></div>
-                <a class="btn-link" href="post/<%= post._id %>">阅读全文 »</a>
+                <a role="button" class="btn-link" href="/essay/post/<%= post._id %>">阅读全文 »</a>
             </article>
             <% } %>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="/public/js/base.js"></script>
-<script type="text/javascript" src="/essay/js/index.js"></script>
 <%- include footer.ejs %>
