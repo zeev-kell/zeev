@@ -4,12 +4,32 @@
 
 var errors = require("../errors");
 
-module.exports.handleError = function (res, fun) {
-	return function (err, doc) {
-		if (err) {
-			res.sendStatus(500);
-		} else {
-			fun(doc);
-		}
-	}
+exports.handleError = function(res, fun) {
+    return function(err, doc) {
+        if (err) {
+            res.sendStatus(500);
+        } else {
+            fun(doc);
+        }
+    }
+}
+
+exports.filterPost = function(req, posts) {
+    var reg = /(<[/]+(.*?)>)|(<(.*?)>)|(\n)/g;
+    posts.map(function(post) {
+        if (typeof req.query.full === "undefined") {
+            var index; // 获取 200 长度 内的数据
+            if (post.html.length > 100) {
+                index = post.html.indexOf(' ', 100); // 100-200 内 如果找到 空格 就以空格为结束
+                index = index == -1 ? 100 : index > 200 ? 100 : index;
+            } else {
+                index = post.html.length;
+            }
+            post.html = post.html.replace(reg, '').substring(0, index) + "..."; // 去掉所有的<*></*>
+        }
+        if (typeof req.query.markdown === "undefined") {
+            post.markdown = "";
+        }
+    })
+    return posts;
 }

@@ -5,6 +5,7 @@ var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 //var hbs = require('hbs');
+var hbs = require('express-hbs')
 var ejs = require('ejs');
 
 var mongodb = require("./mongodb");
@@ -17,9 +18,22 @@ app.set('views', path.join(__dirname, 'core', 'views'));
 //ejs.delimiter = '%';
 //ejs.open = '{{';
 //ejs.close = '}}';
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
-require("./utils/ejs")(app);
+var fp = require('path');
+
+function relative(path) {
+    return fp.join(__dirname, path);
+}
+app.engine('hbs', hbs.express4({
+    partialsDir: [relative('core/views/partials')],
+    layoutsDir: relative('views/layout')
+}));
+app.set('view engine', 'hbs');
+app.set('views', "core/views");
+require("./helpers").registerHelpers(hbs);
+// require("./utils/hbs")(hbs);
+// require("./utils/ejs")(app);
 
 //app.set('view engine', 'hbs');
 

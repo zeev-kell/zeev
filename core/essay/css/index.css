@@ -197,6 +197,23 @@ body {
   padding-bottom: 30px;
   position: relative;
 }
+.posts > header h2 {
+  padding: 0 0 0 1.5rem;
+  font-size: 2rem;
+  color: #666666;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.posts > header h2:before {
+  display: block;
+  content: " ";
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  background-color: #666666;
+  top: 0;
+  left: 0;
+}
 @media (max-width: 767px) {
   .posts {
     padding-right: 0px;
@@ -345,8 +362,24 @@ body {
 .open > .tags-menu li + li {
   top: 22px;
 }
-.post-dynamic .btn-group.open .dropdown-toggle {
+.open > .tags-menu li + li + li {
+  top: 44px;
+}
+.open > .tags-menu li + li + li + li {
+  top: 66px;
+}
+.open > .tags-menu li + li + li + li + li {
+  top: 88px;
+}
+.open > .tags-menu li + li + li + li + li + li {
+  top: 110px;
+}
+.post-dynamic .btn-group {
+  min-width: 50px;
+}
+.post-dynamic .btn-group .dropdown-toggle {
   box-shadow: none;
+  float: right;
 }
 .dropdown-menu {
   border-radius: 0;

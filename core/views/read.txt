@@ -1,0 +1,34 @@
+﻿ejs 的标签系统非常简单，它只有以下三种标签：
+
+<% code %>：JavaScript 代码。
+<%= code %>：显示替换过 HTML 特殊字符的内容。
+<%- code %>：显示原始 HTML 内容。
+
+支持的过滤器
+first：取数组第一个元素
+last：取数组最后一个元素
+capitalize：返回首字母大写的字符串
+downcase：小写转换
+upcase：大写转换
+sort：排序
+sort_by:’prop’：安卓某属性排序
+size：返回数组长度
+length：返回字符串长度
+plus:n：加上n
+minus:n：减去n
+times:n：乘以n
+divided_by:n：除以n
+join:’val’：连接字符串
+truncate:n：截取前n个字符
+truncate_words:n：截取前n个单词
+replace:pattern,substitution：字符串替换
+prepend:val：合并，并追加在前面
+append:val：合并，并追加在后面
+map:’prop’：返回数组中由属性prop的值组成的数组
+reverse：逆序排列
+get:’prop’：取属性值
+
+Handlebars
+
+{{{htmlContext}}} 相当于 EJS 中的 <%- htmlContext %>
+{{textContext}} 相当于 <%= textContext %> 。

@@ -4,17 +4,17 @@
 var express = require('express');
 var router = express.Router();
 var debug = require('debug')("zeev:essay");
-var postCtrl = require('../controller/post');
+var essayCtrl = require('../controller/essay');
 
 /* GET users listing. */
-router.get('/', postCtrl.renderIndex);
+router.get('/', essayCtrl.renderIndex);
 
-router.get('/archive', postCtrl.renderArchive);
+router.get('/archive', essayCtrl.renderArchive);
 
-router.get('/archive/:id', postCtrl.renderArchive);
+router.get('/archive/:date', essayCtrl.renderArchiveByTime);
 
-router.get('/tags/:id', postCtrl.renderTags);
+router.get('/tags/:id', essayCtrl.renderTags);
 
-router.get('/post/:id', postCtrl.renderPostInfo);
+router.get('/post/:id', essayCtrl.renderPostInfo);
 
 module.exports = router;
