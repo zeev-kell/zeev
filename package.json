@@ -12,12 +12,13 @@
     "ejs": "~2.4.1",
     "express": "~4.13.4",
     "morgan": "~1.7.0",
-    "express-hbs" :"~0.8.4",
+    "express-hbs": "~0.8.4",
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "bluebird": "^3.4.6",
     "browser-sync": "^2.17.2",
+    "express-hbs": "^0.8.4",
     "file-stream-rotator": "0.0.7",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",

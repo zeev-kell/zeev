@@ -4,8 +4,10 @@
 var gulp = require('gulp');
 
 var config = {
-	less : ["./core/public", "./core/admin", "./core/essay", "./core/index"],
-	views: "./core/views"
+	less  : ["./core/public", "./core/admin", "./core/essay", "./core/index"],
+	views : "./core/views",
+	output: "./dist"
 };
 
 require("./tasks/dev")(gulp, config);
+require("./tasks/build")(gulp, config);
