@@ -10,7 +10,7 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- remove -->
+    <!-- build:remove -->
     <meta http-equiv="Pragma" content="no-cache">
     <!-- endbuild -->
 
@@ -19,12 +19,15 @@
     <meta name="viewport" content="initial-scale=1">
 
     <title>{{title}}</title>
+
+    <!-- build:css  /signin/css/vendor.pkg_version.css -->
     <link rel="stylesheet" href="/bower_components/angular/angular-csp.css"/>
     <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
     <link rel="stylesheet" href="/public/libs/v-busy/v-busy.css" type="text/css">
     <link rel='stylesheet' href='/public/css/flexbox.css'/>
+    <!-- endbuild -->
 
-    <!-- build:css  /common/css/signin.css -->
+    <!-- build:css  /signin/css/index.pkg_version.css -->
     <link rel="stylesheet" href="/public/css/signin.css" type="text/css">
     <!-- endbuild -->
 
@@ -52,7 +55,7 @@
         </form>
     </div>
 </div>
-<!-- build:js  /common/libs/signin.js -->
+<!-- build:js  /signin/js/signin.pkg_version.js -->
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/public/libs/v-busy/v-busy.js"></script>
 <!-- endbuild -->

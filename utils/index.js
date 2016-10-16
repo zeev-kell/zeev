@@ -6,8 +6,7 @@ var errors = require("../errors");
 var path = require('path');
 var _dist = process.env.NODE_ENV === "development" ? "core" : "dist";
 
-exports.ejs = require("./ejs");
-exports.hbs = require("./hbs");
+//exports.ejs = require("./ejs");
 
 exports.handleError = function (res, fun) {
 	return function (err, doc) {
@@ -42,7 +41,6 @@ exports.filterPost = function (req, posts) {
 exports._dist = _dist;
 
 exports.env_path = function (_path) {
-	console.log(__dirname,path.join(__dirname, "../", _dist, _path));
 	return path.join(__dirname, "../", _dist, _path);
 }
 

@@ -10,7 +10,7 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- remove -->
+    <!-- build:remove -->
     <meta http-equiv="Pragma" content="no-cache">
     <!-- endbuild -->
 
@@ -20,6 +20,7 @@
 
     <title>{{title}}</title>
 
+    <!-- build:css  /admin/css/vendor.pkg_version.css -->
     <link rel="stylesheet" href="/bower_components/angular/angular-csp.css"/>
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
@@ -27,8 +28,9 @@
     <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css"/>
     <link rel="stylesheet" href="/public/libs/ng-sweet-alert/lib/sweet-alert.css">
     <link rel="stylesheet" href="/public/libs/v-busy/v-busy.css"/>
+    <!-- endbuild -->
 
-    <!-- build:css  /common/css/zeev.css -->
+    <!-- build:css  /admin/css/index.pkg_version.css -->
     <link rel='stylesheet' href='/admin/css/index.css'/>
     <link rel='stylesheet' href='/public/css/flexbox.css'/>
     <!-- endbuild -->
@@ -96,7 +98,7 @@
                 </li>
                 <li class="dropdown hover-line">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <i
-                                class="fa fa-envelope-o"></i> <span class="badge badge-green">15</span> </a>
+                            class="fa fa-envelope-o"></i> <span class="badge badge-green">15</span> </a>
                 </li>
             </ul>
             <ul class="user-info-menu right-links list-inline list-unstyled">
@@ -105,7 +107,7 @@
                         <img width="28" class="img-circle img-inline userpic-32" alt="user-image"
                              src="/public/img/logo.jpg"> <span>
                             {{user.token.username}}
-                            <i class="fa fa-angle-down"></i> </span> </a>
+                        <i class="fa fa-angle-down"></i> </span> </a>
                     <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
                         <li>
                             <a> <i class="fa fa-edit"></i> New
@@ -130,6 +132,7 @@
 </div>
 
 </body>
+<!-- build:js  /admin/vendor.pkg_version.js -->
 <script type="text/javascript" src="/public/js/base.js"></script>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
 <script src="/bower_components/moment/moment.js"></script>
@@ -146,8 +149,9 @@
 <script src="/public/libs/v-busy/v-busy.js"></script>
 <script src="/public/libs/ng-sweet-alert/lib/SweetAlert.js"></script>
 <script src="/public/libs/ng-sweet-alert/src/ngSweetAlertFull.js"></script>
+<!-- endbuild -->
 
-
+<!-- build:js  /admin/index.pkg_version.js -->
 <script src="/admin/index.js"></script>
 
 <script src="/admin/config/index.js"></script>
@@ -167,4 +171,6 @@
 
 <script src="/admin/controller/index.js"></script>
 <script src="/admin/components/index.js"></script>
+<!-- endbuild -->
+
 </html>

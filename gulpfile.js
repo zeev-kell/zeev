@@ -6,8 +6,32 @@ var gulp = require('gulp');
 var config = {
 	less  : ["./core/public", "./core/admin", "./core/essay", "./core/index"],
 	views : "./core/views",
-	output: "./dist"
+	output: "./dist",
+	admin : "./core/admin",
+	copy  : {
+		hbs     : [
+			"./core/views*/essay/**/*",
+			"./core/views*/partials/**/*",
+			"./core/views*/error.hbs"
+		],
+		public  : ["./core/public*/**/*", "!*.{less}"],
+		admin   : {
+			js  : [
+				"./core/admin*/**/*.js"
+			],
+			html: ["./core/admin*/views/**/*"],
+			css : ["./core/admin*/css/**/*"]
+		},
+		essay: ["./core/essay*/**/*"]
+	}
 };
 
+var banner = ['/**',
+	' * <%= pkg.name %> - ' + new Date,
+	' * @version v<%= pkg.version %>',
+	' */',
+	'\n'
+].join('\n');
+
 require("./tasks/dev")(gulp, config);
-require("./tasks/build")(gulp, config);
+require("./tasks/build")(gulp, config, banner);

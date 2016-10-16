@@ -27,6 +27,6 @@ module.exports = function (app) {
 	if (process.env.NODE_ENV !== "development") {
 		app.use(logger('short', { stream: accessLogStream }));
 	}else{
-//		app.use(logger('short'));
+		app.use(logger('short'));
 	}
 }

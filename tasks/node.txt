@@ -1,0 +1,17 @@
+Custom blocks
+
+Sometimes you need a bit more. If you would like to do custom processing, this is possible with a custom block, as demonstrated below.
+
+<!-- build:import components -->
+<link rel="import" href="/bower_components/some/path"></link>
+<!-- endbuild -->
+With
+
+var useref = require('useref');
+var result = useref(inputHtml, {
+  // each property corresponds to any blocks with the same name, e.g. "build:import"
+  import: function (content, target, options, alternateSearchPath) {
+    // do something with `content` and return the desired HTML to replace the block content
+    return content.replace('bower_components', target);
+  }
+});
