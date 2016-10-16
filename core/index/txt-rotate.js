@@ -2,7 +2,7 @@
  * Created by zeev on 2016/5/8 0008.
  */
 
-!(function (window) {
+(function (window) {
 
 	var TxtRotate = function (el, toRotate, period) {
 		this.toRotate = toRotate;
@@ -45,4 +45,4 @@
 
 	window.TxtRotate = TxtRotate;
 
-})(window)
+})(window);

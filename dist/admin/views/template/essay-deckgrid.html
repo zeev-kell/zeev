@@ -1,0 +1,35 @@
+<div class="hpanel blog-box animated-panel bounceIn">
+    <div class="panel-heading">
+        <div class="media clearfix">
+            <a class="pull-left">
+                <img src="/public/img/profile-picture.jpg" alt="profile-picture">
+            </a>
+
+            <div class="media-body">
+                <small>Created by: <span class="font-bold" ng-bind="::card.author.name"></span></small>
+                <br>
+                <small class="text-muted" ng-bind="::card.created_at | date"></small>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <h4><a ui-sref="^.info({id:card._id})" ng-bind="::card.title"></a></h4>
+        <p ng-if="card.image">
+            <img class="img-responsive" ng-src="{{::card.image}}">
+        </p>
+
+        <div ng-bind-html="card.html" style="overflow: hidden;max-height: 200px;"></div>
+    </div>
+    <div class="panel-footer">
+        <span class="pull-right">
+        <a class="btn-link" ui-sref="^.editor({id:card._id})">
+            <i class="fa fa-edit"> </i> Edit
+        </a>
+        <a class="btn-link" data-ng-click="mother.remove(card._id)">
+            <i class="fa fa-remove"> </i> Remove
+        </a>
+        </span>
+        <i class="fa fa-comments-o"> </i> 0 comments
+        <i class="fa fa-eye"> </i> 0 views
+    </div>
+</div>

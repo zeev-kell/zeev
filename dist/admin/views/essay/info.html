@@ -1,0 +1,26 @@
+<section class="row">
+    <div class="col-xs-12">
+        <article class="hpanel blog-article-box">
+            <div ng-if="post.image" class="bg-img-cover" ng-style={'background-image':'url('+post.image+')'}
+                 style="height: 330px;"></div>
+            <div class="panel-body">
+                <div class="art-header">
+                    <h1 class="" ng-bind="::post.title"></h1>
+                    <div class="info">By {{::post.author.name}} on {{::post.created_at | date }} with <a>0
+                        Commnets</a></div>
+                    <div class="line"></div>
+                </div>
+                <div class="art-content" ng-bind-html="::post.html">
+                    <div class="tag">
+                        <span>Tag : </span>
+                        <ul>
+                            <li><a href="#">Photoshop</a></li>
+                            <li><a href="#">Photoshop</a></li>
+                            <li><a href="#">Photoshop</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
