@@ -9,20 +9,21 @@ var config = {
 	output: "./dist",
 	admin : "./core/admin",
 	copy  : {
-		hbs     : [
+		font  : ["./bower_components/font-awesome/fonts*/**","./bower_components/bootstrap/dist/fonts*/**"],
+		hbs   : [
 			"./core/views*/essay/**/*",
 			"./core/views*/partials/**/*",
 			"./core/views*/error.hbs"
 		],
-		public  : ["./core/public*/**/*", "!*.{less}"],
-		admin   : {
+		public: ["./core/public*/**/*", "!*.{less}"],
+		admin : {
 			js  : [
 				"./core/admin*/**/*.js"
 			],
 			html: ["./core/admin*/views/**/*"],
 			css : ["./core/admin*/css/**/*"]
 		},
-		essay: ["./core/essay*/**/*"]
+		essay : ["./core/essay*/**/*"]
 	}
 };
 

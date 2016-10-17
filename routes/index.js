@@ -29,6 +29,8 @@ router.get('/post/:id', postCtrl.getPostInfo);
 
 router.put('/post/:id', postCtrl.updatePost);
 
+router.delete('/post/:id', postCtrl.removePost);
+
 router.post('/post', postCtrl.addPost);
 
 router.get('/tag', tagCtrl.getTags);

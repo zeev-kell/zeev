@@ -62,7 +62,7 @@ exports.updatePost = function (req, res, next) {
 		}).catch(errors.handleError(next))
 }
 
-exports.addPost = function (req, res) {
+exports.addPost = function (req, res, next) {
 	Post.create({
 		title           : req.body.title,
 		markdown        : req.body.markdown,
@@ -74,4 +74,12 @@ exports.addPost = function (req, res) {
 	}).then(function (post) {
 		return res.status(200).send(post);
 	}).catch(errors.handleError(next))
+}
+
+exports.removePost = function (req, res, next) {
+	var _id = req.params.id;
+	Post.findByIdAndRemove(_id)
+		.then(function (post) {
+			return res.status(200).send({ msg: '删除成功' })
+		}).catch(errors.handleError(next))
 }

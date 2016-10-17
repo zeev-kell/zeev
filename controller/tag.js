@@ -35,7 +35,7 @@ exports.create = function (tags, cb) {
 	});
 }
 
-exports.getTags = function (req, res) {
+exports.getTags = function (req, res, next) {
 	Tag.find({}, "_id name")
 		.then(function (tags) {
 			return res.status(200).send(tags);
@@ -52,18 +52,6 @@ function add(req, res) {
 		}
 		return res.status(200).send(tag);
 	});
-}
-
-function getList(req, res, next) {
-	debug(req.query);
-	Tag.find({}, "_id name")
-		.exec(function (err, tags) {
-			if (err) {
-				debug(err);
-				return res.sendStatus(500);
-			}
-			return res.status(200).send(tags);
-		})
 }
 
 function get(req, res) {

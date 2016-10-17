@@ -1125,4 +1125,14 @@ footer.main-footer .go-up a,
 }
 .bg-img-cover {
   background-color: #999;
+  background-size: cover;
+}
+.post-content {
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.post-content p {
+  margin: 0;
 }
