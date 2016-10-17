@@ -56,7 +56,7 @@ angular.module('app.config')
 					lazyLoadState({
 						name       : 'new',
 						url        : "/new",
-						src        : ['controller/essay/new.js','showdown'],
+						src        : ['controller/essay/new.js', 'showdown'],
 						templateUrl: 'views/essay/new.html',
 						controller : 'essayNewCtrl as eNCtrl'
 					}),
@@ -73,6 +73,13 @@ angular.module('app.config')
 						src        : ['controller/essay/editor.js', 'showdown'],
 						templateUrl: 'views/essay/editor.html',
 						controller : 'essayEditorCtrl as eECtrl'
+					})
+					, lazyLoadState({
+						name       : 'tag',
+						url        : "/tag",
+						src        : ['controller/essay/tag.js'],
+						templateUrl: 'views/essay/tag.html',
+						controller : 'tagListCtrl as tLCtrl'
 					})
 				]
 			}))

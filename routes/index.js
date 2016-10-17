@@ -35,6 +35,9 @@ router.post('/post', postCtrl.addPost);
 
 router.get('/tag', tagCtrl.getTags);
 
+router.delete('/tag/:id', tagCtrl.removeTag);
+
+
 module.exports = function (app) {
 	app.use("/", router);
 	app.use("/essay", essay);

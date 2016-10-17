@@ -42,6 +42,14 @@ exports.getTags = function (req, res, next) {
 		}).catch(errors.handleError(next))
 }
 
+exports.removeTag = function (req, res, next) {
+	var _id = req.params.id;
+	Tag.findByIdAndRemove(_id)
+		.then(function (tag) {
+			return res.status(200).send(tag)
+		}).catch(errors.handleError(next))
+}
+
 function add(req, res) {
 	debug(req.body);
 	Tag.create({
