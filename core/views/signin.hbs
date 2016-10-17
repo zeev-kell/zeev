@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" ng-app="app">
+<html lang="zh" ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
                     _this.messages = null;
                     return $http({
                         method: "POST",
-                        url   : 'signin',
+                        url   : '/signin',
                         data  : _this.user
                     }).success(function (data, status, headers, config) {
                         $window.location.href = "/admin/";//--需要重定向--

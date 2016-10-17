@@ -63,12 +63,12 @@ module.exports = function (gulp, config, banner) {
 					return cb(null, file);
 				}))
 				.pipe(useref({
-					searchPath   : "core", //-- Ñ°ÕÒÎÄ¼şµÄÄ¿Â¼ --
-					base         : null, //--  Êä³öÎÄ¼şµÄÄ¿Â¼
-					noAssets     : false,//-- ÊÇ·ñÖ»ÊÇ´¦Àí htmlÎÄ¼ş --
-					noconcat     : false,//-- ÊÇ·ñ²»ºÏ²¢ --
-					newLine      : null,//-- Ã¿´ÎºÏ²¢µÄÊ±ºò£¬ÔÚºÏ²¢µÄµØ·½¼ÓÉÏ string --
-					transformPath: function (filePath) {//-- ¿ÉÒÔÔÚ²éÕÒÎÄ¼şÇ°ĞŞ¸ÄÂ·¾¶ --
+					searchPath   : "core", //-- å¯»æ‰¾æ–‡ä»¶çš„ç›®å½• --
+					base         : null, //--  è¾“å‡ºæ–‡ä»¶çš„ç›®å½•
+					noAssets     : false,//-- æ˜¯å¦åªæ˜¯å¤„ç† htmlæ–‡ä»¶ --
+					noconcat     : false,//-- æ˜¯å¦ä¸åˆå¹¶ --
+					newLine      : null,//-- æ¯æ¬¡åˆå¹¶çš„æ—¶å€™ï¼Œåœ¨åˆå¹¶çš„åœ°æ–¹åŠ ä¸Š string --
+					transformPath: function (filePath) {//-- å¯ä»¥åœ¨æŸ¥æ‰¾æ–‡ä»¶å‰ä¿®æ”¹è·¯å¾„ --
 						return filePath.replace('/bower_components', '/../bower_components');
 					}
 				}))

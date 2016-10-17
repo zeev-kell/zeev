@@ -3,24 +3,25 @@
  */
 
 var debug = require('debug')('zeev:user');
-var handleError = require("../utils").handleError;
+var utils = require("../utils");
+var errors = require("../errors");
 var User = global.dbHelper.getModel("User");
 
 exports.adminRequired = function (req, res, next) {
-	// var user = req.session || req.session.user,
-	var user = null,
-		method = req.method;
-	if (!user) {
-		debug("user", req.method);
+	var session = req.session;
+	var method = req.method;
+	if (!session.user) {
+		debug("no signin user", req.method);
 		if (method === 'POST' || method === 'PUT' || method === 'DELETE') {
 			return res.status(403).send({ msg: '用户权限不够' });
 		}
 		return res.redirect(303, '/signin');
 	}
+	debug("signin user : ", session.user);
 	next();
 }
 
-exports.signin = function (req, res) {
+exports.signin = function (req, res, next) {
 	var _user = {
 		name    : req.body.name,
 		password: req.body.password
@@ -28,21 +29,14 @@ exports.signin = function (req, res) {
 	debug("signin", _user);
 	User.findOne({ name: _user.name })
 		.then(function (user) {
-			if (user) {
-				user.compare(_user, function (err, isMacth) {
-					if (isMacth && user.role >= 10) {
-						// req.session.user = user;
-						res.cookie('active', 'true');
-						res.cookie('name', user.name);
-						res.cookie('role', user.role);
-						res.sendStatus(200);
-					} else {
-						res.sendStatus(403);
-					}
-				})
+			if (user && user.compare(_user) && user.role >= 10) {
+				req.session.user = user;
+				res.cookie('active', 'true');
+				res.cookie('name', user.name);
+				res.cookie('role', user.role);
+				return res.sendStatus(200);
 			} else {
-				res.sendStatus(403);
+				return res.sendStatus(403);
 			}
-
-		})
+		}).catch(errors.handleError(next))
 }

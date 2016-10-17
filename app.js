@@ -11,7 +11,7 @@ var utils = require("./utils");
 var mongodb = require("./mongodb");
 mongodb();
 var app = express();
-// app.use(mongodb.session);
+app.use(mongodb.session);
 
 // view engine setup
 app.set('views', utils.env_path('views'));
