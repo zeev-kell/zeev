@@ -1,6 +1,8 @@
 // # Errors
 /*jslint regexp: true */
 var _ = require('lodash'),
+    debug = require('debug')('zeev:errors'),
+    hbs = require('express-hbs'),
     NotFoundError = require('./not-found-error'),
     BadRequestError = require('./bad-request-error'),
     InternalServerError = require('./internal-server-error'),
@@ -19,23 +21,10 @@ var _ = require('lodash'),
     // Paths for views
     userErrorTemplateExists = false;
 
-// Shim right now to deal with circular dependencies.
-// @TODO(hswolff): remove circular dependency and lazy require.
-function getConfigModule() {
-    if (!config) {
-        config = require('../config');
-    }
-
-    return config;
-}
-
 /**
  * Basic error handling helpers
  */
 errors = {
-    updateActiveTheme: function(activeTheme) {
-        userErrorTemplateExists = getConfigModule().paths.availableThemes[activeTheme].hasOwnProperty('error.hbs');
-    },
 
     throwError: function(err) {
         if (!err) {
@@ -53,7 +42,22 @@ errors = {
         res.status(code || 500);
         res.render('error', {
             message: err,
+            code: code,
             req: req
+        }, function(templateErr, html) {
+            if (!templateErr) {
+                return res.status(code).send(html);
+            }
+            // There was an error trying to render the error page, output the error
+            // And then try to explain things to the user...
+            // Cheat and output the error using handlebars escapeExpression
+            return res.status(500).send(
+                '<h1>Oops, seems there is an error in the error template.</h1>' +
+                '<p>Encountered the error: </p>' +
+                '<pre>' + hbs.handlebars.Utils.escapeExpression(templateErr.message || templateErr) + '</pre>' +
+                '<br ><p>whilst trying to render an error page for the error: </p>' +
+                code + ' ' + '<pre>' + hbs.handlebars.Utils.escapeExpression(err.message || err) + '</pre>'
+            );
         });
     },
 
@@ -111,13 +115,26 @@ errors = {
 // Ensure our 'this' context for methods and preserve method arity by
 // using Function#bind for expressjs
 _.each([
+    'renderErrorPage',
     'error404',
     'error500'
 ], function(funcName) {
     errors[funcName] = errors[funcName].bind(errors);
 });
 
+
 module.exports = errors;
+module.exports.handleError = function(next) {
+    return function handleError(err) {
+        debug(err.errorType);
+        // If we've thrown an error message of type: 'NotFound' then we found no path match.
+        if (err.errorType === 'NotFoundError') {
+            return next();
+        }
+
+        return next(err);
+    };
+}
 module.exports.NotFoundError = NotFoundError;
 module.exports.BadRequestError = BadRequestError;
 module.exports.InternalServerError = InternalServerError;
