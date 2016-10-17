@@ -17,7 +17,7 @@ exports.adminRequired = function (req, res, next) {
 		}
 		return res.redirect(303, '/signin');
 	}
-	debug("signin user : ", session.user);
+	debug("signin user : ", session.user.name);
 	next();
 }
 
@@ -26,7 +26,7 @@ exports.signin = function (req, res, next) {
 		name    : req.body.name,
 		password: req.body.password
 	}
-	debug("signin", _user);
+	debug("signin", _user.name);
 	User.findOne({ name: _user.name })
 		.then(function (user) {
 			if (user && user.compare(_user) && user.role >= 10) {

@@ -27,18 +27,24 @@ module.exports = function (gulp, config, banner) {
 			.pipe(gulp.dest(config.output));
 
 		gulp.src(config.copy.public)
+			.pipe(gulpif("*.js", uglify()))
+			.pipe(gulpif("*.css", cleanCss()))
 			.pipe(gulp.dest(config.output));
 
 		gulp.src(config.copy.essay)
 			.pipe(gulp.dest(config.output));
 
 		gulp.src(config.copy.admin.js)
+			.pipe(uglify())
 			.pipe(gulp.dest(config.output));
+
 		gulp.src(config.copy.admin.html)
 			.pipe(gulp.dest(config.output));
+
 		gulp.src(config.copy.admin.css)
 			.pipe(cleanCss())
 			.pipe(gulp.dest(config.output));
+
 		gulp.src(config.copy.font)
 			.pipe(gulp.dest(config.output + "/admin"));
 	});

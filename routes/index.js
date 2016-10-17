@@ -21,6 +21,11 @@ router.get('/signin/', function (req, res, next) {
 	res.render('signin', { title: 'Signin for zeev admin' });
 });
 
+/* about page. */
+router.get('/about', function (req, res, next) {
+	res.render('about', { title: 'about zeev' ,time :[1,2,3]});
+});
+
 router.post('/signin/', userCtrl.signin);
 
 router.get('/post', postCtrl.getPosts);

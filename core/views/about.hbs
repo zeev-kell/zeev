@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="zeevkell 的小站">
+    <meta name="keywords" content="zeevkell zeev {{keywords}}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="zeev">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- build:remove -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <!-- endbuild -->
+
+    <!--IE使用可用的最高版本的模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="initial-scale=1">
+
+    <title>{{title}}</title>
+
+    <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
+    <link rel='stylesheet' href='/public/css/flexbox.css'/>
+
+    <!-- build:css  /about/css/index.pkg_version.css -->
+    <link rel='stylesheet' href='/public/css/about.css'/>
+    <!-- endbuild -->
+</head>
+<body>
+
+<div class="container-fluid">
+    <section class="time-axis">
+        <h1>title</h1>
+
+        <div class="time-axis-wrap">
+            <hr class="hr left">
+            <hr class="hr right">
+            <div class="clock">
+                <img src="/public/svg/clock.svg">
+            </div>
+            {{#each time}}
+                <div class="flex-row column full year">
+                    <h1 class="flex-xs-2">
+                        <a href="#">title <i></i></a>
+                    </h1>
+
+                    <div class="list">
+                        <ul>
+                            {{#each ../time}}
+                                <li class="part">
+                                    <div class="flex-row">
+                                        <div class="circle"></div>
+                                        <div class="flex-xs-3">
+                                            <div class="time">
+                                                <div class="date">10 - 17</div>
+                                                <div class="version">V1.0上线</div>
+                                            </div>
+                                        </div>
+                                        <div class="flex-xs-9">
+                                            <div class="content">
+                                                <div class="intro">V1.0上线</div>
+                                                <div class="more">
+                                                    V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线V1.0上线
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                </div>
+            {{/each}}
+            <div class="point"></div>
+        </div>
+    </section>
+</div>
+</body>
+<script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+<script>
+    $(".time-axis-wrap  .year .list").each(function (e, t) {
+        var n = $(t), r = n.find("ul");
+        n.height(r.outerHeight());
+    });
+    $(".time-axis-wrap .year>h1>a").click(function (e) {
+        e.preventDefault(), $(this).parents(".year").toggleClass("close")
+    })
+</script>
+</html>
