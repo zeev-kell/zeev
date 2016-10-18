@@ -1,1 +1,0 @@
-!function(e){"use strict";e.module("app",["ui.router","ui.router.stateHelper","ngCookies","ngSanitize","ui.bootstrap","oc.lazyLoad","ngAnimate","vBusy","ngSweetAlertFull","angular-loading-bar","app.config","app.service","app.directive","app.controller","app.component"])}(angular);
