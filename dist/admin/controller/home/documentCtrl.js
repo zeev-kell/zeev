@@ -1,0 +1,1 @@
+"use strict";angular.module("app.controller").controller("homeDocumentCtrl",[function(){console.log(1)}]);

@@ -41,10 +41,6 @@ module.exports = function (gulp, config, banner) {
 		gulp.src(config.copy.admin.html)
 			.pipe(gulp.dest(config.output));
 
-		gulp.src(config.copy.admin.css)
-			.pipe(cleanCss())
-			.pipe(gulp.dest(config.output));
-
 		gulp.src(config.copy.font)
 			.pipe(gulp.dest(config.output + "/admin"));
 	});

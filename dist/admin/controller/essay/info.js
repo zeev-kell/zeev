@@ -1,0 +1,1 @@
+"use strict";angular.module("app.controller",[]).controller("essayInfoCtrl",["$scope","$http",function(t,o){o({method:"GET",url:"/post/"+t.$stateParams.id}).success(function(o){t.post=o})}]);

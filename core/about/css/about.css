@@ -1,0 +1,232 @@
+/*    默认值为0 1 auto
+        flex-grow,
+            属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+        flex-shrink
+            属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+        flex-basis
+            属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+            浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+    */
+html,
+body {
+  color: #333333;
+  font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.navbar {
+  border-radius: 0;
+  border: none;
+}
+.navbar .navbar-brand {
+  padding: 0;
+  margin-left: 1rem;
+}
+.navbar .navbar-brand > img {
+  height: 100%;
+  border-radius: 50%;
+}
+.container-fluid {
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .container-fluid {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+html,
+body {
+  border: medium none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #666666;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+a,
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none;
+  outline-offset: 0;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.clock {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 25%;
+  margin-left: -1.5rem;
+  z-index: 201;
+  background-color: #FFFFFF;
+  color: #56a6d7;
+}
+.year > h1 {
+  text-align: right;
+  margin: 0;
+  line-height: 3rem;
+  color: #56a6d7;
+  font-size: 2rem;
+}
+.year > h1 a {
+  float: right;
+  background-color: #FFFFFF;
+  padding: 0 0.5rem;
+  position: relative;
+  color: inherit;
+}
+.year > h1 i {
+  border-color: #56a6d7 transparent transparent;
+  border-style: solid;
+  border-width: 6px;
+  display: block;
+  height: 0;
+  right: -2rem;
+  position: absolute;
+  top: 1.5rem;
+  -webkit-transform-origin: 6px 0px 0;
+  -moz-transform-origin: 6px 0px 0;
+  -ms-transform-origin: 6px 0px 0;
+  -o-transform-origin: 6px 0px 0;
+  transform-origin: 6px 0px 0;
+  -moz-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  width: 0;
+}
+.year .list {
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+}
+.year.closed i {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.year.closed .list {
+  height: 0 !important;
+}
+.hr {
+  border-color: #56a6d7;
+  border-style: dotted;
+  border-width: 1px;
+  height: 0;
+  position: absolute;
+  top: 1.5rem;
+  margin: 0;
+}
+.hr.left {
+  width: 10%;
+  left: 0;
+}
+.hr.right {
+  width: 70%;
+  right: 0;
+}
+li.part {
+  padding: 30px 0;
+}
+.time-axis {
+  position: relative;
+  padding: 0 0 100px 0;
+}
+.time-axis .time {
+  padding: 0 3rem 0 0;
+  line-height: 30px;
+  text-align: right;
+}
+.time-axis .content {
+  padding: 0 0 0 3rem;
+  line-height: 30px;
+  text-align: left;
+}
+.time-axis .flex-row {
+  position: relative;
+}
+.time-axis-wrap {
+  position: relative;
+}
+.time-axis-wrap.time-axis-wrap::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25%;
+  z-index: 100;
+  width: 2px;
+  margin-left: -1px;
+  content: '';
+  background-color: #56a6d7;
+}
+.time-axis-wrap .circle {
+  position: absolute;
+  left: 25%;
+  z-index: 200;
+  margin-left: -15px;
+  background-color: #FFFFFF;
+  width: 30px;
+  height: 30px;
+}
+.time-axis-wrap .circle:before {
+  background-color: #FFFFFF;
+  border: 1px solid #63d029;
+  position: absolute;
+  margin: 8px;
+  display: block;
+  width: 14px;
+  height: 14px;
+  content: ' ';
+  border-radius: 50%;
+  z-index: 201;
+  box-sizing: border-box;
+}
+.time-axis-wrap .circle:after {
+  display: block;
+  content: ' ';
+  position: absolute;
+  background-color: #63d029;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 11px;
+  z-index: 202;
+  box-sizing: border-box;
+}
+.time-axis-wrap .circle.high-light:before {
+  border: 1px solid #ec6a13;
+}
+.time-axis-wrap .circle.high-light:after {
+  background-color: #ec6a13;
+}
+.point {
+  background: #56a6d7 none repeat scroll 0 0;
+  border-radius: 50px;
+  height: 10px;
+  width: 10px;
+  margin-top: 100px;
+  position: relative;
+  left: 25%;
+  margin-left: -5px;
+  z-index: 201;
+}

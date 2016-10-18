@@ -73,11 +73,7 @@ module.exports = function (gulp, config) {
 	 *  启动watch监听
 	 */
 	gulp.task('default', ['start', 'css:less'], function () {
-		gulp.watch([
-			"./core/public/js/*",
-			"./core/views/**/*.*"
-		]).on('change', reload);
-
+		gulp.watch(config.watch).on('change', reload);
 		gulp.watch(config.less.map(function (less) {
 			return less + "/less/**/*.less"
 		}), ['css:watch']);

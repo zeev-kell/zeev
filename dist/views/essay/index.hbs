@@ -1,0 +1,34 @@
+{{> essay/header }}
+{{> navigation }}
+<div class="container-fluid post-container">
+    <div class="post-side hidden-xs">
+        <div class="sidebar">
+            {{> essay/tags }}
+            {{> essay/archives }}
+        </div>
+    </div>
+    <div class="posts">
+    	{{#if _header}}
+			<header><h2>{{_header}}</h2></header>
+    	{{/if}}
+        <div class="posts-wrap">
+        	{{#each posts}}
+            <article class="post">
+                <h2 class="post-title">
+                    <a href="/essay/post/{{_id}}">{{title}}</a>
+                </h2>
+            	{{> essay/post-dynamic post=this}}
+                <div class="post-meta"><p>{{{html}}}</p></div>
+                <a role="button" class="btn-link" href="/essay/post/{{_id}}">阅读全文 »</a>
+            </article>
+            {{else}}
+            <article class="post">
+                <h4 class="post-title">
+                    暂无文章
+                </h4>
+            </article>
+        	{{/each}}
+        </div>
+    </div>
+</div>
+{{> essay/footer }}
