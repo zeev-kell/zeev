@@ -49,7 +49,7 @@ module.exports = function (gulp, config, banner) {
 			.pipe(gulp.dest(config.output + "/admin"));
 	});
 
-	gulp.task('build', ["build:clean", "build:copy"], function () {
+	gulp.task('build', ["css:less", "build:clean", "build:copy"], function () {
 		gulp.start("build:admin");
 		gulp.start("build:index");
 		gulp.start("build:signin");
