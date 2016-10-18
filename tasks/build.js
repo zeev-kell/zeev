@@ -58,6 +58,9 @@ module.exports = function (gulp, config, banner) {
 	gulp.task('build:admin', build_function("admin"));
 	gulp.task('build:index', build_function("index"));
 	gulp.task('build:signin', build_function("signin"));
+	gulp.task('build:about', build_function("about"));
+	gulp.task('build:project', build_function("project"));
+	gulp.task('build:product', build_function("product"));
 
 	function build_function(path) {
 		return function () {
