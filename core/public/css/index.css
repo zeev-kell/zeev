@@ -50,11 +50,11 @@ body {
   color: #FFFFFF;
   background-color: #000000;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  display: box;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: box;
   display: flex;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;

@@ -22,11 +22,11 @@ body {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  display: box;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -moz-box;
+  display: box;
   display: flex;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
