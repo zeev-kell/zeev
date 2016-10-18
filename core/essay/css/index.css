@@ -15,6 +15,7 @@ body {
 }
 .navbar {
   border-radius: 0;
+  border: none;
 }
 .navbar .navbar-brand {
   padding: 0;
@@ -23,6 +24,9 @@ body {
 .navbar .navbar-brand > img {
   height: 100%;
   border-radius: 50%;
+}
+.container-fluid {
+  width: 100%;
 }
 @media (min-width: 1200px) {
   .container-fluid {
