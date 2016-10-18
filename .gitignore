@@ -4,5 +4,6 @@
 /bower_components
 /node_modules
 /config
+/dist
 /logs/**/*.log
 /core/public/css

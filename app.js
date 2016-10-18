@@ -35,12 +35,14 @@ require("./logs")(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/admin', express.static(utils.env_path('admin')));
 app.use('/bower_components', express.static(utils._path('bower_components')));
+app.use('/admin', express.static(utils.env_path('admin')));
 app.use('/essay', express.static(utils.env_path('essay')));
 app.use('/index', express.static(utils.env_path('index')));
-app.use('/signin', express.static(utils.env_path('signin')));
 app.use('/public', express.static(utils.env_path('public')));
+app.use('/signin', express.static(utils.env_path('signin')));
+app.use('/about', express.static(utils.env_path('about')));
+app.use('/product', express.static(utils.env_path('product')));
 
 /* 所有的路由 */
 require('./routes')(app);

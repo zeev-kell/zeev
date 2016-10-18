@@ -22,7 +22,7 @@ module.exports = function (gulp, config, banner) {
 			.pipe(clean({ force: true }))
 	});
 
-	gulp.task('build:copy', ["build:clean"], function () {
+	gulp.task('build:copy', ["css:less", "build:clean"], function () {
 		gulp.src(config.copy.hbs)
 			.pipe(gulp.dest(config.output));
 
@@ -49,7 +49,7 @@ module.exports = function (gulp, config, banner) {
 			.pipe(gulp.dest(config.output + "/admin"));
 	});
 
-	gulp.task('build', ["css:less", "build:clean", "build:copy"], function () {
+	gulp.task('build', ["build:copy"], function () {
 		gulp.start("build:admin");
 		gulp.start("build:index");
 		gulp.start("build:signin");
