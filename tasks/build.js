@@ -53,6 +53,7 @@ module.exports = function (gulp, config, banner) {
 		gulp.start("build:admin");
 		gulp.start("build:index");
 		gulp.start("build:signin");
+		gulp.start("build:about");
 		gulp.start("build:project");
 		gulp.start("build:product");
 	});
