@@ -1,1 +1,0 @@
-"use strict";angular.module("app.controller",[]).controller("tagListCtrl",["$scope","$http",function(t,s){s({method:"GET",url:"/tag"}).success(function(s){t.tags=s}),t.remove=function(c){s({method:"DELETE",url:"/tag/"+t.tags[c]._id}).success(function(s){t.tags.splice(c,1)})}}]);

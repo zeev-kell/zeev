@@ -1,1 +1,0 @@
-"use strict";angular.module("app.controller",[]).controller("essayNewCtrl",["$scope","$http","SweetAlert",function(t,o,e){t.posts={image:"http://img02.tooopen.com/images/20140314/sy_56692371155.jpg",markdown:""},t.ok=function(){if(t.posts.title)return o({method:"POST",data:t.posts,url:"/post"}).success(function(o){t.$state.go("^.editor",{id:o._id})})}}]);
