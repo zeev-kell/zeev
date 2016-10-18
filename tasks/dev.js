@@ -56,7 +56,7 @@ module.exports = function (gulp, config) {
 			script : './bin/www',
 			ext    : 'js',
 			verbose: true,
-			ignore : ["bower_components/**/*", "*.json", "gulpfile.js", "tasks/*.*", "!core/**/*.*"],
+			ignore : ["bower_components/**/*", "*.json", "gulpfile.js", "tasks/*.*", "core/**/*.*"],
 			env    : {
 				'NODE_ENV': argv.production || 'development',
 				'DEBUG'   : argv.DEBUG || 'zeev:*',
