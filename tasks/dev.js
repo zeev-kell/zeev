@@ -29,8 +29,7 @@ module.exports = function (gulp, config) {
 			.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
 			.pipe(less())
 			.pipe(gulp.dest(function (file) {
-				console.log(file.path,file.path.split("\\less\\", 2)[0] + "\\css");
-				return file.path.split("\\less\\", 2)[0] + "\\css";
+				return file.path.split("less", 2)[0] + "css";
 			}))
 	});
 
