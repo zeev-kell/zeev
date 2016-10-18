@@ -1,0 +1,33 @@
+<ul class="main-menu" bar-menu="">
+    <li>
+        <a role="button">
+            <i class="fa fa-home"></i>
+            <span class="title">HOME</span></a>
+        <ul>
+            <li ui-sref-active="active">
+                <a ui-sref="home.notice">
+                    <span class="title">公告</span>
+                    <span class="label label-success pull-right hidden-collapsed">N</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a role="button">
+            <i class="fa fa-file"></i>
+            <span class="title">随笔</span></a>
+        <ul>
+            <li ui-sref-active="active">
+                <a ui-sref="essay.list">
+                    <span class="title">Content List</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="essay.tag">
+                    <span class="title">标签管理</span>
+                    <span class="label label-success pull-right hidden-collapsed">N</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

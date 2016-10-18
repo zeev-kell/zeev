@@ -1,0 +1,24 @@
+{{> essay/header }}
+{{> essay/navigation }}
+<div class="container-fluid archive-container">
+    <article>
+        <h2>归档</h2>
+        {{#each archives}}
+        <section class="archive-wrap">
+            <h3 class="archive-title">
+                {{{moment _id format='YYYY年MM月DD日'}}}
+                <span>({{count}})</span>
+            </h3>
+            <ul>
+            {{#each posts}}
+                <li class="archive">
+                    <a href="/essay/post/{{_id}}">{{title}}</a>
+                    <span class="archive-date">{{{moment created_at format='L'}}}</span>
+                </li>
+            {{/each}}
+            </ul>
+        </section>
+        {{/each}}
+    </article>
+</div>
+{{> essay/footer }}
