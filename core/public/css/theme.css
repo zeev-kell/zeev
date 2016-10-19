@@ -6,15 +6,29 @@ body {
 }
 .navbar {
   border-radius: 0;
-  border: none;
+  border-width: 0 0 1px;
+  border-color: #eeeeee;
+  border-style: solid;
 }
 .navbar .navbar-brand {
-  padding: 0;
+  padding: 2px;
   margin-left: 1rem;
 }
 .navbar .navbar-brand > img {
   height: 100%;
   border-radius: 50%;
+}
+.navbar-nav.nav > li > a {
+  background: #FFFFFF;
+  color: #666666;
+}
+.navbar-nav.nav > li > a:hover {
+  background: #a8d1eb;
+  color: #FFFFFF;
+}
+.navbar-nav.nav > li.active > a {
+  background: #56a6d7;
+  color: #FFFFFF;
 }
 .container-fluid {
   width: 100%;

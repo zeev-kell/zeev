@@ -1,73 +1,84 @@
 @import "common";
 
+/*  
+    默认值为0 1 auto
+    flex-grow,
+        属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+    flex-shrink
+        属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+    flex-basis
+        属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+        浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+*/
+
 .flex-row {
-  .display-flex();
-  -webkit-box-flex      : 0;
-  .flex(0 1 auto);
-  -webkit-box-orient    : horizontal;
-  -webkit-box-direction : normal;
-  .flex-wrap(row nowrap);
+    .display-flex();
+    -webkit-box-flex: 0;
+    .flex(0 1 auto);
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    .flex-wrap(row nowrap);
 }
 
 .flex-row.full {
-  .flex(1 1 100%);
+    .flex(1 1 100%);
 }
 
 .flex-row.auto {
-  overflow : auto;
+    overflow: auto;
 }
 
 .flex-row.column {
-  .flex-direction-column();
+    .flex-direction-column();
 }
 
 .flex-row.center {
-  .align-items(center);
-  .justify-content(center);
+    .align-items(center);
+    .justify-content(center);
 }
 
 .flex-row.end {
-  .justify-content(end);
+    .justify-content(end);
 }
 
 .items-end {
-  .align-items(end);
+    .align-items(end);
 }
 
-.flex-row.reverse {
-  -webkit-box-orient : horizontal;
-  .flex-direction(row-reverse);
+.flex-row.reverse-row {
+    -webkit-box-orient: horizontal;
+    .flex-direction(row-reverse);
 }
 
 .flex-col.reverse {
-  -webkit-box-orient    : vertical;
-  -webkit-box-direction : reverse;
-  .flex-direction(column-reverse);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    .flex-direction(column-reverse);
 }
 
 [class*="flex-xs"] {
-  -webkit-box-flex        : 1;
-  -ms-flex-positive       : 1;
-  flex-grow               : 1;
-  -ms-flex-preferred-size : 0;
-  flex-basis              : 0;
-  max-width               : 100%;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    max-width: 100%;
 }
 
 .flex-xs-2 {
-  -ms-flex-preferred-size: 16.66666667%;
-  flex-basis: 16.66666667%;
-  max-width: 16.66666667%;
+    -ms-flex-preferred-size: 16.66666667%;
+    flex-basis: 16.66666667%;
+    max-width: 16.66666667%;
 }
-
+ 
 .flex-xs-3 {
-  -ms-flex-preferred-size : 25%;
-  flex-basis              : 25%;
-  max-width               : 25%;
+    -ms-flex-preferred-size: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
 }
 
 .flex-xs-9 {
-  -ms-flex-preferred-size : 75%;
-  flex-basis              : 75%;
-  max-width               : 75%;
+    -ms-flex-preferred-size: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
 }
