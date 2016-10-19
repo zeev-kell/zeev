@@ -97,7 +97,6 @@
 .transform_all(@rotate :0deg, @scaleX :1, @scaleY :1, @skewX :0deg, @skewY :0deg, @translateX :0px, @translateY :0px) {
     .transform(rotate(@rotate) scale(@scaleX, @scaleY) skew(@skewX, @skewY);
     translate(@translateX, @translateY));
-    //filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .transition-timing-function(@fun) {
@@ -151,9 +150,7 @@
 }
 
 .align-items(@option: center) {
-    /* 09�� */
     -webkit-box-align: @option;
-    /* 12�� */
     -webkit-align-items: @option;
     -moz-align-items: @option;
     -ms-align-items: @option;

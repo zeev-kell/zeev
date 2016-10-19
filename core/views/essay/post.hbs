@@ -1,16 +1,19 @@
 {{> essay/header }}
 {{> navigation }}
 <div class="container-fluid">
-    <article>
-        <header>
-            <h2 class="post-title"><a>{{post.title}}</a></h2>
-            {{> essay/post-dynamic post=post}}
-        </header>
-        <div class="post-content">
-            <p>{{{post.html}}}</p>
-        </div>
-        <footer></footer>
-    </article>
+    <div>
+        <article>
+            <header>
+                <h2 class="post-title"><a>{{post.title}}</a></h2>
+                {{> essay/post-dynamic post=post}}
+            </header>
+            <div class="post-content">
+                <p>{{{post.html}}}</p>
+            </div>
+            <footer></footer>
+        </article>
+        <div class="ds-thread" data-thread-key="{{post._id}}" data-title="{{post.title}}"></div>
+    </div>
 </div>
 {{> essay/footer }}
 

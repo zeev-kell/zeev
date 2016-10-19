@@ -18,9 +18,24 @@ body {
   height: 100%;
   border-radius: 50%;
 }
+.navbar-toggle {
+  background-color: #FFFFFF;
+  border: 1px solid #56a6d7;
+  border-radius: 0;
+}
+.navbar-toggle .icon-bar {
+  background-color: #56a6d7;
+}
+.navbar-collapse {
+  border-top: 1px solid #eeeeee;
+}
 .navbar-nav.nav > li > a {
   background: #FFFFFF;
   color: #666666;
+  -moz-transition: all 0.2s ease-in 0s;
+  -o-transition: all 0.2s ease-in 0s;
+  -webkit-transition: all 0.2s ease-in 0s;
+  transition: all 0.2s ease-in 0s;
 }
 .navbar-nav.nav > li > a:hover {
   background: #a8d1eb;
@@ -195,8 +210,11 @@ body {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
 }
+.post-info {
+  padding-right: 380px;
+}
 .posts {
-  padding-right: 350px;
+  padding-right: 380px;
 }
 .posts .posts-wrap {
   padding: 0 10px 0 0;

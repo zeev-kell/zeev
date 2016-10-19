@@ -50,9 +50,7 @@
   flex-direction: column;
 }
 .flex-row.center {
-  /* 09�� */
   -webkit-box-align: center;
-  /* 12�� */
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -72,9 +70,7 @@
   justify-content: end;
 }
 .items-end {
-  /* 09�� */
   -webkit-box-align: end;
-  /* 12�� */
   -webkit-align-items: end;
   -moz-align-items: end;
   -ms-align-items: end;
