@@ -26,8 +26,10 @@ body {
 .navbar-toggle .icon-bar {
   background-color: #56a6d7;
 }
-.navbar-collapse {
-  border-top: 1px solid #eeeeee;
+@media (max-width: 767px) {
+  .navbar-collapse {
+    border-top: 1px solid #eeeeee;
+  }
 }
 .navbar-nav.nav > li > a {
   background: #FFFFFF;
@@ -56,10 +58,7 @@ body {
 }
 html,
 body {
-  border: medium none;
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
 body {
   color: #FFFFFF;
@@ -76,6 +75,17 @@ body {
   -webkit-flex: 1 0 100%;
   -ms-flex: 1 0 100%;
   flex: 1 0 100%;
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+}
+.effect-item {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
 }
 #effect {
   left: 0;

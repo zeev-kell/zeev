@@ -7,8 +7,8 @@ var debug = require('debug')("zeev:admin");
 var postCtrl = require('../controller/post');
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
-	res.render('admin', { title: 'zeev admin' });
+router.get('/', function(req, res, next) {
+    res.render('admin', { title: 'zeev admin', layout: false });
 });
 
 router.get('/post', postCtrl.getPosts);

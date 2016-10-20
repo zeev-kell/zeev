@@ -1,33 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="zeevkell 的小站">
-    <meta name="keywords" content="zeevkell zeev {{keywords}}">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="zeev">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="msapplication-tap-highlight" content="no">
+{{#contentFor 'styles'}}
+<link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
+<!-- build:css  /index/css/index.pkg_version.css -->
+<link rel='stylesheet' href='/index/css/index.css'/>
+<link rel='stylesheet' href='/public/css/flexbox.css'/>
+<!-- endbuild -->
+{{/contentFor}}
 
-    <!-- build:remove -->
-    <meta http-equiv="Pragma" content="no-cache">
-    <!-- endbuild -->
-
-    <!--IE使用可用的最高版本的模式-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="viewport" content="initial-scale=1">
-
-    <title>{{title}}</title>
-
-    <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
-
-    <!-- build:css  /index/css/index.pkg_version.css -->
-    <link rel='stylesheet' href='/index/css/index.css'/>
-    <link rel='stylesheet' href='/public/css/flexbox.css'/>
-    <!-- endbuild -->
-
-</head>
 <body>
 <div class="flex-row full column center">
     <h1 class="author">Ze'ev Kell</h1>
@@ -35,17 +13,17 @@
     <p class="keyword-wrap">The <span id="keyword"></span></p>
     <nav id="nav">
         <ul>
-            <li>
-                <a href="/about">简介</a>
+            <li index="0">
+                <a href="/essay">主页</a>
             </li>
-            <li>
-                <a href="/essay">随笔</a>
-            </li>
-            <li>
+            <li index="1">
                 <a href="/project">项目</a>
             </li>
-            <li>
+            <li index="2">
                 <a href="/product">作品</a>
+            </li>
+            <li index="3">
+                <a href="/about">关于</a>
             </li>
         </ul>
     </nav>
@@ -53,14 +31,15 @@
 <div id="effect-warp">
     <canvas id="effect"></canvas>
 </div>
+
+{{#contentFor 'scripts'}}
 <!-- build:js  /index/js/index.pkg_version.js -->
 <script type="text/javascript" src="/public/js/base.js"></script>
 <script type="text/javascript" src="/index/txt-rotate.js"></script>
 <script type="text/javascript" src="/index/effect.js"></script>
 <script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/d3/d3.js"></script>
 <script type="text/javascript" src="/index/index.js"></script>
 <!-- endbuild -->
-
-{{> analytics }}
+{{/contentFor}}
 </body>
-</html>

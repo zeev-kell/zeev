@@ -26,8 +26,10 @@ body {
 .navbar-toggle .icon-bar {
   background-color: #56a6d7;
 }
-.navbar-collapse {
-  border-top: 1px solid #eeeeee;
+@media (max-width: 767px) {
+  .navbar-collapse {
+    border-top: 1px solid #eeeeee;
+  }
 }
 .navbar-nav.nav > li > a {
   background: #FFFFFF;

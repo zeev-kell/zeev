@@ -49,7 +49,7 @@ exports.renderPostInfo = function (req, res, next) {
 	Post.getOneById(_id)
 		.then(function (docs) {
 			res.render("essay/post", {
-				title   : 'zeev - ' + docs.title,
+				title   : docs.title + " - 柯子源的个人网站",
 				post    : docs
 			});
 		}).catch(errors.handleError(next))
@@ -61,13 +61,13 @@ exports.renderIndex = function (req, res, next) {
 		getTagsList(),
 		getPostAggregate()
 	]).then(function (docs) {
-		res.render('essay/index', { title: 'zeev - 随笔', posts: docs[0], tags: docs[1], archives: docs[2] });
+		res.render('essay/index', { title: '首页 - 柯子源的个人网站', posts: docs[0], tags: docs[1], archives: docs[2] });
 	}).catch(errors.handleError(next))
 };
 
 exports.renderArchive = function (req, res, next) {
 	getPostAggregate().then(function (docs) {
-		res.render('essay/archive', { title: 'zeev - 归档', archives: docs });
+		res.render('essay/archive', { title: '归档 - 柯子源的个人网站', archives: docs });
 	}).catch(errors.handleError(next))
 }
 
@@ -80,7 +80,7 @@ exports.renderTags = function (req, res, next) {
 		getPostAggregate()
 	]).then(function (docs) {
 		res.render('essay/index', {
-			title   : 'zeev - 标签 ',
+			title   : "标签：" + docs[0].name + " - 柯子源的个人网站",
 			_header : "标签：" + docs[0].name,
 			posts   : docs[1],
 			tags    : docs[2],
@@ -104,7 +104,7 @@ exports.renderArchiveByTime = function (req, res, next) {
 		getPostAggregate()
 	]).then(function (docs) {
 		return res.render('essay/index', {
-			title   : 'zeev - 归档 ' + date.format("YYYY-MM"),
+			title   : '归档 - ' + date.format("YYYY-MM") + " - 柯子源的个人网站",
 			posts   : docs[0],
 			tags    : docs[1],
 			archives: docs[2],

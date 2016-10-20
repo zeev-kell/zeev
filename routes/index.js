@@ -5,35 +5,36 @@ var admin = require('./admin');
 var userCtrl = require('../controller/user');
 var postCtrl = require('../controller/post');
 var tagCtrl = require('../controller/tag');
+var utils = require("../utils");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'The web of zeev' });
+    res.render('index', { title: '柯子源的个人网站' });
 });
 
 /* GET home page. */
 router.get('/index/', function(req, res, next) {
-    res.render('index', { title: 'The web of zeev' });
+    res.render('index', { title: '柯子源的个人网站' });
 });
 
 /* signin page. */
 router.get('/signin/', function(req, res, next) {
-    res.render('signin', { title: 'Signin for zeev admin' });
+    res.render('signin', { title: '登录 - 柯子源的个人网站', layout: utils.env_path('views/layout/angular.hbs') });
 });
 
 /* about page. */
 router.get('/about', function(req, res, next) {
-    res.render('about', { title: 'about zeev', time: [1, 2, 3] });
+    res.render('about', { title: '关于 - 柯子源', time: [1, 2, 3] });
 });
 
 /* project page. */
 router.get('/project', function(req, res, next) {
-    res.render('project', { title: 'project' });
+    res.render('project', { title: '项目 - 柯子源的个人网站' });
 });
 
 /* product page. */
 router.get('/product', function(req, res, next) {
-    res.render('product', { title: 'product' });
+    res.render('product', { title: '作品 - 柯子源的个人网站' });
 });
 
 router.post('/signin/', userCtrl.signin);

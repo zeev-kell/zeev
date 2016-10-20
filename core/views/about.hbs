@@ -1,36 +1,13 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="zeevkell 的小站">
-    <meta name="keywords" content="zeevkell zeev {{keywords}}">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="zeev">
-    <meta name="HandheldFriendly" content="true">
-    <meta name="msapplication-tap-highlight" content="no">
+{{#contentFor 'styles'}}
+<link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}" />
+<link rel='stylesheet' href='/public/css/flexbox.css'/>
+<!-- build:css  /about/css/index.pkg_version.css -->
+<link rel='stylesheet' href='/about/css/about.css'/>
+<!-- endbuild -->
+{{/contentFor}}
 
-    <!-- build:remove -->
-    <meta http-equiv="Pragma" content="no-cache">
-    <!-- endbuild -->
-
-    <!--IE使用可用的最高版本的模式-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta name="viewport" content="initial-scale=1">
-
-    <title>{{title}}</title>
-
-    <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}" />
-    <link rel='stylesheet' href='/public/css/flexbox.css'/>
-
-    <!-- build:css  /about/css/index.pkg_version.css -->
-    <link rel='stylesheet' href='/about/css/about.css'/>
-    <!-- endbuild -->
-
-    {{> analytics }}
-</head>
 <body>
-{{> navigation }}
+{{> navigation}}
 <div class="container-fluid">
     <header>
     </header>
@@ -185,7 +162,8 @@
         </div>
     </section>
 </div>
-</body>
+
+{{#contentFor 'scripts'}}
 <script type="text/javascript" src="/public/js/base.js"></script>
 <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
 <script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
@@ -198,4 +176,5 @@
         e.preventDefault(), $(this).parents(".year").toggleClass("closed")
     })
 </script>
-</html>
+{{/contentFor}}
+</body>

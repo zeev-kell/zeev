@@ -9,7 +9,7 @@
     </div>
     <div class="posts">
     	{{#if _header}}
-			<header><h2>{{_header}}</h2></header>
+			<header class="header-title"><h2>{{_header}}</h2></header>
     	{{/if}}
         <div class="posts-wrap">
         	{{#each posts}}
@@ -24,7 +24,7 @@
             {{else}}
             <article class="post">
                 <h4 class="post-title">
-                    暂无文章
+                    暂无数据
                 </h4>
             </article>
         	{{/each}}

@@ -18,4 +18,5 @@ module.exports.registerHelpers = function(hbs) {
     hbs.registerHelper('asset', coreHelpers.asset);
     hbs.registerHelper('debug', coreHelpers.debug);
 
+    hbs.registerPartial('layouts','{{name}}')
 }

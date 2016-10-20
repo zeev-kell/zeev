@@ -26,8 +26,10 @@ body {
 .navbar-toggle .icon-bar {
   background-color: #56a6d7;
 }
-.navbar-collapse {
-  border-top: 1px solid #eeeeee;
+@media (max-width: 767px) {
+  .navbar-collapse {
+    border-top: 1px solid #eeeeee;
+  }
 }
 .navbar-nav.nav > li > a {
   background: #FFFFFF;
@@ -213,6 +215,23 @@ body {
 .post-info {
   padding-right: 380px;
 }
+.header-title h2 {
+  padding: 0 0 0 1.5rem;
+  font-size: 2rem;
+  color: #666666;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.header-title h2:before {
+  display: block;
+  content: " ";
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  background-color: #ec6a13;
+  top: 0;
+  left: 0;
+}
 .posts {
   padding-right: 380px;
 }
@@ -224,23 +243,6 @@ body {
   margin-bottom: 30px;
   padding-bottom: 30px;
   position: relative;
-}
-.posts > header h2 {
-  padding: 0 0 0 1.5rem;
-  font-size: 2rem;
-  color: #666666;
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-.posts > header h2:before {
-  display: block;
-  content: " ";
-  position: absolute;
-  height: 100%;
-  width: 10px;
-  background-color: #666666;
-  top: 0;
-  left: 0;
 }
 @media (max-width: 767px) {
   .posts {
@@ -267,7 +269,7 @@ body {
   position: absolute;
   height: 100%;
   width: 10px;
-  background-color: #666666;
+  background-color: #ec6a13;
   top: 0;
   left: 0;
 }

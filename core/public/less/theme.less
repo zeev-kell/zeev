@@ -1,64 +1,65 @@
 @import "var";
 @import "common";
-
 html,
 body {
-  color       : #333333;
-  font-family : Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size   : 14px;
+    color: #333333;
+    font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 .navbar {
-  border-radius : 0;
-  border-width  : 0 0 1px;
-  border-color  : @bd-c;
-  border-style  : solid;
-  .navbar-brand {
-    padding     : 2px;
-    margin-left : 1rem;
-    > img {
-      height        : 100%;
-      border-radius : 50%;
+    border-radius: 0;
+    border-width: 0 0 1px;
+    border-color: @bd-c;
+    border-style: solid;
+    .navbar-brand {
+        padding: 2px;
+        margin-left: 1rem;
+        > img {
+            height: 100%;
+            border-radius: 50%;
+        }
     }
-  }
 }
 
 .navbar-toggle {
-  background-color : @bg-c;
-  border           : 1px solid @t3-c;
-  border-radius    : 0;
-  .icon-bar {
-    background-color : @t3-c;
-  }
+    background-color: @bg-c;
+    border: 1px solid @t3-c;
+    border-radius: 0;
+    .icon-bar {
+        background-color: @t3-c;
+    }
 }
 
-.navbar-collapse {
-  border-top : 1px solid @bd-c;
+@media (max-width:767px) {
+    .navbar-collapse {
+        border-top: 1px solid @bd-c;
+    }
 }
 
 .navbar-nav.nav > li {
-  > a {
-    background : @bg-c;
-    color      : @t-c;
-    .transition(all 0.2s ease-in 0s);
-    &:hover {
-      background : lighten(@t3-c, 20%);
-      color      : @bg-c;
+    > a {
+        background: @bg-c;
+        color: @t-c;
+        .transition(all 0.2s ease-in 0s);
+        &:hover {
+            background: lighten(@t3-c, 20%);
+            color: @bg-c;
+        }
     }
-  }
-  &.active > a {
-    background : @t3-c;
-    color      : @bg-c;
-  }
+    &.active > a {
+        background: @t3-c;
+        color: @bg-c;
+    }
 }
 
 .container-fluid {
-  width : 100%;
+    width: 100%;
 }
 
-@media (min-width : 1200px) {
-  .container-fluid {
-    width  : 1200px;
-    margin : 0 auto;
-  }
+@media (min-width: 1200px) {
+    .container-fluid {
+        width: 1200px;
+        margin: 0 auto;
+    }
 }

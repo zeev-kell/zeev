@@ -18,9 +18,24 @@ app.set('views', utils.env_path('views'));
 
 var fp = require('path');
 
+/**
+ * Express 4.x template engine compliance.
+ *
+ * @param {Object} options = {
+ *   handlebars: "override handlebars",
+ *   defaultLayout: "path to default layout",
+ *   partialsDir: "absolute path to partials (one path or an array of paths)",
+ *   layoutsDir: "absolute path to the layouts",
+ *   extname: "extension to use",
+ *   contentHelperName: "contentFor",
+ *   blockHelperName: "block",
+ *   beautify: "{Boolean} whether to pretty print HTML"
+ * }
+ */
 app.engine('hbs', hbs.express4({
-	partialsDir: [utils.env_path('views/partials')],
-	layoutsDir : utils._path('views/layout')
+    partialsDir: [utils.env_path('views/partials')],
+    defaultLayout: utils.env_path('views/layout/default.hbs'),
+    layoutsDir: utils.env_path('views/layout')
 }));
 app.set('view engine', 'hbs');
 app.set('views', utils._dist + "/views");
