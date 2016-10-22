@@ -1,9 +1,20 @@
 {{#contentFor 'styles'}}
-<link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}" />
-<link href="/essay/css/index.css"  rel='stylesheet'/>
+    <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
+    <link rel='stylesheet' href='/public/css/flexbox.css'/>
+    <!-- build:css  /public/css/project.pkg_version.css -->
+    <link rel='stylesheet' href='/public/css/project.css'/>
+    <!-- endbuild -->
 {{/contentFor}}
 
 <body>
-{{> navigation }}
-项目
+<div class="flex-full">
+    <div class="container-fluid">
+        项目 <a href="http://www.bgionline.cn">BGI Online</a>
+    </div>
+</div>
+<div class="flex-full">
+    <div class="container-fluid">
+        项目 百万数据可视化
+    </div>
+</div>
 </body>

@@ -1,0 +1,23 @@
+@import "../../public/less/common";
+@import "../../public/less/var";
+@import "../../public/less/theme";
+
+html, body {
+  height : 100%;
+}
+
+body {
+  font : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  .display-flex();
+  .flex-direction-column();
+  .flex(1 0 100%);
+  .transition();
+}
+
+.bgi {
+  background-image      : url("/public/img/bgi_bg.png");
+  background-size       : contain;
+  background-repeat     : no-repeat;
+  background-position   : center center;
+  background-attachment : fixed;
+}

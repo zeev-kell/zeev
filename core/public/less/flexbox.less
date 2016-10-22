@@ -12,73 +12,78 @@
 */
 
 .flex-row {
-    .display-flex();
-    -webkit-box-flex: 0;
-    .flex(0 1 auto);
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    .flex-wrap(row nowrap);
+  .display-flex();
+  -webkit-box-flex      : 0;
+  .flex(0 1 auto);
+  -webkit-box-orient    : horizontal;
+  -webkit-box-direction : normal;
+  .flex-wrap(row nowrap);
 }
 
 .flex-row.full {
-    .flex(1 1 100%);
+  .flex(1 1 100%);
 }
 
 .flex-row.auto {
-    overflow: auto;
+  overflow : auto;
 }
 
-.flex-row.column {
-    .flex-direction-column();
+.flex-full {
+  .flex-row();
+  .flex(1 0 100%);
+}
+
+.column, .flex-column {
+  .flex-direction-column();
 }
 
 .flex-row.center {
-    .align-items(center);
-    .justify-content(center);
+  .align-items(center);
+  .justify-content(center);
 }
 
 .flex-row.end {
-    .justify-content(end);
+  .justify-content(end);
 }
 
 .items-end {
-    .align-items(end);
+  .align-items(end);
 }
 
 .flex-row.reverse-row {
-    -webkit-box-orient: horizontal;
-    .flex-direction(row-reverse);
+  -webkit-box-orient : horizontal;
+  .flex-direction(row-reverse);
 }
 
 .flex-col.reverse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-    .flex-direction(column-reverse);
+  -webkit-box-orient    : vertical;
+  -webkit-box-direction : reverse;
+  .flex-direction(column-reverse);
 }
 
 [class*="flex-xs"] {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    -ms-flex-preferred-size: 0;
-    flex-basis: 0;
-    max-width: 100%;
+  -webkit-box-flex        : 1;
+  -ms-flex-positive       : 1;
+  flex-grow               : 1;
+  -ms-flex-preferred-size : 0;
+  flex-basis              : 0;
+  max-width               : 100%;
 }
 
 .flex-xs-2 {
-    -ms-flex-preferred-size: 16.66666667%;
-    flex-basis: 16.66666667%;
-    max-width: 16.66666667%;
+  -ms-flex-preferred-size : 16.66666667%;
+  flex-basis              : 16.66666667%;
+  max-width               : 16.66666667%;
 }
- 
+
 .flex-xs-3 {
-    -ms-flex-preferred-size: 25%;
-    flex-basis: 25%;
-    max-width: 25%;
+  -ms-flex-preferred-size : 25%;
+  flex-basis              : 25%;
+  max-width               : 25%;
 }
 
 .flex-xs-9 {
-    -ms-flex-preferred-size: 75%;
-    flex-basis: 75%;
-    max-width: 75%;
+  -ms-flex-preferred-size : 75%;
+  flex-basis              : 75%;
+  max-width               : 75%;
 }

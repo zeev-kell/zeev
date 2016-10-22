@@ -11,8 +11,7 @@ $(function() {
         var _this = $(this);
         event.preventDefault();
         event.stopPropagation();
-        console.log(_this.attr("index"));
-        Effect.change(1);
-        // $("body").css("background-color","#FFFFFF")
+        // var index = Number(_this.attr("index"));
+        // Effect.change(index);
     })
 })

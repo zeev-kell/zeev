@@ -62,6 +62,7 @@
         this.rad = Math.random();
         if (Math.random() > .9)
             this.rad = 2;
+        this._rad = this.rad;
         //速度
         this.speed = Math.random() * 1 + .1;
         //透明度
@@ -108,8 +109,14 @@
                         var m = Math.min(Math.abs(this.point.x), Math.abs(this.point.y)) / 40;
                         this.point.x /= m;
                         this.point.y /= m;
+
+                        this.rad = Math.random();
+                        if (Math.random() > .9)
+                            this.rad = 2;
+                        this._rad = this.rad;
+                    } else {
+                        this.rad += this.speed * this._rad / 40;
                     }
-                    // this.rad *= 1.01;
                 }
             }
         }
@@ -176,13 +183,20 @@
     };
     Effect.one = function() {
         curPage = 1;
-        particleControl.way = 2;
+        particleControl.way = 0;
         particleArr = [];
         particleControl.createParticle();
     }
+
+    Effect.two = function() {
+        curPage = 2;
+        particleControl.way = 0;
+        particleArr = [];
+        particleControl.createParticle();
+    }
+
     Effect.change = function(type) {
         curPage = 1;
-        particleControl.way = 2;
         particleControl.way = type;
     }
 
