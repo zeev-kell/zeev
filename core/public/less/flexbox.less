@@ -70,20 +70,14 @@
   max-width               : 100%;
 }
 
-.flex-xs-2 {
-  -ms-flex-preferred-size : 16.66666667%;
-  flex-basis              : 16.66666667%;
-  max-width               : 16.66666667%;
+@row: 12;
+.flex-xs(@index) when (@index =< @row) {
+  .flex-xs-@{index} {
+    -ms-flex-preferred-size : 100% * @index / @row;
+    flex-basis              : 100% * @index / @row;
+    max-width               : 100% * @index / @row;
+  }
+  .flex-xs(@index + 1)
 }
 
-.flex-xs-3 {
-  -ms-flex-preferred-size : 25%;
-  flex-basis              : 25%;
-  max-width               : 25%;
-}
-
-.flex-xs-9 {
-  -ms-flex-preferred-size : 75%;
-  flex-basis              : 75%;
-  max-width               : 75%;
-}
+.flex-xs(1);
