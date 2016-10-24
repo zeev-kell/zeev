@@ -1,0 +1,153 @@
+.display-flex() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+
+/* 
+	主轴方向 
+	row row-reverse column column-reverse
+ */
+
+.flex-direction(@option : row) {
+    -webkit-flex-direction: @option;
+    -moz-flex-direction: @option;
+    -ms-flex-direction: @option;
+    flex-direction: @option;
+}
+
+.flex-direction-column() {
+    -wwbkit-box-derection: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+
+/*
+  	换行 
+  	nowrap wrap wrap-reverse
+ */
+
+.flex-wrap(@option: wrap) {
+    -webkit-flex-wrap: @option;
+    -moz-flex-wrap: @option;
+    -o-flex-wrap: @option;
+    -ms-flex-wrap: @option;
+    flex-wrap: @option;
+}
+
+
+/* <flex-direction> || <flex-wrap> */
+
+.flex-flow(@option: row nowrap) {
+    -webkit-flex-flow: @option;
+    -moz-flex-flow: @option;
+    -o-flex-flow: @option;
+    -ms-flex-flow: @option;
+    flex-flow: @option;
+}
+
+
+/*
+ 	主轴对齐方式
+ 	flex-start flex-end cneter space-between space-around
+ */
+
+.justify-content(@str: flex-start) {
+    -webkit-box-pack: @str;
+    -moz-box-justify-content: @str;
+    -webkit-justify-content: @str;
+    -ms-justify-content: @str;
+    justify-content: @str;
+}
+
+
+/*
+ 	交叉轴对齐方式
+ 	flex-start flex-end cneter baseline stretch
+ */
+
+.align-items(@option: center) {
+    -webkit-box-align: @option;
+    -webkit-align-items: @option;
+    -moz-align-items: @option;
+    -ms-align-items: @option;
+    align-items: @option;
+}
+
+
+/*
+	多主轴对齐方式
+ 	flex-start flex-end cneter space-between space-around
+ */
+
+.align-content(@option: center) {
+    -webkit-box-align: @option;
+    -webkit-align-items: @option;
+    -moz-align-items: @option;
+    -ms-align-items: @option;
+    align-items: @option;
+}
+
+
+/* === 子元素 === */
+
+
+/* 排序 */
+
+.order(@int: 0) {
+    order: @int;
+}
+
+
+/* 放大 */
+
+.flex-grow(@int: 0) {}
+
+
+/* 缩小 */
+
+.flex-shrink(@int: 0) {}
+
+
+/* 大小 */
+
+.flex-basis(@str: auto) {}
+
+
+/* 
+	none || <flex-grow> || <flex-shrink> ? || <flex-basis>
+
+    默认值为0 1 auto
+    flex-grow,
+        属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+    flex-shrink
+        属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+    flex-basis
+        属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+        浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+*/
+
+.flex(@option: 1 1 100%) {
+    -webkit-box-flex: @option;
+    -moz-box-flex: @option;
+    -webkit-flex: @option;
+    -ms-flex: @option;
+    flex: @option;
+}
+
+
+/* 
+	单独对齐方式
+	auto flex-start flex-end cneter baseline stretch
+
+ */
+
+.align-self(@str: auto) {}

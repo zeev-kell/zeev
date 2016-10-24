@@ -1,5 +1,5 @@
 {{#contentFor 'styles'}}
-    <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css'/>
+    <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}"/>
     <link rel='stylesheet' href='/public/css/flexbox.css'/>
     <!-- build:css  /public/css/project.pkg_version.css -->
     <link rel='stylesheet' href='/public/css/project.css'/>
@@ -7,14 +7,31 @@
 {{/contentFor}}
 
 <body>
-<div class="flex-full">
-    <div class="container-fluid">
-        项目 <a href="http://www.bgionline.cn">BGI Online</a>
+{{> navigation}}
+<div class="flex-p-full bgi flex-column">
+    <div class="content">
+        <div class="container-fluid">
+            <h1 class="text-center"><a href="http://www.bgionline.cn">BGI Online</a></h1>
+
+            <div class="flex-row text-center">
+                <div class="flex-full flex-column">
+                    <div class="flex-xs-6">123</div>
+                    <div class="flex-xs-6">123</div>
+                </div>
+                <div class="flex-full flex-column">
+                    <div class="flex-xs-6">123</div>
+                    <div class="flex-xs-6">123</div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="background"></div>
 </div>
-<div class="flex-full">
+<div class="flex-p-full">
     <div class="container-fluid">
         项目 百万数据可视化
     </div>
 </div>
+<script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+<script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
 </body>

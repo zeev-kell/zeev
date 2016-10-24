@@ -14,10 +14,21 @@ body {
   .transition();
 }
 
-.bgi {
+.navbar {
+  display : table;
+  width   : 100%;
+}
+
+.bgi .background {
   background-image      : url("/public/img/bgi_bg.png");
   background-size       : contain;
   background-repeat     : no-repeat;
   background-position   : center center;
   background-attachment : fixed;
+  .flex(1 1 50%);
+}
+
+.content {
+  padding : 20px 0 70px;
+  .flex(1 1 50%);
 }
