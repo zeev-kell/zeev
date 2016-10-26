@@ -2,7 +2,8 @@
 @import "../../public/less/var";
 @import "../../public/less/theme";
 
-html, body {
+html,
+body {
   height : 100%;
 }
 
@@ -14,12 +15,18 @@ body {
   .transition();
 }
 
+a {
+  &:hover {
+    text-decoration : none;
+  }
+}
+
 .navbar {
   display : table;
   width   : 100%;
 }
 
-.bgi .background {
+.bgi .background, .nifty .background {
   background-image      : url("/public/img/bgi_bg.png");
   background-size       : contain;
   background-repeat     : no-repeat;
@@ -29,6 +36,44 @@ body {
 }
 
 .content {
-  padding : 20px 0 70px;
+  padding : 20px 0 20px;
   .flex(1 1 50%);
+
+}
+
+.point {
+  padding-left  : 120px;
+  position      : relative;
+  min-height    : 100px;
+  margin-bottom : 20px;
+  color         : lighten(@t-c, 10%);
+  > h3 {
+    font-size   : 1.2rem;
+    font-weight : bold;
+    color       : lighten(@t-c, 5%);
+  }
+  .icon {
+    width    : 80px;
+    position : absolute;
+    left     : 30px;
+    top      : 10px;
+  }
+}
+
+.title {
+  text-align  : center;
+  font-weight : bold;
+  color       : @t-c;
+  &:after {
+    display    : block;
+    content    : " ";
+    width      : 15%;
+    bottom     : 0;
+    height     : 2px;
+    margin     : 12px auto;
+    background : @t2-c;
+  }
+  > a {
+    color : inherit;
+  }
 }
