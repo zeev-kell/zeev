@@ -12,8 +12,7 @@ var config = {
     copy: {
         font: ["./bower_components/font-awesome/fonts*/**", "./bower_components/bootstrap/dist/fonts*/**"],
         hbs: [
-            "./core/views*/essay/**/*",
-            "./core/views*/partials/**/*",
+            "./core/views*/{partials,layout,essay}/**/*",
             "./core/views*/error.hbs"
         ],
         public: ["./core/public*/**/*", "!*.{less}", "./core/**/*.css"],
