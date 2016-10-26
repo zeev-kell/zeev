@@ -6,7 +6,7 @@ window.onload = function () {
 	Effect.start();
 }
 
-$(function () {
+//$(function () {
 	//    $("#nav li").mouseenter(function(event) {
 	//        var _this = $(this);
 	//        event.preventDefault();
@@ -14,4 +14,4 @@ $(function () {
 	// var index = Number(_this.attr("index"));
 	// Effect.change(index);
 	//    })
-})
+//})
