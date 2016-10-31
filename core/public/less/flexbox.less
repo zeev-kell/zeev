@@ -20,6 +20,7 @@
 
 .flex-p-full {
     .flex(1 0 100%);
+    min-height: 100vh;
 }
 
 .flex-full {
@@ -58,3 +59,19 @@
     .flex-xs(@index + 1)
 }
 .flex-xs(1);
+
+@media screen and (min-width: 767px) {
+    .flex-sm(@index) when (@index =< @row) {
+        .flex-sm-@{index}{
+            -ms-flex-preferred-size: 100% * @index / @row;
+            flex-basis: 100% * @index / @row;
+            max-width: 100% * @index / @row;
+        }
+        @_index:(@index - 1);
+        .flex-sm-offset-@{_index}{
+            margin-left:100% * ((@index)-1) / @row;
+        }
+        .flex-sm(@index + 1)
+    }
+    .flex-sm(1);
+}

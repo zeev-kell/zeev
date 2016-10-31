@@ -10,9 +10,9 @@
     <meta name="HandheldFriendly" content="true">
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- build:remove -->
-    <meta http-equiv="Pragma" content="no-cache">
-    <!-- endbuild -->
+    {{#env product=false}}
+        <meta http-equiv="Pragma" content="no-cache">
+    {{/env}}
 
     <!--IE使用可用的最高版本的模式-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -20,9 +20,11 @@
 
     <title>{{title}}</title>
 
-     {{{block "styles"}}}
+    {{{block "styles"}}}
 
-    {{> analytics }}
+    {{#env product=true}}
+        {{> analytics }}
+    {{/env}}
 
 </head>
 {{{body}}}

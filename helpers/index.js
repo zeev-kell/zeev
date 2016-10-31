@@ -6,6 +6,7 @@ var coreHelpers = {};
 coreHelpers.compare = require('./compare');
 coreHelpers.asset = require('./asset');
 coreHelpers.debug = require('./debug');
+coreHelpers.env = require('./env');
 
 module.exports.registerHelpers = function(hbs) {
 
@@ -17,6 +18,7 @@ module.exports.registerHelpers = function(hbs) {
     hbs.registerHelper('compare', coreHelpers.compare);
     hbs.registerHelper('asset', coreHelpers.asset);
     hbs.registerHelper('debug', coreHelpers.debug);
+    hbs.registerHelper('env', coreHelpers.env);
 
     hbs.registerPartial('layouts','{{name}}')
 }

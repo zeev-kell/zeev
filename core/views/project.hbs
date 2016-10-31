@@ -8,7 +8,7 @@
 
 <body>
 {{> navigation}}
-<div class="flex-p-full bgi flex-column">
+<div class="bgi flex-column" id="bgi">
     <div class="content">
         <div class="container-fluid">
             <h2 class="title">
@@ -17,16 +17,16 @@
                 </a>
             </h2>
 
-            <div class="flex-row">
+            <div class="flex-row content-wrap">
                 <div class="flex-full flex-row">
-                    <div class="flex-xs-6 point">
+                    <div class="flex-xs-12 flex-sm-6 point">
                         <img class="icon" src="/public/img/analysis.png">
 
                         <h3>基因组数据分析</h3>
                         新一代的测序项目管理提供一站式解决方案，<br>
                         为生物信息分析、工具开发者和生物信息领域的各类用户提供便利。
                     </div>
-                    <div class="flex-xs-6 point">
+                    <div class="flex-xs-12 flex-sm-6 point">
                         <img class="icon" src="/public/img/analysis.png">
 
                         <h3>基于“云”</h3>
@@ -35,14 +35,14 @@
                     </div>
                 </div>
                 <div class="flex-full flex-row">
-                    <div class="flex-xs-6 point">
+                    <div class="flex-xs-12 flex-sm-6 point">
                         <img class="icon" src="/public/img/analysis.png">
 
                         <h3>强大的生物信息数据</h3>
                         丰富的平台工具和流程，轻松配置工具和流程。<br>
                         全程记录数据、软件、参数、结果，轻松跟踪每个分析步骤。
                     </div>
-                    <div class="flex-xs-6 point">
+                    <div class="flex-xs-12 flex-sm-6 point">
                         <img class="icon" src="/public/img/analysis.png">
 
                         <h3>零距离沟通，一切都可以分享</h3>
@@ -53,18 +53,94 @@
             </div>
         </div>
     </div>
-    <div class="background"></div>
+    <div class="background bgi"></div>
 </div>
-<div class="flex-p-full nifty flex-column">
+<div class="nifty flex-column" id="nifty">
     <div class="content">
         <div class="container-fluid">
-            <h2 class="title"><strong>百万数据可视化</strong></h2>
+            <h2 class="title"><strong>百万NIFTY数据可视化</strong></h2>
 
-            <div class="flex-row"></div>
+            <p class="text-center">
+                华大基因
+                团队开发了多个具有国际影响力的数据库和软件，发表论文 30 余篇，总SCI引用达到1200次，单篇文章SCI引用最高达269次，有5篇文章SCI引用超过100次。团队于2004年搭建的非编码基因数据库
+                NONCODE，在2012年被国际RNA联盟RNAcentral收录为专家数据库，是该领域在国际上最具影响力的数据库，目前该数据库的谷歌学术引用
+                达639次。公司获得国内发明专利授权两项，拥有软件著作权一项。</p>
         </div>
     </div>
     <div class="background"></div>
 </div>
+
+<div class="divingtime flex-column" id="divingtime">
+    <div class="content">
+        <div class="container-fluid">
+            <h2 class="title"><strong>潜游时光电商系统</strong></h2>
+
+            <p class="text-center"></p>
+        </div>
+    </div>
+    <div class="background"></div>
+</div>
+
+<div class="mgear flex-column" id="mgear">
+    <div class="content">
+        <div class="container-fluid">
+            <h2 class="title"><strong>深圳市易数通系列系统</strong></h2>
+
+            <p class="text-center">深圳市易数通系列系统深圳市易数通系列系统深圳市易数通系列系统深圳市易数通系列系统</p>
+
+            <div class="mgear-wrap">
+                <div class="mgear-item mgear_1">
+                    <div class="item-content">
+                        <h5 class="item-title">部海事局协同管理平台</h5>
+
+                        <div class="item-keyword">
+                            Easy-ui Java
+                        </div>
+                    </div>
+                </div>
+                <div class="mgear-item mgear_2">
+                    <div class="item-content">
+                        <h5 class="item-title">海事综合服务平台</h5>
+
+                        <div class="item-keyword">
+                            Easy-ui Java
+                        </div>
+                    </div>
+                </div>
+                <div class="mgear-item mgear_3">
+                    <div class="item-content">
+                        <h5 class="item-title">深圳海事政务服务综合平台</h5>
+
+                        <div class="item-keyword">
+                            Html CSS Jquery
+                        </div>
+                    </div>
+                </div>
+                <div class="mgear-item mgear_2">
+                    <div class="item-content">
+                        <h5 class="item-title">易数通用户中心平台</h5>
+
+                        <div class="item-keyword">
+                            Javascript
+                        </div>
+                    </div>
+                </div>
+                <div class="mgear-item mgear_1">
+                    <div class="item-content">
+
+                        <h5 class="item-title">船货报告云服务</h5>
+
+                        <div class="item-keyword">
+                            Java Mybatis
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="background"></div>
+</div>
+
 <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
 <script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
 </body>
