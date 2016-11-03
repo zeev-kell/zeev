@@ -10,7 +10,7 @@
 <!-- endbuild -->
 {{/contentFor}}
 <body class="ng-cloak" ng-cloak="">
-<div class="flex-row full center">
+<div class="flex-row flex-full flex-center">
     <div ng-controller="signinCtrl as sgCtrl" class="signin flex-row">
         <form class="signin-form">
             <div class="form-group">
@@ -54,7 +54,7 @@
                         $window.location.href = "/admin/";//--需要重定向--
                     }).error(function (response) {
                         console.log(response);
-                        _this.messages = response ? response.message || response : "服务器繁忙！";
+                        _this.messages = response ? response.msg || response : "服务器繁忙！";
                     })
                 }
             }])

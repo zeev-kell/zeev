@@ -36,7 +36,7 @@ exports.signin = function (req, res, next) {
 				res.cookie('role', user.role);
 				return res.sendStatus(200);
 			} else {
-				return res.sendStatus(403);
+				return res.status(403).send({msg:"用户不存在或权限不够..."});
 			}
 		}).catch(errors.handleError(next))
 }
