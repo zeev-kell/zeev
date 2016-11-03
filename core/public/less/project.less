@@ -9,6 +9,10 @@ html {
     color: @t2-c;
 }
 
+.navbar {
+    margin-bottom: 0;
+}
+
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     .display-flex();
@@ -66,6 +70,9 @@ a {
         background-image: url("/public/img/bgi_bg.jpg");
         background-position: 20% bottom;
     }
+    .content {
+        background: rgba(0, 0, 0, 0) url("/public/img/cloud.png") no-repeat scroll center bottom / contain;
+    }
     .content-wrap:after {
         //content : "Ember.js";
     }
@@ -109,7 +116,6 @@ a {
 }
 
 .item-title {
-    .transition();
     position: relative;
     z-index: 2;
     &:after {
@@ -135,7 +141,6 @@ a {
     .justify-content(center);
     .align-items(center);
     .flex-direction(column);
-    .transition();
 }
 
 .mgear-item:hover {
@@ -171,9 +176,9 @@ a {
 }
 
 .content {
-    .flex(3 0 60vh);
+    .flex(1 1 auto);
     > div.container-fluid {
-        padding: 30px 0 40px;
+        padding: 30px 0 70px;
         .display-flex();
         min-height: 100%;
         .flex(1 0 100%);
@@ -220,4 +225,20 @@ a {
 
 .text-center {
     text-align: center;
+}
+
+.lead {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+.img-inner {
+    .display-flex();
+    .flex(1 0 100%);
+    .justify-content(center);
+    img {
+        width: auto;
+        height: 100px;
+    }
 }

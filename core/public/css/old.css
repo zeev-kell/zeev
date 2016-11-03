@@ -1,0 +1,456 @@
+/* 
+	主轴方向 
+	row row-reverse column column-reverse
+ */
+/*
+  	换行 
+  	nowrap wrap wrap-reverse
+ */
+/* <flex-direction> || <flex-wrap> */
+/*
+ 	主轴对齐方式
+ 	flex-start flex-end cneter space-between space-around
+ */
+/*
+ 	交叉轴对齐方式
+ 	flex-start flex-end cneter baseline stretch
+ */
+/*
+	多主轴对齐方式
+ 	flex-start flex-end cneter space-between space-around
+ */
+/* === 子元素 === */
+/* 排序 */
+/* 放大 */
+/* 缩小 */
+/* 大小 */
+/* 
+	none || <flex-grow> || <flex-shrink> ? || <flex-basis>
+
+    默认值为0 1 auto
+    flex-grow,
+        属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+    flex-shrink
+        属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+    flex-basis
+        属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+        浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小
+*/
+/* 
+	单独对齐方式
+	auto flex-start flex-end cneter baseline stretch
+
+ */
+.display-flex-important {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: -moz-box !important;
+  display: box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+}
+html,
+body {
+  color: #333333;
+  font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.navbar {
+  border-radius: 0;
+  border-width: 0 0 1px;
+  border-color: #eeeeee;
+  border-style: solid;
+}
+.navbar .navbar-brand {
+  padding: 2px;
+  margin-left: 1rem;
+}
+.navbar .navbar-brand > img {
+  height: 100%;
+  border-radius: 50%;
+}
+.navbar-toggle {
+  background-color: #FFFFFF;
+  border: 1px solid #56a6d7;
+  border-radius: 0;
+}
+.navbar-toggle .icon-bar {
+  background-color: #56a6d7;
+}
+@media (max-width: 767px) {
+  .navbar-collapse {
+    border-top: 1px solid #eeeeee;
+  }
+}
+.navbar-nav.nav > li > a {
+  background: #FFFFFF;
+  color: #666666;
+  -moz-transition: all 0.2s ease-in 0s;
+  -o-transition: all 0.2s ease-in 0s;
+  -webkit-transition: all 0.2s ease-in 0s;
+  transition: all 0.2s ease-in 0s;
+}
+.navbar-nav.nav > li > a:hover {
+  background: #a8d1eb;
+  color: #FFFFFF;
+}
+.navbar-nav.nav > li.active > a {
+  background: #56a6d7;
+  color: #FFFFFF;
+}
+.container-fluid {
+  width: 100%;
+}
+@media (min-width: 1200px) {
+  .container-fluid {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+html {
+  height: 100%;
+}
+.theme-2 {
+  color: #ec6a13;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -wwbkit-box-derection: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1 0 100%;
+  -moz-box-flex: 1 0 100%;
+  -o-box-flex: 1 0 100%;
+  -webkit-flex: 1 0 100%;
+  -ms-flex: 1 0 100%;
+  flex: 1 0 100%;
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+  height: 100vh;
+}
+a:hover {
+  text-decoration: none;
+}
+.navbar {
+  display: table;
+  width: 100%;
+}
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-box-flex: 2 0 40vh;
+  -moz-box-flex: 2 0 40vh;
+  -o-box-flex: 2 0 40vh;
+  -webkit-flex: 2 0 40vh;
+  -ms-flex: 2 0 40vh;
+  flex: 2 0 40vh;
+}
+@media all and (max-width: 767px) {
+  .background {
+    background-attachment: inherit;
+  }
+}
+.bgi .background {
+  background-image: url("/public/img/bgi_bg.jpg");
+  background-position: 20% bottom;
+}
+.nifty .background {
+  background-image: url("/public/img/nifty_bg.jpg");
+  background-position: 58% center;
+}
+.nifty-wrap {
+  font-size: 4rem;
+  text-align: center;
+  color: rgba(180, 180, 180, 0.2);
+}
+.divingtime .background {
+  background-image: url("/public/img/divingtime_bg.jpg");
+}
+.mgear .background {
+  background-image: url("/public/img/mgear_bg.jpg");
+  background-position: 80% center;
+}
+.mgear-wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  height: 10rem;
+}
+.mgear-item {
+  -webkit-box-flex: 0 0 20%;
+  -moz-box-flex: 0 0 20%;
+  -o-box-flex: 0 0 20%;
+  -webkit-flex: 0 0 20%;
+  -ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+  -webkit-box-pack: center;
+  -webkit-box-justify-content: center;
+  -moz-box-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+.item-title {
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+  position: relative;
+  z-index: 2;
+}
+.item-title:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  left: 50%;
+  margin-left: 0;
+  height: 2px;
+  background: #56a6d7;
+  content: " ";
+  top: 150%;
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+}
+.item-content {
+  border: 1px solid #56a6d7;
+  height: 6rem;
+  text-align: center;
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-box-justify-content: center;
+  -moz-box-justify-content: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+}
+.item-content:after,
+.item-content:before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  opacity: 0;
+  left: auto;
+  margin-top: -5px;
+  margin-right: -5px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #56a6d7;
+  content: " ";
+}
+.item-content:before {
+  left: 0;
+  right: auto;
+  margin-left: -5px;
+}
+@-webkit-keyframes circle_before {
+  0%,
+  100% {
+    top: 50%;
+    left: 0;
+  }
+  12.5% {
+    top: 0;
+    left: 0;
+  }
+  37.5% {
+    top: 0;
+    left: 100%;
+  }
+  62.5% {
+    top: 100%;
+    left: 100%;
+  }
+  87.5% {
+    top: 100%;
+    left: 0;
+  }
+}
+@keyframes circle_before {
+  0%,
+  100% {
+    top: 50%;
+    left: 0;
+  }
+  12.5% {
+    top: 0;
+    left: 0;
+  }
+  37.5% {
+    top: 0;
+    left: 100%;
+  }
+  62.5% {
+    top: 100%;
+    left: 100%;
+  }
+  87.5% {
+    top: 100%;
+    left: 0;
+  }
+}
+@-webkit-keyframes circle_after {
+  0%,
+  100% {
+    top: 50%;
+    right: 0;
+  }
+  12.5% {
+    top: 100%;
+    right: 0;
+  }
+  37.5% {
+    top: 100%;
+    right: 100%;
+  }
+  62.5% {
+    top: 0;
+    right: 100%;
+  }
+  87.5% {
+    top: 0;
+    right: 0;
+  }
+}
+@keyframes circle_after {
+  0%,
+  100% {
+    top: 50%;
+    right: 0;
+  }
+  12.5% {
+    top: 100%;
+    right: 0;
+  }
+  37.5% {
+    top: 100%;
+    right: 100%;
+  }
+  62.5% {
+    top: 0;
+    right: 100%;
+  }
+  87.5% {
+    top: 0;
+    right: 0;
+  }
+}
+.mgear-item:hover .item-title:after {
+  width: 30%;
+  margin-left: -15%;
+}
+@media all and (min-width: 768px) {
+  .mgear_1 .item-content {
+    top: 1rem;
+  }
+  .mgear_2 .item-content {
+    top: 2rem;
+  }
+}
+@media all and (max-width: 767px) {
+  .mgear-wrap {
+    display: block;
+    height: auto;
+  }
+  .mgear-wrap .mgear-item {
+    width: 100%;
+    display: block;
+  }
+}
+.content {
+  -webkit-box-flex: 3 0 60vh;
+  -moz-box-flex: 3 0 60vh;
+  -o-box-flex: 3 0 60vh;
+  -webkit-flex: 3 0 60vh;
+  -ms-flex: 3 0 60vh;
+  flex: 3 0 60vh;
+}
+.content > div.container-fluid {
+  padding: 30px 0 40px;
+}
+.point {
+  padding-left: 120px;
+  position: relative;
+  min-height: 100px;
+  margin-bottom: 20px;
+  color: #808080;
+}
+.point > h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #737373;
+}
+.point .icon {
+  width: 80px;
+  position: absolute;
+  left: 30px;
+  top: 10px;
+}
+.title {
+  text-align: center;
+  font-weight: bold;
+  color: #666666;
+}
+.title:after {
+  display: block;
+  content: " ";
+  width: 15%;
+  bottom: 0;
+  height: 2px;
+  margin: 12px auto;
+  background: #ec6a13;
+}
+.title > a {
+  color: inherit;
+}
+.text-center {
+  text-align: center;
+}

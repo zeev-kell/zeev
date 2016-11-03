@@ -45,6 +45,10 @@
     max-width: 100%;
 }
 
+.flex-100{
+    .flex(1 0 100vh);
+}
+
 @row: 12;
 .flex-xs(@index) when (@index =< @row) {
     .flex-xs-@{index}{
