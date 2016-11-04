@@ -400,8 +400,13 @@ a:hover {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
 }
 .img-inner img {
-  width: auto;
-  height: 100px;
+  margin: 0 0.8rem;
 }
