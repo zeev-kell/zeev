@@ -1,8 +1,0 @@
-.display-flex-important {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: -moz-box !important;
-  display: box !important;
-  display: -webkit-flex !important;
-  display: flex !important;
-}

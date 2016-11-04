@@ -3,3 +3,4 @@ about/**/*.css
 admin/**/*.css
 essay/**/*.css
 index/**/*.css
+public/css/**/*.css
