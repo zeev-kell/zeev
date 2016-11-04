@@ -3,9 +3,13 @@
  */
 
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.Types.ObjectId;
 
 var CommentSchema = new mongoose.Schema({
-	connect : ""
+	connect : { type: String, required: true },
+	relation: ObjectId,
+	status  : { default: 0, type: Number }
 }, {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })

@@ -45,6 +45,7 @@ mongoose.model("Visitor", require("./visitor"));
 mongoose.model("Log", require("./log"));
 mongoose.model("Post", require("./post"));
 mongoose.model("Tag", require("./tag"));
+mongoose.model("Comment", require("./comment"));
 
 var _getModel = function (type) {
 	return mongoose.model(type);
