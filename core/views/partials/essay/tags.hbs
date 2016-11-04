@@ -2,7 +2,9 @@
     <h3 class="aside-title">标签</h3>
     <div class="aside-wrap tags-wrap">
     	{{#each tags}}
-			<a class="tag hvr-rectangle-out" href="/essay/tags/{{this._id}}">{{this.name}}</a>
+			<a class="tag h-btn btn-{{random 1 4}}" href="/essay/tags/{{this._id}}">
+                <span>{{this.name}}</span>
+            </a>
     	{{/each}}
     </div>
 </aside>

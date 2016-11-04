@@ -47,11 +47,25 @@ function getPostAggregate() {
 exports.renderPostInfo = function (req, res, next) {
 	var _id = req.params.id;
 	Post.getOneById(_id)
-		.then(function (docs) {
-			res.render("essay/post", {
-				title   : docs.title + " - 柯子源的个人网站",
-				post    : docs
-			});
+		.then(function (post) {
+			if (!post) {
+				return res.render("404", { msg: "不存在" });
+			}
+			return Promise.all([
+				Post.findOne({ "created_at": { "$gt": post.created_at } }, "_id title"),
+				Post.findOne({ "created_at": { "$lt": post.created_at } }, "_id title"),
+				getTagsList(),
+				getPostAggregate()
+			]).spread(function (prePost, nextPost, tags, archives) {
+				res.render("essay/post", {
+					title   : post.title + " - 柯子源的个人网站",
+					post    : post,
+					prePost : prePost,
+					nextPost: nextPost,
+					tags    : tags,
+					archives: archives
+				});
+			}).catch(errors.handleError(next))
 		}).catch(errors.handleError(next))
 };
 
@@ -60,15 +74,16 @@ exports.renderIndex = function (req, res, next) {
 		getPostList(),
 		getTagsList(),
 		getPostAggregate()
-	]).then(function (docs) {
-		res.render('essay/index', { title: '首页 - 柯子源的个人网站', posts: docs[0], tags: docs[1], archives: docs[2] });
+	]).spread(function (posts, tags, archives) {
+		res.render('essay/index', { title: '首页 - 柯子源的个人网站', posts: posts, tags: tags, archives: archives });
 	}).catch(errors.handleError(next))
 };
 
 exports.renderArchive = function (req, res, next) {
-	getPostAggregate().then(function (docs) {
-		res.render('essay/archive', { title: '归档 - 柯子源的个人网站', archives: docs });
-	}).catch(errors.handleError(next))
+	getPostAggregate()
+		.then(function (docs) {
+			res.render('essay/archive', { title: '归档 - 柯子源的个人网站', archives: docs });
+		}).catch(errors.handleError(next))
 }
 
 exports.renderTags = function (req, res, next) {
@@ -78,15 +93,16 @@ exports.renderTags = function (req, res, next) {
 		getPostList(),
 		getTagsList(),
 		getPostAggregate()
-	]).then(function (docs) {
-		res.render('essay/index', {
-			title   : "标签：" + docs[0].name + " - 柯子源的个人网站",
-			_header : "标签：" + docs[0].name,
-			posts   : docs[1],
-			tags    : docs[2],
-			archives: docs[3]
-		});
-	}).catch(errors.handleError(next))
+	]).spread(function (tag, posts, tags, archives) {
+			res.render('essay/index', {
+				title   : "标签：" + tag.name + " - 柯子源的个人网站",
+				_header : "标签：" + tag.name,
+				posts   : posts,
+				tags    : tags,
+				archives: archives
+			});
+		}
+	).catch(errors.handleError(next))
 }
 
 exports.renderArchiveByTime = function (req, res, next) {
@@ -96,18 +112,17 @@ exports.renderArchiveByTime = function (req, res, next) {
 		return next(new errors.BadRequestError("date is invalid ..."));
 	}
 	var _date = date.set('date', 1).format();
-	var date_ = date.set('date', date.daysInMonth()).format()
-
+	var date_ = date.set('date', date.daysInMonth()).format();
 	Promise.all([
 		getPostList({ created_at: { $gte: _date, $lt: date_ } }),
 		getTagsList(),
 		getPostAggregate()
-	]).then(function (docs) {
+	]).spread(function (posts, tags, archives) {
 		return res.render('essay/index', {
 			title   : '归档 - ' + date.format("YYYY-MM") + " - 柯子源的个人网站",
-			posts   : docs[0],
-			tags    : docs[1],
-			archives: docs[2],
+			posts   : posts,
+			tags    : tags,
+			archives: archives,
 			_header : "月份：" + date.format("YYYY-MM")
 		});
 	}).catch(errors.handleError(next))

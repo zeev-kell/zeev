@@ -49,6 +49,8 @@ exports.updatePost = function (req, res, next) {
 			meta_title      : req.body.meta_title,
 			meta_description: req.body.meta_description
 		}
+	}, {
+		returnNewDocument: true
 	})
 		.populate({ path: 'author', select: 'name' })
 		.populate({ path: 'tags', select: '_id name' })

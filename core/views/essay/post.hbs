@@ -1,19 +1,94 @@
 {{> essay/header }}
 {{> navigation }}
 <div class="container-fluid">
-    <div>
-        <article>
-            <header>
-                <h2 class="post-title"><a>{{post.title}}</a></h2>
-                {{> essay/post-dynamic post=post}}
-            </header>
-            <div class="post-content">
-                <p>{{{post.html}}}</p>
-            </div>
-            <footer></footer>
-        </article>
-        <div class="ds-thread" data-thread-key="{{post._id}}" data-title="{{post.title}}"></div>
+    <div class="post-side hidden-xs">
+        <div class="sidebar">
+            {{> essay/tags }}
+            {{> essay/archives }}
+            {{> essay/contents }}
+        </div>
+    </div>
+    <div class="posts">
+        <div class="posts-wrap">
+            <article style="margin-bottom: 0">
+                <header>
+                    <h2 class="post-title"><a>{{post.title}}</a></h2>
+                    {{> essay/post-dynamic post=post}}
+                </header>
+                <div class="post-content">
+                    <p>{{{post.html}}}</p>
+                </div>
+                <footer class="post-footer">
+                    <span class="author">
+                        作者：<a>{{post.author.name}}</a>
+                    </span>
+                    <span>发表于 {{{moment post.created_at format="LL"}}}，</span>
+                    <span>最后修改于 {{{moment post.updated_at format="LL"}}}</span>
+
+                    <p class="tags-wrap" style="margin: 5px 0">
+                        {{#each post.tags as |tag|}}
+                            <a class="tag h-btn btn-{{random 1 4}}" href="/essay/tags/{{tag._id}}">
+                                <span>{{tag.name}}</span>
+                            </a>
+                        {{/each}}
+                    </p>
+                </footer>
+            </article>
+            <footer class="post-nav">
+                {{#compare prePost nextPost operator="||"}}
+                    {{#if prePost}}
+                        <a class="pull-left" title="{{prePost.title}}" href="/essay/post/{{prePost._id}}">« {{prePost.title}}</a>
+                    {{/if}}
+                    {{#if nextPost}}
+                        <a class="pull-right" title="{{nextPost.title}}" href="/essay/post/{{nextPost._id}}">{{nextPost.title}} »</a>
+                    {{/if}}
+                {{else}}
+                    <p class="text-center">没有更多了</p>
+                {{/compare}}
+            </footer>
+        </div>
     </div>
 </div>
-{{> essay/footer }}
+{{#contentFor 'scripts'}}
+    <script type="text/javascript" src="/public/js/base.js"></script>
+    <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+    <script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $template = $(".contents-items .template").clone().removeClass("template");
+            $(".post-content h3").each(function (i) {
+                var _$template = $template.clone();
+                var _this = $(this);
+                if (!_this.attr("id")) {
+                    _this.attr("id", "contents_" + i);
+                }
+                _$template.find("a")
+                        .attr("scroll", "#" + _this.attr("id"))
+                        .html(_this.html())
+                        .on('click', function (e) {
+                            e.preventDefault();
+                            var id = $(this).attr('scroll');
+                            var goTo = $(id).offset().top - 30;
+                            $("html, body").animate({ scrollTop: goTo }, 500);
+                        });
+                $(".contents-items").append(_$template);
+            })
+            var contentsTop = $('.contents-aside').offset().top;
+            contentsSticky();
+            $(window).scroll(function () {
+                contentsSticky();
+            });
+            function contentsSticky() {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > contentsTop) {
+                    $('.contents-aside').css({ 'position': 'fixed', 'top': 0 }).addClass('fxd');
+                } else {
+                    $('.contents-aside').css({ 'position': 'relative' }).removeClass('fxd');
+                }
+            }
+        })
+    </script>
+{{/contentFor}}
+</body>
+
 

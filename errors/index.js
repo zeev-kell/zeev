@@ -126,10 +126,13 @@ _.each([
 module.exports = errors;
 module.exports.handleError = function (next) {
 	return function handleError(err) {
-		debug("handleError", err.errorType);
+		debug("handleError", err);
 		// If we've thrown an error message of type: 'NotFound' then we found no path match.
 		if (err.errorType === 'NotFoundError') {
 			return next();
+		}
+		if(err.name == ""){
+
 		}
 
 		return next(err);

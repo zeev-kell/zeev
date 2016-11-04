@@ -1,185 +1,184 @@
 .background-size(@option: cover) {
-    -webkit-background-size: @option;
-    background-size: @option;
+  -webkit-background-size : @option;
+  background-size         : @option;
 }
 
 .box-shadow(@option) {
-    -webkit-box-shadow: @option;
-    -moz-box-shadow: @option;
-    box-shadow: @option;
+  -webkit-box-shadow : @option;
+  -moz-box-shadow    : @option;
+  box-shadow         : @option;
 }
 
 .animation(@animation : bounceIn 1s linear 0s 1 normal running) {
-    -webkit-animation: @animation;
-    -moz-animation: @animation;
-    -ms-animation: @animation;
-    -o-animation: @animation;
-    animation: @animation;
+  -webkit-animation : @animation;
+  -moz-animation    : @animation;
+  -ms-animation     : @animation;
+  -o-animation      : @animation;
+  animation         : @animation;
 }
 
 .animation-name (@name) {
-    -webkit-animation-name: @name;
-    -moz-animation-name: @name;
-    -o-animation-name: @name;
-    animation-name: @name;
+  -webkit-animation-name : @name;
+  -moz-animation-name    : @name;
+  -o-animation-name      : @name;
+  animation-name         : @name;
 }
 
 .animation-delay(@second : 0s) {
-    -webkit-animation-delay: @second;
-    -moz-animation-delay: @second;
-    -o-animation-delay: @second;
-    animation-delay: @second;
+  -webkit-animation-delay : @second;
+  -moz-animation-delay    : @second;
+  -o-animation-delay      : @second;
+  animation-delay         : @second;
 }
 
 .animated-duration (@second: 1s) {
-    -webkit-animation-duration: @second;
-    -moz-animation-duration: @second;
-    -o-animation-duration: @second;
-    animation-duration: @second;
+  -webkit-animation-duration : @second;
+  -moz-animation-duration    : @second;
+  -o-animation-duration      : @second;
+  animation-duration         : @second;
 }
 
 .animation-timing-function(@timing-function: ease) {
-    -webkit-animation-timing-function: @timing-function;
-    -moz-animation-timing-function: @timing-function;
-    -o-animation-timing-function: @timing-function;
-    animation-timing-function: @timing-function;
+  -webkit-animation-timing-function : @timing-function;
+  -moz-animation-timing-function    : @timing-function;
+  -o-animation-timing-function      : @timing-function;
+  animation-timing-function         : @timing-function;
 }
 
 .animation-fill-mode(@fill : forwards) {
-    -webkit-animation-fill-mode: @fill;
-    -moz-animation-fill-mode: @fill;
-    -o-animation-fill-mode: @fill;
-    animation-fill-mode: @fill;
+  -webkit-animation-fill-mode : @fill;
+  -moz-animation-fill-mode    : @fill;
+  -o-animation-fill-mode      : @fill;
+  animation-fill-mode         : @fill;
 }
 
 .animation-iteration-count(@count : 1) {
-    -webkit-animation-iteration-count: @count;
-    -moz-animation-iteration-count: @count;
-    -o-animation-iteration-count: @count;
-    animation-iteration-count: @count;
+  -webkit-animation-iteration-count : @count;
+  -moz-animation-iteration-count    : @count;
+  -o-animation-iteration-count      : @count;
+  animation-iteration-count         : @count;
 }
 
 .transform(@option) {
-    -webkit-transform: @option;
-    -moz-transform: @option;
-    -o-transform: @option;
-    -ms-transform: @option;
-    transform: @option;
+  -webkit-transform : @option;
+  -moz-transform    : @option;
+  -o-transform      : @option;
+  -ms-transform     : @option;
+  transform         : @option;
 }
 
 .rotate(@ro :0deg) {
-    .transform(rotate(@ro));
+  .transform(rotate(@ro));
 }
 
 .skew(@roX :0deg, @roY :0deg) {
-    .transform(skew(@roX, @roY));
+  .transform(skew(@roX, @roY));
 }
 
 .scale(@x :1, @y :1) {
-    .transform(scale(@x, @y));
+  .transform(scale(@x, @y));
 }
 
 .scale3d(@x :1, @y :1, @z :1) {
-    .transform(scale3d(@x, @y, @z));
+  .transform(scale3d(@x, @y, @z));
 }
 
 .translate(@x :0px, @y :0px) {
-    .transform(translate(@x, @y));
+  .transform(translate(@x, @y));
 }
 
 .transform_all(@rotate :0deg, @scaleX :1, @scaleY :1, @skewX :0deg, @skewY :0deg, @translateX :0px, @translateY :0px) {
-    .transform(rotate(@rotate) scale(@scaleX, @scaleY) skew(@skewX, @skewY);
-    translate(@translateX, @translateY));
+  .transform(rotate(@rotate) scale(@scaleX, @scaleY) skew(@skewX, @skewY); translate(@translateX, @translateY));
 }
 
 .transform-origin(@option: center center) {
-    -webkit-transform-origin: @option;
-    -moz-transform-origin: @option;
-    -ms-transform-origin: @option;
-    -o-transform-origin: @option;
-    transform-origin: @option;
+  -webkit-transform-origin : @option;
+  -moz-transform-origin    : @option;
+  -ms-transform-origin     : @option;
+  -o-transform-origin      : @option;
+  transform-origin         : @option;
 }
 
 .transition-timing-function(@fun) {
-    -webkit-transition-timing-function: @fun;
-    -moz-transition-timing-function: @fun;
-    -ms-transition-timing-function: @fun;
-    -o-transition-timing-function: @fun;
-    transition-timing-function: @fun;
+  -webkit-transition-timing-function : @fun;
+  -moz-transition-timing-function    : @fun;
+  -ms-transition-timing-function     : @fun;
+  -o-transition-timing-function      : @fun;
+  transition-timing-function         : @fun;
 }
 
 .transition(@t :all 0.5s ease-in 0s) {
-    -moz-transition: @t;
-    -o-transition: @t;
-    -webkit-transition: @t;
-    transition: @t;
+  -moz-transition    : @t;
+  -o-transition      : @t;
+  -webkit-transition : @t;
+  transition         : @t;
 }
 
 .display-flex() {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+  display : -webkit-box;
+  display : -moz-box;
+  display : box;
+  display : -ms-flexbox;
+  display : -webkit-flex;
+  display : flex;
 }
 
 .display-flex-important {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: -moz-box !important;
-    display: box !important;
-    display: -webkit-flex !important;
-    display: flex !important;
+  display : -webkit-box !important;
+  display : -ms-flexbox !important;
+  display : -moz-box !important;
+  display : box !important;
+  display : -webkit-flex !important;
+  display : flex !important;
 }
 
 .flex(@option: 1 1 100%) {
-    -webkit-box-flex: @option;
-    -moz-box-flex: @option;
-    -o-box-flex: @option;
-    -webkit-flex: @option;
-    -ms-flex: @option;
-    flex: @option;
+  -webkit-box-flex : @option;
+  -moz-box-flex    : @option;
+  -o-box-flex      : @option;
+  -webkit-flex     : @option;
+  -ms-flex         : @option;
+  flex             : @option;
 }
 
 .justify-content(@option: flex-start) {
-    -webkit-box-justify-content: @option;
-    -moz-box-justify-content: @option;
-    -webkit-justify-content: @option;
-    -ms-justify-content: @option;
-    justify-content: @option;
+  -webkit-box-justify-content : @option;
+  -moz-box-justify-content    : @option;
+  -webkit-justify-content     : @option;
+  -ms-justify-content         : @option;
+  justify-content             : @option;
 }
 
 .align-items(@option: center) {
-    -webkit-box-align: @option;
-    -webkit-align-items: @option;
-    -moz-align-items: @option;
-    -ms-align-items: @option;
-    -o-align-items: @option;
-    align-items: @option;
+  -webkit-box-align   : @option;
+  -webkit-align-items : @option;
+  -moz-align-items    : @option;
+  -ms-align-items     : @option;
+  -o-align-items      : @option;
+  align-items         : @option;
 }
 
 .flex-direction(@option : column) {
-    -webkit-flex-direction: @option;
-    -moz-flex-direction: @option;
-    -ms-flex-direction: @option;
-    -o-flex-direction: @option;
-    flex-direction: @option;
+  -webkit-flex-direction : @option;
+  -moz-flex-direction    : @option;
+  -ms-flex-direction     : @option;
+  -o-flex-direction      : @option;
+  flex-direction         : @option;
 }
 
 .flex-direction-column() {
-    -wwbkit-box-derection: normal;
-    -webkit-box-orient: vertical;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+  -wwbkit-box-derection  : normal;
+  -webkit-box-orient     : vertical;
+  -webkit-flex-direction : column;
+  -moz-flex-direction    : column;
+  -ms-flex-direction     : column;
+  flex-direction         : column;
 }
 
 .flex-wrap(@option: row nowrap) {
-    -webkit-flex-wrap: @option;
-    -moz-flex-wrap: @option;
-    -o-flex-wrap: @option;
-    -ms-flex-wrap: @option;
-    flex-wrap: @option;
+  -webkit-flex-wrap : @option;
+  -moz-flex-wrap    : @option;
+  -o-flex-wrap      : @option;
+  -ms-flex-wrap     : @option;
+  flex-wrap         : @option;
 }
