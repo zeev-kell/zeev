@@ -3,7 +3,6 @@ var router = express.Router();
 var essay = require('./essay');
 var admin = require('./admin');
 var userCtrl = require('../controller/user');
-var postCtrl = require('../controller/post');
 var tagCtrl = require('../controller/tag');
 var utils = require("../utils");
 
@@ -39,20 +38,12 @@ router.get('/product', function (req, res, next) {
 
 router.post('/signin/', userCtrl.signin);
 
-router.get('/post', postCtrl.getPosts);
-
-router.get('/post/:id', postCtrl.getPostInfo);
-
-router.put('/post/:id', postCtrl.updatePost);
-
-router.delete('/post/:id', postCtrl.removePost);
-
-router.post('/post', postCtrl.addPost);
-
 router.get('/tag', tagCtrl.getTags);
 
 router.delete('/tag/:id', tagCtrl.removeTag);
 
+require("./post")(router);
+require("./comment")(router);
 
 module.exports = function (app) {
 	app.use(function (req, res, next) {

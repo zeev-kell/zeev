@@ -20,7 +20,7 @@ exports.getPosts = function (req, res, next) {
 };
 exports.getPostInfo = function (req, res, next) {
 	var id = req.params.id;
-	Post.getOneById(id)
+	Post.findById(id)
 		.then(function (post) {
 			return res.status(200).send(post);
 		}).catch(errors.handleError(next))

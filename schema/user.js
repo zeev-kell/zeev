@@ -39,11 +39,6 @@ UserSchema.statics = {
 			.find({})
 			.sort({ 'meta.updateAt': -1 })
 			.exec(cb)
-	},
-	findById: function (id, cb) {
-		return this
-			.findOne({ _id: id })
-			.exec(cb)
 	}
 }
 
