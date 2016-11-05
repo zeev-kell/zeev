@@ -51,7 +51,7 @@ function getPostAggregate() {
 exports.renderPostInfo = function (req, res, next) {
     var _id = req.params.id;
     return Post
-        .findOneAndUpdate({_id: _id}, {
+        .findOneAndUpdateById({_id: _id}, {
             $inc: {review: 1}
         })
         .then(function (post) {
@@ -64,7 +64,7 @@ exports.renderPostInfo = function (req, res, next) {
                 getTagsList(),
                 getPostAggregate()
             ]).spread(function (prePost, nextPost, tags, archives) {
-                res.render("essay/post", {
+                return res.render("essay/post", {
                     title   : post.title + " - 柯子源的个人网站",
                     post    : post,
                     prePost : prePost,
@@ -73,7 +73,7 @@ exports.renderPostInfo = function (req, res, next) {
                     archives: archives,
                     comments: post.comments
                 });
-            }).catch(errors.handleError(next))
+            })
         }).catch(errors.handleError(next))
 };
 

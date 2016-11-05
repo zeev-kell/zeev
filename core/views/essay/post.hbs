@@ -23,12 +23,12 @@
                         作者：<a>{{post.author.name}}</a>
                     </span>
                     <span>发表于 {{{moment post.created_at format="LL"}}}，</span>
-                    <span>最后修改于 {{{moment post.updated_at format="LL"}}}</span>
+                    <span>最后修改于 {{{moment post.published_at fromNow=true}}}</span>
 
                     <p class="tags-wrap" style="margin: 5px 0">
-                        {{#each post.tags as |tag|}}
-                            <a class="tag h-btn btn-{{random 1 4}}" href="/essay/tags/{{tag._id}}">
-                                <span>{{tag.name}}</span>
+                        {{#each post.tags}}
+                            <a class="tag h-btn btn-{{random 1 4}}" href="/essay/tags/{{_id}}">
+                                <span>{{name}}</span>
                             </a>
                         {{/each}}
                     </p>
@@ -37,16 +37,18 @@
             <footer class="post-nav">
                 {{#compare prePost nextPost operator="||"}}
                     {{#if prePost}}
-                        <a class="pull-left" title="{{prePost.title}}" href="/essay/post/{{prePost._id}}">« {{prePost.title}}</a>
+                        <a class="pull-left" title="{{prePost.title}}"
+                           href="/essay/post/{{prePost._id}}">« {{prePost.title}}</a>
                     {{/if}}
                     {{#if nextPost}}
-                        <a class="pull-right" title="{{nextPost.title}}" href="/essay/post/{{nextPost._id}}">{{nextPost.title}} »</a>
+                        <a class="pull-right" title="{{nextPost.title}}"
+                           href="/essay/post/{{nextPost._id}}">{{nextPost.title}} »</a>
                     {{/if}}
                 {{else}}
                     <p class="text-center">没有更多了</p>
                 {{/compare}}
             </footer>
-            {{> essay/comment }}
+            {{> essay/comments }}
         </div>
     </div>
 </div>

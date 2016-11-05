@@ -45,6 +45,7 @@ exports.updatePost = function (req, res, next) {
 			image           : req.body.image,
 			tags            : tags,
 			author          : req.session.user,
+			published_at    : new Date(),
 			updated_at      : new Date(),
 			meta_title      : req.body.meta_title,
 			meta_description: req.body.meta_description

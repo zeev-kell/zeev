@@ -26,7 +26,7 @@ var _ = require('lodash'),
  */
 errors = {
 
-	throwError: function (err) {
+	throwError      : function (err) {
 		if (!err) {
 			err = new Error('An error occurred');
 		}
@@ -37,8 +37,28 @@ errors = {
 
 		throw err;
 	},
+	handleAPIError  : function errorHandler(err, req, res, next) {
+		var httpErrors = this.formatHttpErrors(err);
+		res.status(httpErrors.statusCode).json({ errors: httpErrors.errors });
+	},
+	formatHttpErrors: function formatHttpErrors(error) {
+		var statusCode = 500,
+			errors = [];
+		if (!_.isArray(error)) {
+			error = [].concat(error);
+		}
+		_.each(error, function each(errorItem) {
+			var errorContent = {};
+			statusCode = errorItem.code || 500;
+			errorContent.message = _.isString(errorItem) ? errorItem :
+				(_.isObject(errorItem) ? errorItem.message : 'Unknown API Error');
+			errorContent.errorType = errorItem.errorType || 'InternalServerError';
+			errors.push(errorContent);
+		});
 
-	renderErrorPage: function (code, err, req, res, next) {
+		return { errors: errors, statusCode: statusCode };
+	},
+	renderErrorPage : function (code, err, req, res, next) {
 		res.status(code || 500);
 		res.render('error', {
 			message: err,
@@ -116,6 +136,8 @@ errors = {
 // using Function#bind for expressjs
 _.each([
 	'renderErrorPage',
+	'handleAPIError',
+	'formatHttpErrors',
 	'error404',
 	'error500'
 ], function (funcName) {
@@ -131,7 +153,7 @@ module.exports.handleError = function (next) {
 		if (err.errorType === 'NotFoundError') {
 			return next(err);
 		}
-		if(err.name == ""){
+		if (err.name == "") {
 
 		}
 

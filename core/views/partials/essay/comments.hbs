@@ -1,0 +1,53 @@
+<div class="comments-container">
+    {{debug comments}}
+    <section id="comments">
+        <h1 class="comments-title">{{comments.length}} Comments</h1>
+        <ul class="comments-wrap list-unstyled">
+            {{#each comments}}
+                <li id="comments_{{_id}}" class="comments-list clearfix">
+                    <div class="portrait">
+                        <img class="portrait-img" src="/public/img/profile-picture.jpg">
+                    </div>
+                    <div class="comment-body">
+                        <header>
+                            <span class="user">zeev</span>
+                            <span class="theme-2">•</span>
+                            <span>{{moment created_at fromNow=true}}</span>
+                        </header>
+                        <div>
+                            <p>{{content}}</p>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+    <h4>发表评论</h4>
+
+    <p>说明：个人主页或者微博地址会被公开链接，但Email 地址不会被公开显示。</p>
+
+    <form action="/comment/{{post._id}}" method="post" role="form">
+        <div class="form-group clearfix">
+            <div class="portrait">
+                <img src="/public/img/profile-picture.jpg" class="portrait-img">
+            </div>
+            <div class="pull-left" style="position: relative;top: 7px;">
+                <input type="text" placeholder="称呼" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea name="content" required class="form-control" placeholder="点这里输入留言内容"
+                      style="resize: vertical"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="email" required placeholder="Email 地址" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="url" placeholder="个人主页或者微博地址" class="form-control">
+        </div>
+        <div class="form-group text-right">
+            评论需要等审核通过才会显示
+            <button type="submit" class="btn btn-t-2">提交</button>
+        </div>
+    </form>
+</div>

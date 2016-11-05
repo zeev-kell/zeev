@@ -4,9 +4,12 @@
 var mongoose = require('mongoose');
 
 var VisitorSchema = new mongoose.Schema({
-    ip: { type: String, required: true }
+	email: { type: String, required: true, unique: true },
+	ip   : { type: String, required: true },
+	name : { type: String, required: true, max: 10 },
+	url  : { type: String }
 }, {
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
+	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 
 module.exports = VisitorSchema;

@@ -12,7 +12,11 @@ coreHelpers.random = require('./random');
 module.exports.registerHelpers = function (hbs) {
 
 	hbs.registerHelper('moment', function (context, options) {
+		options.hash = options.hash || {};
 		var format = options.hash && options.hash.format || 'lll';
+		if(options.hash.fromNow){
+			return moment(context).fromNow();
+		}
 		return moment(context).format(format);
 	});
 

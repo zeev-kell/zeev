@@ -4,12 +4,14 @@
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = Schema.Types.ObjectId;
 
 var CommentSchema = new mongoose.Schema({
-    content: {type: String, required: true},
-    status : {default: 0, type: Number}
+	content: { type: String, required: true },
+	visitor: { type: ObjectId, ref: "Visitor" },
+	status : { default: 0, type: Number }
 }, {
-    timestamps: {createdAt: 'created_at', updatedAt: 'updated_at'}
+	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 
 module.exports = CommentSchema;
