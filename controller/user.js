@@ -13,7 +13,7 @@ exports.adminRequired = function (req, res, next) {
 	if (!session.user) {
 		debug("no signin user", req.method);
 		if (method === 'POST' || method === 'PUT' || method === 'DELETE') {
-			return res.status(403).send({ msg: '用户权限不够' });
+			return res.status(403).send({ msg: '未登录...' });
 		}
 		return res.redirect(303, '/signin');
 	}

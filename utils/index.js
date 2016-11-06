@@ -4,6 +4,7 @@
 
 var errors = require("../errors");
 var path = require('path');
+var _ = require('lodash');
 var isProduction, _dist, isDevelopment;
 
 if (process.env.NODE_ENV === "development") {
@@ -18,8 +19,8 @@ if (process.env.NODE_ENV === "development") {
 
 //exports.ejs = require("./ejs");
 
-exports.handleError = function(res, fun) {
-    return function(err, doc) {
+exports.handleError = function (res, fun) {
+    return function (err, doc) {
         if (err) {
             res.sendStatus(500);
         } else {
@@ -28,9 +29,9 @@ exports.handleError = function(res, fun) {
     }
 }
 
-exports.filterPost = function(req, posts) {
+exports.filterPost = function (req, posts) {
     var reg = /(<[/]+(.*?)>)|(<(.*?)>)|(\n)/g;
-    posts.map(function(post) {
+    posts.map(function (post) {
         if (typeof req.query.full === "undefined") {
             var index; // 获取 200 长度 内的数据
             if (post.html.length > 100) {
@@ -52,10 +53,20 @@ exports._dist = _dist;
 exports.isProduction = isProduction;
 exports.isDevelopment = isDevelopment;
 
-exports.env_path = function(_path) {
+exports.env_path = function (_path) {
     return path.join(__dirname, "../", _dist, _path);
 }
 
-exports._path = function(_path) {
+exports._path = function (_path) {
     return path.join(__dirname, "../", _path);
+}
+
+exports.validate = function (docName, extras) {
+    return function daValidate() {
+        var object, option, permittedOptions;
+        if (arguments.length === 2) {
+            object = arguments[0];
+            option = _.clone(arguments[1] || {});
+        }
+    }
 }
