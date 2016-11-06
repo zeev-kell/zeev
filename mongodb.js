@@ -37,8 +37,8 @@ module.exports = function () {
 	resave: 即使 session 没有被修改，也保存 session 值，默认为 true。
  */
 module.exports.session = session({
-	secret           : 'zeev',
-	key              : "zeev",
+	secret           : 'token',
+	key              : "token",
 	store            : new MongoStore({
 		url       : dbConfig.mongodb,
 		collection: 'sessions'
