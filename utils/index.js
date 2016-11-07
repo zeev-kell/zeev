@@ -60,13 +60,3 @@ exports.env_path = function (_path) {
 exports._path = function (_path) {
     return path.join(__dirname, "../", _path);
 }
-
-exports.validate = function (docName, extras) {
-    return function daValidate() {
-        var object, option, permittedOptions;
-        if (arguments.length === 2) {
-            object = arguments[0];
-            option = _.clone(arguments[1] || {});
-        }
-    }
-}
