@@ -26,7 +26,7 @@ exports.renderIndex = function(req, res, next) {
 
 exports.renderPostInfo = function(req, res, next) {
     var _id = req.params.id;
-    post.findOneAndReview(_id)
+    post.findOneAndReview(_id,req.cookies._v)
         .then(function(_post) {
             return Promise.all([
                 Post.findOne({ "created_at": { "$gt": _post.created_at } }, "_id title"),

@@ -1,5 +1,4 @@
 <div class="comments-container">
-    {{debug comments}}
     <section id="comments">
         <h1 class="comments-title">{{comments.length}} Comments</h1>
         <ul class="comments-wrap list-unstyled">
@@ -10,9 +9,19 @@
                     </div>
                     <div class="comment-body">
                         <header>
-                            <span class="user">zeev</span>
+                            <span class="user">
+                                {{#if visitor.url}}
+                                    <a href="{{visitor.url}}">{{visitor.name}}</a>
+                                {{else}}
+                                    <a>{{visitor.name}}</a>
+                                {{/if}}
+                            </span>
                             <span class="theme-2">•</span>
-                            <span>{{moment created_at fromNow=true}}</span>
+                            <span>{{{moment created_at fromNow=true}}}</span>
+                            {{#compare status 0}}
+                                <span class="theme-2">•</span>
+                                <span class="text-danger">未审核</span>
+                            {{/compare}}
                         </header>
                         <div>
                             <p>{{content}}</p>

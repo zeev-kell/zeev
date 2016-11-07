@@ -22,7 +22,7 @@
                     <span class="author">
                         作者：<a>{{post.author.name}}</a>
                     </span>
-                    <span>发表于 {{{moment post.created_at format="LL"}}}，</span>
+                    <span>发表于 {{{moment post.created_at fromNow=true}}}，</span>
                     <span>最后修改于 {{{moment post.published_at fromNow=true}}}</span>
 
                     <p class="tags-wrap" style="margin: 5px 0">
@@ -34,6 +34,7 @@
                     </p>
                 </footer>
             </article>
+            {{debug post}}
             <footer class="post-nav">
                 {{#compare prePost nextPost operator="||"}}
                     {{#if prePost}}

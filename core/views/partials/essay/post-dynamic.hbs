@@ -3,7 +3,7 @@
         {{#if post.author}}
             <li class="author"><a>{{post.author.name}}</a></li>
         {{/if}}
-        <li>{{{moment post.created_at}}}</li>
+        <li>{{{moment post.created_at fromNow=true}}}</li>
         <li><span>标签：</span>
             <div class="btn-group">
                 {{#if post.tags}}
@@ -32,7 +32,7 @@
                 {{/compare}}
             </div>
         </li>
-        <li class="hidden-xs">共 <strong>0</strong> 人围观</li>
+        <li class="hidden-xs">围观<strong>{{post.comments.length}}</strong>次</li>
         <li class="hidden-xs"><strong>0</strong> 个不明物体</li>
     </ul>
 </div>

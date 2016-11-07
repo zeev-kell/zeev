@@ -9,6 +9,10 @@ var ObjectId = Schema.Types.ObjectId;
 var CommentSchema = new mongoose.Schema({
 	content: { type: String, required: true },
 	visitor: { type: ObjectId, ref: "Visitor" },
+	/**
+	 *     0  Î´ÉóºË
+	 *    0X  Î´²é¿´
+	 */
 	status : { default: 0, type: Number }
 }, {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
