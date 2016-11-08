@@ -35,7 +35,9 @@
     <link rel='stylesheet' href='/public/css/flexbox.css'/>
     <!-- endbuild -->
 
-    {{> analytics }}
+    {{#env product=true}}
+        {{> analytics }}
+    {{/env}}
 
 </head>
 

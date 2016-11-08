@@ -9,46 +9,6 @@ var Visitor = global.dbHelper.getModel("Visitor"),
 	errors  = require("../errors");
 var essay   = require("./essay");
 
-exports.checkVisitor = function (req, res, next) {
-	if (1) {
-
-	}
-	if (!req.cookies._v) {
-		Visitor
-			.findOne({ email: req.body.email })
-			.then(function (visitor) {
-				console.log("visitor", visitor);
-				if (visitor) {
-					res.cookie('_v', visitor._id);
-					res.cookie('email', visitor.email);
-					next();
-				} else {
-					var _v       = new Visitor({
-						email: req.body.email,
-						name : req.body.name,
-						url  : req.body.url,
-						ip   : req.ip
-					});
-					var validate = _v.validateSync();
-					if (validate && validate.errors) {
-						errors.handleAPIError(new errors.ValidationError(), req, res, next);
-					}
-					_v.save()
-						.then(function (_visitor) {
-							console.log("_visitor", _visitor);
-							if (_visitor) {
-								res.cookie('_v', _visitor._id);
-								res.cookie('email', _visitor.email);
-								next();
-							} else {
-								errors.handleAPIError(new errors.ValidationError(), req, res, next);
-							}
-						})
-				}
-			})
-	}
-}
-
 
 exports.addComment = function (req, res, next) {
 	var _id      = req.params.id;

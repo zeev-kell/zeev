@@ -19,7 +19,7 @@ exports.confirm = function(req, res, next) {
     /**
      * 存在记录 next
      */
-    if (hasRecord(req)) {
+    if (req.body.isUseRecord == "on" && hasRecord(req)) {
         req.body._v = req.cookies._v;
         return next();
     }
@@ -34,22 +34,24 @@ exports.confirm = function(req, res, next) {
     /**
      * 查询是否有记录
      */
-    visitor.findByEmail(req.body.email)
+    return visitor.findByEmail(req.body.email)
         .then(function(v) {
             if (v) {
                 res.cookie('_v', v._id);
                 res.cookie('email', v.email);
+                res.cookie('name', v.name);
                 req.body._v = req.cookies._v;
-                return next();
+                next();
             } else {
                 return visitor.create({
                     email: req.body.email,
                     name: req.body.name,
                     url: req.body.url,
                     ip: req.ip
-                }).tap(function(_v) {
+                }).then(function(_v) {
                     res.cookie('_v', _v._id);
                     res.cookie('email', _v.email);
+                    res.cookie('name', _v.name);
                     req.body._v = req.cookies._v;
                     next();
                 })
