@@ -114,27 +114,7 @@
   line-height : 1.8;
 }
 
-.tags-wrap .tag {
-  background-color : #EEEEEE;
-  border           : 1px solid #e5e5e5;
-  color            : #666666;
-  display          : inline-block;
-  font-size        : 13px;
-  margin           : 0 3px 6px 0;
-  padding          : 2px 8px;
-  position         : relative;
-  .transition(all 200ms ease 0s);
-  text-decoration  : none;
-  &:hover {
-    //background-color : #777777;
-    color : #FFFFFF;
-    //border           : 1px solid #666666;
-  }
-  span {
-    position : relative;
-    z-index  : 10;
-  }
-}
+@import "../../public/less/share";
 
 .post-dynamic > ul {
   color     : #aaa;
@@ -301,5 +281,3 @@ a:hover {
     color : @t3-c;
   }
 }
-
-@import "comments";

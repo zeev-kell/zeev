@@ -4,8 +4,8 @@
         <ul class="comments-wrap list-unstyled">
             {{#each comments}}
                 <li id="comments_{{_id}}" class="comments-list clearfix">
-                    <div class="portrait">
-                        <img class="portrait-img" src="/public/img/profile-picture.jpg">
+                    <div class="comment-portrait">
+                        <img class="portrait-img" src="{{visitor.image}}">
                     </div>
                     <div class="comment-body">
                         <header>
@@ -18,7 +18,7 @@
                             </span>
                             <span class="theme-2">•</span>
                             <span>{{{moment created_at fromNow=true}}}</span>
-                            {{#compare status 0}}
+                            {{#compare status 1 operator="<="}}
                                 <span class="theme-2">•</span>
                                 <span class="text-danger">未审核</span>
                             {{/compare}}
@@ -37,18 +37,20 @@
 
     <form action="/comment/{{post._id}}" method="post" role="form">
         <div class="form-group clearfix">
-            <div class="portrait">
-                <img src="/public/img/profile-picture.jpg" class="portrait-img">
+            <div class="comment-portrait">
+                <img src="{{cookies.image}}" class="portrait-img">
+                <input type="hidden" name="image" value="{{cookies.image}}">
             </div>
             <div class="pull-left" style="position: relative;top: 7px;">
                 <input type="text" name="name" placeholder="称呼" class="form-control" value="{{cookies.name}}">
             </div>
             {{#if cookies.email}}
-            <div class="pull-right" style="position: relative;top: 7px;">
-                <div class="checkbox text-primary">
-                    <input type="checkbox" name="isUseRecord" checked onchange="changeRecord()"><strong>使用记录中的Email</strong>
+                <div class="pull-right" style="position: relative;top: 7px;">
+                    <div class="checkbox text-primary">
+                        <input type="checkbox" name="isUseRecord" checked
+                               onchange="changeRecord()"><strong>使用记录中的Email</strong>
+                    </div>
                 </div>
-            </div>
             {{/if}}
         </div>
         <div class="form-group">
@@ -56,7 +58,8 @@
                       style="resize: vertical"></textarea>
         </div>
         <div class="form-group">
-            <input type="email" name="email" required placeholder="Email 地址" class="form-control"  value="{{cookies.email}}">
+            <input type="email" name="email" required placeholder="Email 地址" class="form-control"
+                   value="{{cookies.email}}">
         </div>
         <div class="form-group">
             <input type="url" name="url" placeholder="个人主页或者微博地址" class="form-control">
@@ -68,7 +71,7 @@
     </form>
 </div>
 <script type="text/javascript">
-    function changeRecord(){
+    function changeRecord() {
         console.log(this);
     }
 

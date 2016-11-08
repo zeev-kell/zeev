@@ -2,12 +2,18 @@
  * Created by Administrator on 2016/11/4 0004.
  */
 
-var postCtrl = require('../controller/post');
+var express = require('express'),
+	router  = express.Router();
 
-module.exports = function(router){
-    router.get('/post', postCtrl.getPosts);
-    router.get('/post/:id', postCtrl.getPostInfo);
-    router.put('/post/:id', postCtrl.updatePost);
-    router.delete('/post/:id', postCtrl.removePost);
-    router.post('/post', postCtrl.addPost);
-}
+var postCtrl = require('../controller/post'),
+	api      = require('../api');
+
+
+router.get('/', postCtrl.getPosts);
+router.post('/', postCtrl.addPost);
+router.put('/:id', postCtrl.updatePost);
+router.delete('/:id', postCtrl.removePost);
+router.get('/:id', postCtrl.getPostInfo);
+
+
+module.exports = router;

@@ -14,10 +14,6 @@ exports.authenticateClient = function (req, res, next) {
         }
         return res.redirect(303, '/signin');
     }
-    debug("signin user : ", session.user.name);
+    debug("signin user : ", session.user.name ||　session.user　|| session);
     next();
-}
-
-function addHeaders(method, req, res, response) {
-    return;
 }

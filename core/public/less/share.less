@@ -1,0 +1,56 @@
+@import "common";
+
+.tags-wrap .tag {
+  background-color : #EEEEEE;
+  border           : 1px solid #E5E5E5;
+  color            : #666666;
+  display          : inline-block;
+  font-size        : 13px;
+  margin           : 0 3px 6px 0;
+  padding          : 2px 8px;
+  position         : relative;
+  .transition(all 200ms ease 0s);
+  text-decoration  : none;
+  &:hover {
+    //background-color : #777777;
+    color : #FFFFFF;
+    //border           : 1px solid #666666;
+  }
+  span {
+    position : relative;
+    z-index  : 10;
+  }
+}
+
+#comments h1.comments-title {
+  font-size     : 1.8rem;
+  font-weight   : 300;
+  line-height   : 3rem;
+  margin-bottom : 10px;
+  border-bottom : 1px solid #eee;
+}
+
+.comments-list {
+  margin-bottom : 1.8rem;
+  position      : relative;
+  .transition(all .2s ease-in-out);
+
+}
+
+.comment-portrait {
+  float        : left;
+  margin-right : 20px;
+
+  .portrait-img {
+    width  : 48px;
+    height : 48px;
+  }
+}
+
+.comment-body {
+  float : left;
+}
+
+.comment-btn {
+  margin-top : 5px;
+}

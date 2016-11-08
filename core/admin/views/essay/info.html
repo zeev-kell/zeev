@@ -1,24 +1,55 @@
 <section class="row">
     <div class="col-xs-12">
         <article class="hpanel blog-article-box">
-            <div ng-if="post.image" class="bg-img-cover" ng-style={ 'background-image': 'url('+post.image+ ')'} style="height: 330px;"></div>
+            <div ng-if="post.image" class="bg-img-cover" ng-style={'background-image':'url('+post.image+')'}
+                 style="height: 330px;"></div>
             <div class="panel-body">
                 <div class="art-header">
                     <h1 class="" ng-bind="::post.title"></h1>
+
                     <div class="info">By {{::post.author.name}} on {{::post.created_at | date }} with <a>
-                        {{::post.comments.length}}  Commnets</a></div>
+                        {{::post.comments.length}} Commnets</a></div>
                     <div class="line"></div>
                 </div>
                 <div class="post-content" ng-bind-html="::post.html">
                 </div>
-                <div class="tag">
-                    <span>Tag : </span>
-                    <ul>
-                        <li><a href="#">Photoshop</a></li>
-                        <li><a href="#">Photoshop</a></li>
-                        <li><a href="#">Photoshop</a></li>
-                    </ul>
+                <div class="tags-wrap">
+                    <a ng-repeat="tag in post.tags" class="tag h-btn btn-1" ng-href="/essay/tags/{{tag._id}}">
+                        <span>{{tag.name}}</span>
+                    </a>
                 </div>
+                <section id="comments">
+                    <h1 class="comments-title">{{post.comments.length}} Comments</h1>
+                    <ul class="comments-wrap list-unstyled">
+                        <li class="comments-list clearfix" ng-repeat="comment in post.comments">
+                            <div class="comment-portrait">
+                                <img class="portrait-img" src="/public/img/profile-picture.jpg">
+                            </div>
+                            <div class="comment-body">
+                                <header>
+                                    <span class="user"><a ng-bind="::comment.visitor.name"></a> </span>
+                                    <span class="theme-2">•</span>
+                                    <span ng-bind="::comment.created_at | moment : 'fromNow'"></span>
+                                    <span class="theme-2">•</span>
+                                    <span class="text-primary" ng-if="comment.status == 0">未查看</span>
+                                    <span class="text-muted" ng-if="comment.status == 1">未审核</span>
+                                    <span class="text-success" ng-if="comment.status == 3">审核通过</span>
+                                </header>
+                                <div>
+                                    <p ng-bind="::comment.content"></p>
+                                </div>
+                            </div>
+                            <div class="comment-btn pull-right">
+                                <button class="btn btn-default" type="button" ng-if="comment.status == 0"
+                                        v-busy-click="eICtrl.updateComment(comment,1)">标记查看
+                                </button>
+                                <button class="btn btn-success" type="button" ng-if="comment.status < 3"
+                                        v-busy-click="eICtrl.updateComment(comment,3)">通过
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </article>
     </div>

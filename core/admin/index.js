@@ -18,6 +18,7 @@
 		"app.service",
 		"app.directive",
 		"app.controller",
-		"app.component"
+		"app.component",
+		"app.filter"
 	])
 })(angular);

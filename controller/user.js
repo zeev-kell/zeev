@@ -7,20 +7,6 @@ var utils = require("../utils");
 var errors = require("../errors");
 var User = global.dbHelper.getModel("User");
 
-exports.adminRequired = function (req, res, next) {
-	var session = req.session;
-	var method = req.method;
-	if (!session.user) {
-		debug("no signin user", req.method);
-		if (method === 'POST' || method === 'PUT' || method === 'DELETE') {
-			return res.status(403).send({ msg: '未登录...' });
-		}
-		return res.redirect(303, '/signin');
-	}
-	debug("signin user : ", session.user.name);
-	next();
-}
-
 exports.signin = function (req, res, next) {
 	var _user = {
 		name    : req.body.name,

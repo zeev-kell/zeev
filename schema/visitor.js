@@ -12,7 +12,8 @@ VisitorSchema = new mongoose.Schema({
 	},
 	ip   : { type: String, required: true },
 	name : { type: String, required: true, max: 10 },
-	url  : { type: String, required: false }
+	url  : { type: String, required: false },
+	image: { type: String, required: false }
 }, {
 	timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })

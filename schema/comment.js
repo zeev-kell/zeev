@@ -10,8 +10,8 @@ var CommentSchema = new mongoose.Schema({
 	content: { type: String, required: true },
 	visitor: { type: ObjectId, ref: "Visitor" },
 	/**
-	 *     0  未审核
-	 *    0X  未查看
+	 *    1   1
+	 *  审核 查看
 	 */
 	status : { default: 0, type: Number }
 }, {
