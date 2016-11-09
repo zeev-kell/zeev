@@ -4,11 +4,12 @@
         <p class="description">some messages</p>
     </div>
     <div class="breadcrumb-env">
-        <ol class="breadcrumb bc-1">
+        <ol class="breadcrumb bc-1" breadcrumb>
             <li><a><i class="fa fa-home"></i>Home</a>
             </li>
-            <li><a>Essay</a></li>
-            <li class="active"><strong>List</strong></li>
+            <li ng-repeat="state in _$states" ng-class="{'active':$last}">
+                <a ui-sref="{{state.state}}" class="test-capitalize" ng-bind="state.name"></a>
+            </li>
         </ol>
     </div>
 </div>

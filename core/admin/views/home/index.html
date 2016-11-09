@@ -7,6 +7,9 @@
         <ol class="breadcrumb bc-1">
             <li><a><i class="fa fa-home"></i>Home</a>
             </li>
+            <li ng-repeat="state in _$states">
+                <a class="test-capitalize" ng-bind="::state.name"></a>
+            </li>
         </ol>
     </div>
 </div>

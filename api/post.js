@@ -118,8 +118,7 @@ exports.findById = function (_id) {
 		.populate({
 			path    : 'comments',
 			populate: {
-				path  : "visitor",
-				select: '_id url name image'
+				path  : "visitor"
 			},
 			options : { sort: { 'updated_at': -1 } }
 		})

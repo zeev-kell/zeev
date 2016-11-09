@@ -9,7 +9,7 @@ var debug = require('debug')('zeev:schema');
 
 var PostSchema = new Schema({
 	title           : { type: String, required: true },
-	slug            : { type: String, max: 150, unique: false },
+	slug            : { type: String, max: 150, unique: true },
 	markdown        : { type: String, max: 16777215, required: false },
 	html            : { type: String, max: 16777215, required: false },
 	image           : { type: String },

@@ -55,7 +55,7 @@
     </div>
 </div>
 
-<div class="page-container">
+<div class="page-container" ng-controller="adminController as _$ctrl">
     <div class="sidebar-menu fixed toggle-others">
         <header class="logo-env">
             <div class="logo">
@@ -99,11 +99,12 @@
         <nav class="navbar user-info-navbar fixed">
             <ul class="user-info-menu left-links list-inline list-unstyled">
                 <li class="hover-line">
-                    <a data-toggle="sidebar" href="#"> <i class="fa fa-bars"></i> </a>
+                    <a toggle-menu="toggle"><i class="fa fa-bars"></i> </a>
                 </li>
                 <li class="dropdown hover-line">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <i
-                            class="fa fa-envelope-o"></i> <span class="badge badge-green">15</span> </a>
+                            class="fa fa-envelope-o"></i> <span class="badge badge-green"
+                                                                ng-bind="_$ctrl.show">15</span> </a>
                 </li>
             </ul>
             <ul class="user-info-menu right-links list-inline list-unstyled">
@@ -173,6 +174,8 @@
 <script src="/admin/directive/index.js"></script>
 <script src="/admin/directive/bar-menu.js"></script>
 <script src="/admin/directive/layout-loading.js"></script>
+<script src="/admin/directive/toggle-menu.js"></script>
+<script src="/admin/directive/breadcrumb.js"></script>
 
 
 <script src="/admin/controller/index.js"></script>

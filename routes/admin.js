@@ -14,4 +14,6 @@ router.get('/', function (req, res, next) {
 
 router.put('/comment/:id', commentCtrl.auditingComment);
 
+router.get('/comment',commentCtrl.getNotViewedComment)
+
 module.exports = router;

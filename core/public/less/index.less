@@ -1,17 +1,10 @@
 @import "common";
 @import "theme";
+@import "flex";
 
-/*
-    item
-    item-img ×Ó¼¶
-    item_row ×´Ì¬
-*/
 html,
 body {
-  border  : medium none;
-  height  : 100%;
-  margin  : 0;
-  padding : 0;
+  height : 100%;
 }
 
 body {
@@ -19,8 +12,17 @@ body {
   background-color : #000000;
   font             : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   .display-flex();
-  .flex-direction();
+  .flex-direction-column();
   .flex(1 0 100%);
+  .transition();
+}
+
+.effect-item {
+  height   : 100%;
+  position : absolute;
+  top      : 0;
+  width    : 100%;
+  left     : 0;
 }
 
 #effect {
@@ -32,7 +34,7 @@ body {
 }
 
 #nav ul {
-  margin  : 0;
+  margin  : 10px 0;
   padding : 0;
   > li {
     list-style : none;
@@ -54,3 +56,24 @@ body {
     font-size : 16px;
   }
 }
+
+.author {
+  font-size : 7rem;
+  margin    : 0;
+}
+
+.keyword-wrap {
+  font-size : 2rem;
+  margin    : 0;
+}
+
+@media screen and (max-width : 767px) {
+  .author {
+    font-size : 4rem;
+  }
+
+  .keyword-wrap {
+    font-size : 1.2rem;
+  }
+}
+

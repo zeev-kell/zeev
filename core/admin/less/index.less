@@ -1,6 +1,8 @@
 @import "../../public/less/common";
+@import "../../public/less/flex";
 @import "../../public/less/animation";
 @import "admin-theme";
+@import "base";
 
 html,
 body {
@@ -43,6 +45,7 @@ body {
 }
 
 .sidebar-menu,
+.page-content,
 .transall,
 .sidebar-menu .main-menu a,
 .navbar.horizontal-menu .navbar-inner .navbar-brand a[data-toggle="settings-pane"],
@@ -55,7 +58,7 @@ footer.main-footer .go-up a,
 .breadcrumb.auto-hidden li a,
 .icon-collection .fontawesome-icon-list .fa-hover .icon-str > i,
 .icon-collection .fontawesome-icon-list .fa-hover .icon-str > span {
-  transition : all 220ms ease-in-out 0s;
+  .transition(all 220ms ease-in-out 0s);
 }
 
 .page-container {
@@ -72,11 +75,10 @@ footer.main-footer .go-up a,
 
 .page-content {
   .display-flex();
-  .flex-direction();
+  .flex-direction-column();
   .flex(1 1 auto);
   overflow-y     : auto;
   position       : relative;
-  transition     : opacity 100ms ease-in-out 0s;
   vertical-align : top;
   width          : 100%;
   z-index        : 1;
@@ -88,7 +90,7 @@ footer.main-footer .go-up a,
 .main-content,
 .ui-view-index-container {
   .display-flex();
-  .flex-direction();
+  .flex-direction-column();
   .flex(1 1 auto);
   overflow-y     : auto;
   position       : relative;
@@ -105,7 +107,7 @@ footer.main-footer .go-up a,
 .ui-view-container {
   padding    : 1.8rem 1.8rem 0;
   .display-flex();
-  .flex-direction();
+  .flex-direction(column);
   .flex(1 1 auto);
   overflow-y : auto;
 }
@@ -137,6 +139,9 @@ footer.main-footer .go-up a,
     .breadcrumb {
       margin-bottom : 0;
       margin-top    : 8px;
+      .active {
+        font-weight : bold;
+      }
     }
   }
 }
@@ -153,7 +158,7 @@ footer.main-footer .go-up a,
   position   : relative;
   z-index    : 1;
   .display-flex();
-  .flex-direction();
+  .flex-direction-column();
   .flex(1 0 200px);
   overflow-y : auto;
   &.fixed {
@@ -167,12 +172,19 @@ footer.main-footer .go-up a,
       width    : inherit;
     }
   }
+  &.toggle {
+    flex-basis : 200px !important;
+    .translate(0px, 0px) !important;
+    ~ .page-content {
+      .flex(1 0 100%);
+    }
+  }
 }
 
 @media (max-width : 769px) {
   .sidebar-menu {
     .flex(1 0 0);
-    transform : translate(-200px, 0px);
+    .translate(-200px, 0px);
   }
 }
 
