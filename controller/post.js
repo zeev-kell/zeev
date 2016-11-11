@@ -9,6 +9,7 @@ var moment    = require("moment");
 var errors    = require("../errors");
 var utils     = require("../utils");
 var showdown  = require('showdown'),
+	admin     = require('../socket').admin,
 	converter = new showdown.Converter();
 
 
@@ -21,7 +22,8 @@ exports.getPosts    = function (req, res, next) {
 		.then(function (posts) {
 			return res.status(200).send(posts);
 		}).catch(errors.handleError(next))
-};
+}
+;
 exports.getPostInfo = function (req, res, next) {
 	var id = req.params.id;
 	post.findById(id)

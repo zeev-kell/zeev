@@ -1,10 +1,6 @@
 /**
  * Created by zeev on 2016/10/10 0010.
  */
-
-/**
- *  combined common dev short tiny
- */
 var logger = require('morgan');
 var fs = require('fs');
 var FileStreamRotator = require('file-stream-rotator');

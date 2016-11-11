@@ -1,16 +1,16 @@
 var express = require('express');
-var path = require('path');
+var path    = require('path');
 var favicon = require('serve-favicon');
 
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var bodyParser   = require('body-parser');
 
-var hbs = require('express-hbs');
+var hbs   = require('express-hbs');
 var utils = require("./utils");
 
 var mongodb = require("./mongodb");
 mongodb();
-var app = express();
+var app     = express();
 app.use(mongodb.session);
 
 // view engine setup
@@ -33,12 +33,12 @@ var fp = require('path');
  * }
  */
 app.engine('hbs', hbs.express4({
-    partialsDir: [utils.env_path('views/partials')],
-    defaultLayout: utils.env_path('views/layout/default.hbs'),
-    layoutsDir: utils.env_path('views/layout')
+	partialsDir  : [utils.env_path('views/partials')],
+	defaultLayout: utils.env_path('views/layout/default.hbs'),
+	layoutsDir   : utils.env_path('views/layout')
 }));
 app.set('view engine', 'hbs');
-app.set('views', utils._dist + "/views");
+app.set('views', [utils._dist + "/views", utils._dist]);
 require("./helpers").registerHelpers(hbs);
 
 // app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -54,11 +54,13 @@ app.use('/bower_components', express.static(utils._path('bower_components')));
 app.use('/node_modules', express.static(utils._path('node_modules')));
 app.use('/admin', express.static(utils.env_path('admin')));
 app.use('/essay', express.static(utils.env_path('essay')));
-app.use('/index', express.static(utils.env_path('index')));
+app.use('/home', express.static(utils.env_path('home')));
 app.use('/public', express.static(utils.env_path('public')));
 app.use('/signin', express.static(utils.env_path('signin')));
 app.use('/about', express.static(utils.env_path('about')));
 app.use('/product', express.static(utils.env_path('product')));
+app.use('/project', express.static(utils.env_path('project')));
+app.use('/', express.static(utils._dist));
 
 /* 所有的路由 */
 require('./routes')(app);
@@ -70,7 +72,5 @@ app.use(errors.error404);
 
 // 500 Handler
 app.use(errors.error500);
-
-require("./socket");
 
 module.exports = app;

@@ -5,7 +5,7 @@ var gulp = require('gulp');
 
 var config = {
     watch: ["./core/**/*.{js,html,hbs}"],
-    less: ["./core/public", "./core/admin", "./core/essay", "./core/index", "./core/about"],
+    less: ["./core/public", "./core/admin", "./core/essay", "./core/index", "./core/about", "./core/project"],
     views: "./core/views",
     output: "./dist",
     admin: "./core/admin",

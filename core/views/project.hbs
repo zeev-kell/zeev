@@ -137,7 +137,8 @@
     </div>
     <div class="background"></div>
 </section>
-
-<script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
-<script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
+{{#contentFor 'scripts'}}
+    <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+    <script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
+{{/contentFor}}
 </body>

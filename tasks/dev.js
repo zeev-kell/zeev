@@ -1,11 +1,11 @@
-var nodemon = require('gulp-nodemon'),
-	less = require('gulp-less'),
-	clean = require('gulp-clean'),
-	notify = require('gulp-notify'),
-	plumber = require('gulp-plumber'),
-	argv = require('yargs').argv,
+var nodemon     = require('gulp-nodemon'),
+	less        = require('gulp-less'),
+	clean       = require('gulp-clean'),
+	notify      = require('gulp-notify'),
+	plumber     = require('gulp-plumber'),
+	argv        = require('yargs').argv,
 	browserSync = require('browser-sync').create(),
-	reload = browserSync.reload;
+	reload      = browserSync.reload;
 
 module.exports = function (gulp, config) {
 	/**
@@ -60,7 +60,8 @@ module.exports = function (gulp, config) {
 			env    : {
 				'NODE_ENV': argv.production || 'development',
 				'DEBUG'   : argv.DEBUG || 'zeev:*',
-				"PORT"    : argv.PORT || 4200
+				"PORT"    : argv.PORT || 4200,
+				"SOCKET"  : argv.SOCKET || 4201
 			}
 		}).on('start', function () {
 			reload();

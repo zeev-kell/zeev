@@ -1,0 +1,27 @@
+{{#contentFor 'styles'}}
+    <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}"/>
+    <!-- build:css  /project/css/chat.pkg_version.css -->
+    <link rel='stylesheet' href='/public/css/flexbox.css'/>
+    <link rel='stylesheet' href='/project/css/chat.css'/>
+    <!-- endbuild -->
+{{/contentFor}}
+
+<body>
+Incoming Chat:&nbsp;<ul id="incomingChatMessages"></ul>
+<div>
+    {{cookies.name}}
+</div>
+</body>
+
+{{#contentFor 'scripts'}}
+    <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+    <script src="{{socket '/socket.io/socket.io.js'}}"></script>
+    <script>
+        var socket = io.connect('http://localhost:4201/admin');
+        socket.on('news', function (data) {
+            console.log(data);
+            $("#incomingChatMessages").html(data.message);
+            socket.emit('my other event', { my: 'data' });
+        });
+    </script>
+{{/contentFor}}

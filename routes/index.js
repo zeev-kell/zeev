@@ -3,6 +3,7 @@ var express    = require('express'),
 	essay      = require('./essay'),
 	admin      = require('./admin'),
 	post       = require('./post'),
+	project    = require('./project'),
 	middleware = require('../middleware'),
 	userCtrl   = require('../controller/user'),
 	tagCtrl    = require('../controller/tag'),
@@ -10,12 +11,12 @@ var express    = require('express'),
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', { title: '柯子源的个人网站' });
+	res.render('home/index', { title: '柯子源的个人网站' });
 });
 
 /* GET home page. */
 router.get('/index/', function (req, res, next) {
-	res.render('index', { title: '柯子源的个人网站' });
+	res.render('home/index', { title: '柯子源的个人网站' });
 });
 
 /* signin page. */
@@ -39,12 +40,6 @@ router.get('/product', function (req, res, next) {
 	res.render('product', { title: '作品 - 柯子源的个人网站' });
 });
 
-/* product page. */
-router.get('/socket', function (req, res, next) {
-	res.render('project/socket', { title: '作品 - socket' });
-});
-
-
 router.get('/tag', tagCtrl.getTags);
 
 router.delete('/tag/:id', tagCtrl.removeTag);
@@ -63,6 +58,7 @@ module.exports = function (app) {
 	})
 	app.use("/", router);
 	app.use("/essay", essay);
+	app.use("/project", project);
 	app.use("/post", middleware.authenticateClient, post);
 	app.use("/admin", middleware.authenticateClient, admin);
 	app.use("/admin/", middleware.authenticateClient, admin);
