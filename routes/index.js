@@ -39,6 +39,11 @@ router.get('/product', function (req, res, next) {
 	res.render('product', { title: '作品 - 柯子源的个人网站' });
 });
 
+/* product page. */
+router.get('/socket', function (req, res, next) {
+	res.render('project/socket', { title: '作品 - socket' });
+});
+
 
 router.get('/tag', tagCtrl.getTags);
 

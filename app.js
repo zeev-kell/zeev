@@ -51,6 +51,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/bower_components', express.static(utils._path('bower_components')));
+app.use('/node_modules', express.static(utils._path('node_modules')));
 app.use('/admin', express.static(utils.env_path('admin')));
 app.use('/essay', express.static(utils.env_path('essay')));
 app.use('/index', express.static(utils.env_path('index')));
@@ -70,5 +71,6 @@ app.use(errors.error404);
 // 500 Handler
 app.use(errors.error500);
 
+require("./socket");
 
 module.exports = app;
