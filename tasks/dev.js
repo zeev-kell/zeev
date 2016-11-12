@@ -52,11 +52,11 @@ module.exports = function (gulp, config) {
 	 *  启动node服务
 	 */
 	gulp.task('start', ['browser-sync'], function () {
-		return nodemon({
+		var stream = nodemon({
 			script : './bin/www',
 			ext    : 'js',
 			verbose: true,
-			ignore : ["bower_components/**/*", "*.json", "gulpfile.js", "tasks/*.*", "core/**/*.*"],
+			ignore : ["bower_components/", "node_modules/", "*.json", "gulpfile.js", "tasks/", "core/"],
 			env    : {
 				'NODE_ENV': argv.production || 'development',
 				'DEBUG'   : argv.DEBUG || 'zeev:*',
@@ -67,7 +67,11 @@ module.exports = function (gulp, config) {
 			reload();
 		}).on('restart', function () {
 			//console.log('restarted!')
+		}).on('crash', function () {
+			console.error('Application has crashed!\n')
+			stream.emit('restart', 10)  // restart the server in 10 seconds
 		})
+		return stream;
 	})
 
 	/**

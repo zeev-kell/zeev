@@ -1,0 +1,125 @@
+html,
+body {
+  color: #333333;
+  font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+.navbar {
+  border-radius: 0;
+  border-width: 0 0 1px;
+  border-color: #eeeeee;
+  border-style: solid;
+}
+.navbar .navbar-brand {
+  padding: 2px;
+  margin-left: 1rem;
+}
+.navbar .navbar-brand > img {
+  height: 100%;
+  border-radius: 50%;
+}
+.navbar-toggle {
+  background-color: #FFFFFF;
+  border: 1px solid #56a6d7;
+  border-radius: 0;
+}
+.navbar-toggle .icon-bar {
+  background-color: #56a6d7;
+}
+@media (max-width: 767px) {
+  .navbar-collapse {
+    border-top: 1px solid #eeeeee;
+  }
+}
+.navbar-nav.nav > li > a {
+  background: #FFFFFF;
+  color: #666666;
+  -moz-transition: all 0.2s ease-in 0s;
+  -o-transition: all 0.2s ease-in 0s;
+  -webkit-transition: all 0.2s ease-in 0s;
+  transition: all 0.2s ease-in 0s;
+}
+.navbar-nav.nav > li > a:hover {
+  background: #a8d1eb;
+  color: #FFFFFF;
+}
+.navbar-nav.nav > li.active > a {
+  background: #56a6d7;
+  color: #FFFFFF;
+}
+.container-fluid {
+  width: 100%;
+}
+@media (min-width: 1215px) {
+  .container-fluid {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+.btn-t-2 {
+  color: #eeeeee;
+  background-color: #ec6a13;
+  border-color: #ec6a13;
+  border-radius: 0;
+}
+.btn-t-2:focus,
+.btn-t-2.focus {
+  color: #eeeeee;
+  background-color: #bd550f;
+  border-color: #763509;
+}
+.btn-t-2:hover {
+  color: #eeeeee;
+  background-color: #bd550f;
+  border-color: #b3510e;
+}
+.btn-t-2:active,
+.btn-t-2.active,
+.open > .dropdown-toggle.btn-t-2 {
+  color: #eeeeee;
+  background-color: #bd550f;
+  border-color: #b3510e;
+}
+.btn-t-2:active:hover,
+.btn-t-2.active:hover,
+.open > .dropdown-toggle.btn-t-2:hover,
+.btn-t-2:active:focus,
+.btn-t-2.active:focus,
+.open > .dropdown-toggle.btn-t-2:focus,
+.btn-t-2:active.focus,
+.btn-t-2.active.focus,
+.open > .dropdown-toggle.btn-t-2.focus {
+  color: #eeeeee;
+  background-color: #9c460d;
+  border-color: #763509;
+}
+.btn-t-2:active,
+.btn-t-2.active,
+.open > .dropdown-toggle.btn-t-2 {
+  background-image: none;
+}
+.btn-t-2.disabled:hover,
+.btn-t-2[disabled]:hover,
+fieldset[disabled] .btn-t-2:hover,
+.btn-t-2.disabled:focus,
+.btn-t-2[disabled]:focus,
+fieldset[disabled] .btn-t-2:focus,
+.btn-t-2.disabled.focus,
+.btn-t-2[disabled].focus,
+fieldset[disabled] .btn-t-2.focus {
+  background-color: #ec6a13;
+  border-color: #ec6a13;
+}
+.btn-t-2 .badge {
+  color: #ec6a13;
+  background-color: #eeeeee;
+}
+.template {
+  display: none;
+}
+.form-control {
+  border-radius: 1px;
+}
+.test-capitalize {
+  text-transform: capitalize;
+}
