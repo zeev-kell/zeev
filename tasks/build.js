@@ -66,7 +66,7 @@ module.exports = function(gulp, config, banner) {
             return gulp.src(path)
                 .pipe(through2.obj(function(file, enc, cb) {
                     if (file.isNull()) {
-                        return cb(null, file);
+                        return  cb(null, file);
                     }
                     var _file = file.contents.toString();
                     _file = _file.replace(/pkg_version/g, time);
