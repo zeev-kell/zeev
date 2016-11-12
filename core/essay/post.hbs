@@ -1,11 +1,11 @@
-{{> essay/header }}
+{{> partials/header }}
 {{> navigation }}
 <div class="container-fluid">
     <div class="post-side hidden-xs">
         <div class="sidebar">
-            {{> essay/tags }}
-            {{> essay/archives }}
-            {{> essay/contents }}
+            {{> partials/tags }}
+            {{> partials/archives }}
+            {{> partials/contents }}
         </div>
     </div>
     <div class="posts">
@@ -13,7 +13,7 @@
             <article style="margin-bottom: 0">
                 <header>
                     <h2 class="post-title"><a>{{post.title}}</a></h2>
-                    {{> essay/post-dynamic post=post}}
+                    {{> partials/post-dynamic post=post}}
                 </header>
                 <div class="post-content">
                     <p>{{{post.html}}}</p>
@@ -48,7 +48,7 @@
                     <p class="text-center">没有更多了</p>
                 {{/compare}}
             </footer>
-            {{> essay/comments }}
+            {{> partials/comments }}
         </div>
     </div>
 </div>

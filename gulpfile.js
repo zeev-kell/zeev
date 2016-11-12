@@ -5,14 +5,15 @@ var gulp = require('gulp');
 
 var config = {
     watch: ["./core/**/*.{js,html,hbs}"],
-    less: ["./core/public", "./core/admin", "./core/essay", "./core/index", "./core/about", "./core/project"],
+    less: ["./core/public", "./core/admin", "./core/essay", "./core/home", "./core/about", "./core/project"],
     views: "./core/views",
     output: "./dist",
     admin: "./core/admin",
     copy: {
         font: ["./bower_components/font-awesome/fonts*/**", "./bower_components/bootstrap/dist/fonts*/**"],
         hbs: [
-            "./core/views*/{partials,layout,essay}/**/*",
+            "./core/views*/{partials,layout}/**/*.hbs",
+            "./core/product*/**/*.hbs",
             "./core/views*/error.hbs",
             "./core/views*/404.hbs"
         ],
@@ -24,7 +25,7 @@ var config = {
             html: ["./core/admin*/views/**/*"],
             css: ["./core/admin*/css/**/*"]
         },
-        essay: ["./core/essay*/**/*"]
+        essay: ["./core/essay*/**/*", "!*.{less}"]
     }
 };
 

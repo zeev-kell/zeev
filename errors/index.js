@@ -72,7 +72,7 @@ errors = {
 	},
 	renderErrorPage   : function (code, err, req, res, next) {
 		res.status(code || 500);
-		res.render('error', {
+		res.render('views/error', {
 			message: err,
 			code   : code,
 			req    : req

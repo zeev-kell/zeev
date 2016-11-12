@@ -1,10 +1,10 @@
-{{> essay/header }}
+{{> partials/header }}
 {{> navigation }}
 <div class="container-fluid post-container">
     <div class="post-side hidden-xs">
         <div class="sidebar">
-            {{> essay/tags }}
-            {{> essay/archives }}
+            {{> partials/tags }}
+            {{> partials/archives }}
         </div>
     </div>
     <div class="posts">
@@ -17,7 +17,7 @@
                 <h2 class="post-title">
                     <a href="/essay/post/{{_id}}">{{title}}</a>
                 </h2>
-            	{{> essay/post-dynamic post=this}}
+            	{{> partials/post-dynamic post=this}}
                 <div class="post-meta"><p>{{{html}}}</p></div>
                 <a role="button" class="btn btn-t-2" href="/essay/post/{{_id}}">阅读全文 »</a>
             </article>
@@ -31,4 +31,4 @@
         </div>
     </div>
 </div>
-{{> essay/footer }}
+{{> partials/footer }}

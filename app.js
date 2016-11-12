@@ -1,16 +1,16 @@
 var express = require('express');
-var path    = require('path');
+var path = require('path');
 var favicon = require('serve-favicon');
 
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
+var bodyParser = require('body-parser');
 
-var hbs   = require('express-hbs');
+var hbs = require('express-hbs');
 var utils = require("./utils");
 
 var mongodb = require("./mongodb");
 mongodb();
-var app     = express();
+var app = express();
 app.use(mongodb.session);
 
 // view engine setup
@@ -33,12 +33,12 @@ var fp = require('path');
  * }
  */
 app.engine('hbs', hbs.express4({
-	partialsDir  : [utils.env_path('views/partials')],
-	defaultLayout: utils.env_path('views/layout/default.hbs'),
-	layoutsDir   : utils.env_path('views/layout')
+    partialsDir: [utils.env_path('views/partials'),utils.env_path('essay')],
+    defaultLayout: utils.env_path('views/layout/default.hbs'),
+    layoutsDir: utils.env_path('views/layout')
 }));
 app.set('view engine', 'hbs');
-app.set('views', [utils._dist + "/views", utils._dist]);
+app.set('views', utils._dist);
 require("./helpers").registerHelpers(hbs);
 
 // app.use(favicon(__dirname + '/public/favicon.ico'));
