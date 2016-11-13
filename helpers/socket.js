@@ -8,7 +8,7 @@ var port  = 4201,
 module.exports = function (context, options) {
 
 	if (utils.isProduction) {
-		context = "115.28.213.111:" + 4201 + context;
+		context = "http://115.28.213.111:" + 4201 + context;
 	}else{
 		context = "http://localhost:" + 4201 + context;
 	}
