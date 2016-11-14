@@ -123,3 +123,6 @@ fieldset[disabled] .btn-t-2.focus {
 .test-capitalize {
   text-transform: capitalize;
 }
+.btn {
+  border-radius: 1px;
+}

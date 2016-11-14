@@ -1,1 +1,50 @@
 @import "../../public/less/theme";
+@import "../../public/less/flex";
+@import "../../public/less/var";
+html {
+    height: 100%;
+}
+
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    .display-flex();
+    .flex-direction-column();
+    .flex(1 0 100%);
+    .transition();
+    height: 100%;
+    padding: 20px;
+}
+
+.main-container {
+    .flex(1 1 80%);
+    .transition();
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+#chat-wrap {
+    padding: 0;
+    margin: 0;
+}
+
+.chat-container {
+    .flex(1 1 20%);
+    .transition();
+}
+
+.chat-portrait {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    .portrait-img {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+.chat-item {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 68px;
+    min-height: 58px;
+}

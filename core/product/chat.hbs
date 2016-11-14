@@ -1,15 +1,35 @@
 {{#contentFor 'styles'}}
     <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}"/>
-    <!-- build:css  /project/css/chat.pkg_version.css -->
+    <!-- build:css  /product/css/chat.pkg_version.css -->
     <link rel='stylesheet' href='/public/css/flexbox.css'/>
-    <link rel='stylesheet' href='/project/css/chat.css'/>
+    <link rel='stylesheet' href='/product/css/chat.css'/>
     <!-- endbuild -->
 {{/contentFor}}
 
 <body>
-Incoming Chat:&nbsp;<ul id="incomingChatMessages"></ul>
-<div>
-    {{cookies.name}}
+<main class="main-container">
+    <ul id="chat-wrap">
+        <li class="template">
+            <div class="chat-portrait">
+                <img class="portrait-img" src="{{visitor.image}}">
+            </div>
+            <div class="date"></div>
+            <div class="content">
+
+            </div>
+        </li>
+    </ul>
+</main>
+<div class="chat-container">
+    <form>
+        <div class="form-group">
+            <textarea class="form-control" style="resize: vertical" required></textarea>
+            <input type="hidden" name="image" value="{{cookies.image}}">
+        </div>
+        <div class="pull-right">
+            <button type="submit" class="btn btn-success">button</button>
+        </div>
+    </form>
 </div>
 </body>
 
@@ -17,11 +37,17 @@ Incoming Chat:&nbsp;<ul id="incomingChatMessages"></ul>
     <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
     <script src="{{socket '/socket.io/socket.io.js'}}"></script>
     <script>
-        var socket = io.connect('http://localhost:4201/admin');
-        socket.on('news', function (data) {
+        var socket = io.connect("{{socket '/chat'}}");
+        socket.on('new', function (data) {
             console.log(data);
-            $("#incomingChatMessages").html(data.message);
-            socket.emit('my other event', { my: 'data' });
+        });
+        socket.on('chat', function (data) {
+            var $li = $("#chat-wrap .template").clone().removeClass("template").addClass("chat-item")
+            var $container = $(".main-container");
+            $li.find(".content").html(data.message);
+            $li.find(".date").html(data.date);
+            $("#chat-wrap").append($li);
+            $container.scrollTop($container[0].scrollHeight);
         });
     </script>
 {{/contentFor}}
