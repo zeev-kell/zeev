@@ -84,9 +84,9 @@
             function contentsSticky() {
                 var scrollTop = $(window).scrollTop();
                 if (scrollTop > contentsTop) {
-                    $('.contents-aside').css({ 'position': 'fixed', 'top': 0 }).addClass('fxd');
+                    $('.contents-aside').css({ 'position': 'fixed', 'top': 0 });
                 } else {
-                    $('.contents-aside').css({ 'position': 'relative' }).removeClass('fxd');
+                    $('.contents-aside').css({ 'position': 'relative' });
                 }
             }
         })

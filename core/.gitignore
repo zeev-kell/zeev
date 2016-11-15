@@ -2,5 +2,6 @@
 about/**/*.css
 admin/**/*.css
 essay/**/*.css
-index/**/*.css
+home/**/*.css
+product/**/*.css
 public/css/**/*.css
