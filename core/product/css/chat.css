@@ -1,8 +1,7 @@
 html,
 body {
   color: #333333;
-  font-family: Arimo, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .navbar {
   border-radius: 0;
@@ -126,6 +125,9 @@ fieldset[disabled] .btn-t-2.focus {
 .btn {
   border-radius: 1px;
 }
+.theme-2 {
+  color: #ec6a13;
+}
 /* 
 	主轴方向 
 	row row-reverse column column-reverse
@@ -173,7 +175,6 @@ html {
   height: 100%;
 }
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   display: -webkit-box;
   display: -moz-box;
   display: box;
