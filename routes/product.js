@@ -7,7 +7,7 @@ var router = require("express").Router();
 
 /* product page. */
 router.get('/', function(req, res, next) {
-    res.render('product/index', { title: '' });
+    res.render('product/index', { title: '' ,list:[1,2,3,4,5,6,7,8,9]});
 });
 
 router.get("/chat", function(req, res, next) {

@@ -1,18 +1,115 @@
 @import "../../public/less/common";
 @import "../../public/less/var";
 @import "../../public/less/theme";
+@import "../../public/less/flexbox";
+@import "../../public/less/animate-box";
+
+html {
+  height : 100%;
+}
+
+body {
+  height : 100%;
+  color  : @theme-color;
+}
+
+#banner {
+  height  : 100%;
+  .display-flex();
+  .flex-center();
+  padding : 0 2rem;
+  h1 {
+    font-size      : 3rem;
+    font-weight    : bold;
+    pointer-events : none;
+  }
+}
 
 #birds-container {
   height              : 100%;
   width               : 100%;
   position            : absolute;
-  z-index             : 1;
+  z-index             : -1;
   overflow            : hidden;
   opacity             : 0;
   top                 : 0;
   .transition();
   background-image    : url("/public/img/bird_bg.jpg");
   background-repeat   : no-repeat;
-  background-size     : contain;
+  background-size     : 100%;
   background-position : center bottom;
+}
+
+.section-title {
+  font-size   : 3rem;
+  text-align  : center;
+  font-weight : bold;
+  color       : @t-c;
+  &:after {
+    display    : block;
+    content    : " ";
+    width      : 15%;
+    bottom     : 0;
+    height     : 2px;
+    margin     : 12px auto;
+    background : fadeout(@theme-color, 50%);
+  }
+  > a {
+    color : inherit;
+  }
+}
+
+.section-container {
+  padding : 50px 0;
+  > main {
+    margin-top : 20px;
+  }
+}
+
+a.rotate-box {
+  color           : #363940;
+  text-decoration : none;
+}
+
+.rotate-box {
+  display    : inline-block;
+  margin     : 30px 0;
+  .transition(all 0.2s ease-in-out);
+  text-align : center;
+  &:hover {
+    color : #676d75;
+    .rotate-box-icon {
+      .rotate(0deg);
+    }
+    .fa {
+      .rotate(0deg);
+    }
+  }
+}
+
+.rotate-box-icon {
+  width            : 75px;
+  height           : 75px;
+  line-height      : 75px;
+  font-size        : 36px;
+  display          : inline-block;
+  background-color : @theme-color;
+  margin-bottom    : 15px;
+  text-align       : center;
+  .transition(all 0.2s ease-in-out);
+  .rotate(45deg);
+  color            : #ffffff;
+  &::after {
+    border   : 2px solid #fff;
+    bottom   : 3px;
+    content  : " ";
+    left     : 3px;
+    position : absolute;
+    right    : 3px;
+    top      : 3px;
+  }
+  .fa {
+    .rotate(-45deg);
+    .transition(all 0.2s ease-in-out);
+  }
 }

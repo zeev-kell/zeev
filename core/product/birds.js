@@ -296,7 +296,7 @@
 
 	function init() {
 
-		camera = new THREE.PerspectiveCamera(110, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000); //-- 相机
+		camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000); //-- 相机
 		camera.position.z = 300;
 
 		scene = new THREE.Scene();//-- 场景
@@ -304,7 +304,7 @@
 		birds = [];
 		boids = [];
 
-		for (var i = 0; i < 200; i++) {
+		for (var i = 0; i < 10; i++) {
 
 			boid = boids[i] = new Boid();
 			boid.position.x = Math.random() * 400 - 200;
@@ -314,7 +314,7 @@
 			boid.velocity.y = Math.random() * 2 - 1;
 			boid.velocity.z = Math.random() * 2 - 1;
 			boid.setAvoidWalls(true);
-			boid.setWorldSize(200, 200, 400);
+			boid.setWorldSize(400, 400, 400);
 
 			bird = birds[i] = new THREE.Mesh(new Bird(), new THREE.MeshBasicMaterial({
 				color: Math.random() * 0xffffff,
@@ -325,8 +325,11 @@
 
 		}
 
-		renderer = new THREE.CanvasRenderer();//-- 渲染器
-		renderer.setClearColor(0xffffff, 0);
+		renderer = new THREE.CanvasRenderer({//-- 渲染器 设置透明
+			alpha    : true,
+			antialias: true
+		});
+		//		renderer.setClearColor(0xffffff, 0.0);
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 

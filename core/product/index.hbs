@@ -1,15 +1,76 @@
 {{#contentFor 'styles'}}
     <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}"/>
+    <link rel='stylesheet' href="{{asset '/bower_components/font-awesome/css/font-awesome.css'}}"/>
     <!-- build:css  /product/css/product.pkg_version.css -->
+    <link rel='stylesheet' href='/public/css/flexbox.css'/>
+    <link rel='stylesheet' href='/bower_components/animate.css/animate.css'/>
     <link rel='stylesheet' href='/product/css/index.css'/>
     <!-- endbuild -->
 {{/contentFor}}
 
 <body>
-<div id="birds-container" style="opacity: 1"></div>
-<div class="">
-</div>
+<section id="banner">
+    <div class="text-center animate-box">
+        <h1 class="text-uppercase">I'm waiting for the opportunity</h1>
+    </div>
+</section>
+<section id="birds-container" style="opacity: 1;"></section>
+<section class="section-container container-fluid" id="">
+    <h1 class="text-center section-title">作品</h1>
+
+    <p class="text-center">有关于我的部分作品</p>
+    <main>
+        <div class="col-md-3 col-sm-6">
+            <a href="#" class="rotate-box square-icon animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
+                <div class="rotate-box-info">
+                    <h4>App Development</h4>
+                    <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="#" class="rotate-box square-icon animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
+                <div class="rotate-box-info">
+                    <h4>App Development</h4>
+                    <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="#" class="rotate-box square-icon animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
+                <div class="rotate-box-info">
+                    <h4>App Development</h4>
+                    <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <a href="#" class="rotate-box square-icon animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
+                <div class="rotate-box-info">
+                    <h4>App Development</h4>
+                    <p>Lorem ipsum dolor sit amet set, consectetur utes anet adipisicing elit, sed do eiusmod tempor incidist.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+</section>
+{{#each list}}
+    <div class="animate-box" data-animation="fadeInUp">
+        <h1>TITLE</h1>
+    </div>
+{{/each}}
 {{#contentFor 'scripts'}}
+    <!-- build:js  /product/js/birds.pkg_version.css -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/jquery.easing/js/jquery.easing.js"></script>
+    <script src="/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+    <script src="/product/index.js"></script>
+    <!-- endbuild -->
+
     <!-- build:js  /product/js/birds.pkg_version.css -->
     <script src="/bower_components/three.js/build/three.js"></script>
     <script src="/bower_components/three.js/js/renderers/Projector.js"></script>

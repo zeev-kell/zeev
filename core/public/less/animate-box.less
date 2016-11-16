@@ -1,0 +1,19 @@
+@import "../../public/less/common";
+@import "../../public/less/var";
+@import "../../public/less/theme";
+
+[data-animation="fadeInUp"] {
+  opacity : 0;
+}
+
+.animate-box {
+  visibility : hidden;
+  &.animated {
+    visibility : visible;
+  }
+}
+
+.animated {
+  .animated-duration(1s);
+  .animation-fill-mode(both);
+}
