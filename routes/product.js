@@ -7,7 +7,7 @@ var router = require("express").Router();
 
 /* product page. */
 router.get('/', function(req, res, next) {
-    res.render('product/index', { title: '作品 - 柯子源的个人网站' });
+    res.render('product/index', { title: '' });
 });
 
 router.get("/chat", function(req, res, next) {

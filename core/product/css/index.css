@@ -128,3 +128,20 @@ fieldset[disabled] .btn-t-2.focus {
 .theme-2 {
   color: #ec6a13;
 }
+#birds-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  top: 0;
+  -moz-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  transition: all 0.5s ease-in 0s;
+  background-image: url("/public/img/bird_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+}

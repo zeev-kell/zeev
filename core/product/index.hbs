@@ -6,12 +6,16 @@
 {{/contentFor}}
 
 <body>
-{{> navigation }}
-<div class="container-fluid">
-	改版中...
+<div id="birds-container" style="opacity: 1"></div>
+<div class="">
 </div>
 {{#contentFor 'scripts'}}
-    <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
-    <script src="{{asset '/bower_components/bootstrap/dist/js/bootstrap.js'}}"></script>
+    <!-- build:js  /product/js/birds.pkg_version.css -->
+    <script src="/bower_components/three.js/build/three.js"></script>
+    <script src="/bower_components/three.js/js/renderers/Projector.js"></script>
+    <script src="/bower_components/three.js/js/renderers/CanvasRenderer.js"></script>
+    <script src="/bower_components/three.js/obj/Bird.js"></script>
+    <script src="/product/birds.js"></script>
+    <!-- endbuild -->
 {{/contentFor}}
 </body>
