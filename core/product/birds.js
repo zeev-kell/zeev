@@ -333,11 +333,11 @@
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
-		document.addEventListener('mousemove', onDocumentMouseMove, false);
 
 		document.getElementById("birds-container").appendChild(renderer.domElement);
 		//document.body.appendChild(renderer.domElement);
 
+		document.getElementById("birds-container").addEventListener('mousemove', onDocumentMouseMove, false);
 		window.addEventListener('resize', onWindowResize, false);
 
 	}
@@ -368,11 +368,8 @@
 	}
 
 	function animate() {
-
 		requestAnimationFrame(animate);
-
 		render();
-
 	}
 
 	function render() {

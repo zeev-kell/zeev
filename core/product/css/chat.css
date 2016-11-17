@@ -3,6 +3,9 @@ body {
   color: #333333;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+p {
+  font: 14px/1.5em "Roboto";
+}
 .navbar {
   border-radius: 0;
   border-width: 0 0 1px;
@@ -111,6 +114,63 @@ fieldset[disabled] .btn-t-2.focus {
 }
 .btn-t-2 .badge {
   color: #ec6a13;
+  background-color: #eeeeee;
+}
+.btn-black {
+  color: #eeeeee;
+  background-color: #666666;
+  border-color: #666666;
+}
+.btn-black:focus,
+.btn-black.focus {
+  color: #eeeeee;
+  background-color: #4d4d4d;
+  border-color: #262626;
+}
+.btn-black:hover {
+  color: #eeeeee;
+  background-color: #4d4d4d;
+  border-color: #474747;
+}
+.btn-black:active,
+.btn-black.active,
+.open > .dropdown-toggle.btn-black {
+  color: #eeeeee;
+  background-color: #4d4d4d;
+  border-color: #474747;
+}
+.btn-black:active:hover,
+.btn-black.active:hover,
+.open > .dropdown-toggle.btn-black:hover,
+.btn-black:active:focus,
+.btn-black.active:focus,
+.open > .dropdown-toggle.btn-black:focus,
+.btn-black:active.focus,
+.btn-black.active.focus,
+.open > .dropdown-toggle.btn-black.focus {
+  color: #eeeeee;
+  background-color: #3b3b3b;
+  border-color: #262626;
+}
+.btn-black:active,
+.btn-black.active,
+.open > .dropdown-toggle.btn-black {
+  background-image: none;
+}
+.btn-black.disabled:hover,
+.btn-black[disabled]:hover,
+fieldset[disabled] .btn-black:hover,
+.btn-black.disabled:focus,
+.btn-black[disabled]:focus,
+fieldset[disabled] .btn-black:focus,
+.btn-black.disabled.focus,
+.btn-black[disabled].focus,
+fieldset[disabled] .btn-black.focus {
+  background-color: #666666;
+  border-color: #666666;
+}
+.btn-black .badge {
+  color: #666666;
   background-color: #eeeeee;
 }
 .template {
