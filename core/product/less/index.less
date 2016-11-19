@@ -47,6 +47,10 @@ body {
   }
 }
 
+.nav > li {
+  float : left;
+}
+
 @media all and (max-width : 767px) {
   #nav-container {
     position      : absolute;
@@ -74,16 +78,16 @@ body {
 .navbar {
   .transition(transform .5s);
   border : none;
+  height : 60px;
   &.is-fixed {
     position         : fixed;
-    top              : -63px;
+    top              : -60px;
     background-color : #fff;
     left             : 0;
     width            : 100%;
     background-color : rgba(255, 255, 255, 0.9);
     border-bottom    : 1px solid #ececec;
     z-index          : 1000;
-    border-bottom    : 1px solid #ececec;
   }
   &.is-visible {
     .transform(translate3d(0, 100%, 0));
@@ -91,12 +95,15 @@ body {
 }
 
 @media all and (max-width : 767px) {
+  /* bootstrap菜单需要添加的样式  */
   .navbar {
+    height        : 50px;
     &.is-fixed {
-      top : 0;
+      //top : 0;
+      top : -50px;
     }
     &.is-visible {
-      .transform(translate3d(0, 0, 0));
+      //.transform(translate3d(0, 0, 0));
     }
   }
 }
@@ -142,18 +149,21 @@ body {
   > a {
     color : inherit;
   }
-  &.reverse {
-    color : @bg-c;
-    &:after {
-      background : fadeout(@bg-c, 10%);
-    }
-  }
 }
 
 .section-container {
   padding : 50px 0;
   > main {
     margin-top : 35px;
+  }
+  &.reverse {
+    color : @bg-c;
+    .section-title {
+      color : @bg-c;
+      &:after {
+        background : fadeout(@bg-c, 10%);
+      }
+    }
   }
 }
 
@@ -288,8 +298,8 @@ a.rotate-box {
   }
 }
 
-#join {
-  background : fadeout(@theme-color, 80%);
+#product {
+  //background : fadeout(@theme-color, 80%);
 }
 
 .join-list {
@@ -349,6 +359,13 @@ a.rotate-box {
     background-color : #171717;
     box-shadow       : none;
   }
+}
+
+.input-lg {
+  font-size: 14px;
+  height: 46px;
+  line-height: 1.33333;
+  padding: 10px 16px;
 }
 
 .section-footer {

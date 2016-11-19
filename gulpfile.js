@@ -13,7 +13,7 @@ var config = {
 		font  : ["./bower_components/font-awesome/fonts*/**", "./bower_components/bootstrap/dist/fonts*/**"],
 		hbs   : [
 			"./core/views*/{partials,layout}/**/*.hbs",
-			"./core/product*/**/*.hbs",
+			"./core/product*/chat.hbs",
 			"./core/views*/error.hbs",
 			"./core/views*/404.hbs"
 		],

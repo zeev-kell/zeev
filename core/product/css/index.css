@@ -604,6 +604,9 @@ body {
 .navbar-nav.nav > li > a {
   background: transparent;
 }
+.nav > li {
+  float: left;
+}
 @media all and (max-width: 767px) {
   #nav-container {
     position: absolute;
@@ -637,16 +640,17 @@ body {
   -webkit-transition: transform 0.5s;
   transition: transform 0.5s;
   border: none;
+  height: 60px;
 }
 .navbar.is-fixed {
   position: fixed;
-  top: -63px;
+  top: -60px;
   background-color: #fff;
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.9);
-  z-index: 1000;
   border-bottom: 1px solid #ececec;
+  z-index: 1000;
 }
 .navbar.is-visible {
   -webkit-transform: translate3d(0, 100%, 0);
@@ -656,15 +660,12 @@ body {
   transform: translate3d(0, 100%, 0);
 }
 @media all and (max-width: 767px) {
-  .navbar.is-fixed {
-    top: 0;
+  /* bootstrap�˵���Ҫ���ӵ���ʽ  */
+  .navbar {
+    height: 50px;
   }
-  .navbar.is-visible {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+  .navbar.is-fixed {
+    top: -50px;
   }
 }
 .profile {
@@ -710,17 +711,20 @@ body {
 .section-title > a {
   color: inherit;
 }
-.section-title.reverse {
-  color: #FFFFFF;
-}
-.section-title.reverse:after {
-  background: rgba(255, 255, 255, 0.9);
-}
 .section-container {
   padding: 50px 0;
 }
 .section-container > main {
   margin-top: 35px;
+}
+.section-container.reverse {
+  color: #FFFFFF;
+}
+.section-container.reverse .section-title {
+  color: #FFFFFF;
+}
+.section-container.reverse .section-title:after {
+  background: rgba(255, 255, 255, 0.9);
 }
 a.rotate-box {
   color: #363940;
@@ -879,9 +883,6 @@ a.rotate-box {
   padding: 0;
   text-transform: uppercase;
 }
-#join {
-  background: rgba(102, 102, 102, 0.2);
-}
 .join-list li {
   display: inline-block;
   margin-right: 20px;
@@ -931,6 +932,12 @@ a.rotate-box {
 .form-control:focus {
   background-color: #171717;
   box-shadow: none;
+}
+.input-lg {
+  font-size: 14px;
+  height: 46px;
+  line-height: 1.33333;
+  padding: 10px 16px;
 }
 .section-footer {
   padding: 30px 0 0 0;

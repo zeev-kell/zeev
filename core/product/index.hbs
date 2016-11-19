@@ -16,51 +16,39 @@
     <div class="animate-box" id="nav-container" data-delay="1000" data-animation="fadeIn">
         <div class="navbar">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"
-                            aria-expanded="true">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand page-scroll visible-xs" href="index.html">
-                        <img src="/public/img/profile-picture.jpg">
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/essay">主页</a></li>
-                        <li><a href="/product">作品</a></li>
-                        <li><a href="/about">留言板</a></li>
-                        <li><a href="/about">关于</a></li>
-                    </ul>
-                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/essay">主页</a></li>
+                    <li><a href="/product">作品</a></li>
+                    <li><a href="/about">留言板</a></li>
+                    <li><a href="/about">关于</a></li>
+                </ul>
             </div>
         </div>
-
-        <!--<nav id="main-navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">-->
+        <!--<div class="navbar">-->
+        <!--<div class="container-fluid">-->
         <!--<div class="navbar-header">-->
-        <!--<button type="button" class="navbar-toggle" data-toggle="collapse"-->
-        <!--data-target="#bs-example-navbar-collapse-1" aria-expanded="true">-->
+        <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse"-->
+        <!--aria-expanded="true">-->
         <!--<span class="sr-only">Toggle navigation</span>-->
         <!--<span class="icon-bar"></span>-->
         <!--<span class="icon-bar"></span>-->
         <!--<span class="icon-bar"></span>-->
         <!--</button>-->
+        <!--<a class="navbar-brand page-scroll visible-xs" href="index.html">-->
+        <!--<img src="/public/img/profile-picture.jpg">-->
+        <!--</a>-->
         <!--</div>-->
-        <!--<div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-1" aria-expanded="true" style="">-->
+        <!--<div class="collapse navbar-collapse" id="navbar-collapse">-->
         <!--<ul class="nav navbar-nav">-->
-        <!--<li><a class="page-scroll" href="body">Home</a></li>-->
-        <!--<li><a class="page-scroll" href="#about-section">About</a></li>-->
-        <!--<li><a class="page-scroll" href="#services-section">Services</a></li>-->
-        <!--<li><a class="page-scroll" href="#portfolio-section">Works</a></li>-->
-        <!--<li><a class="page-scroll" href="#team-section">Team</a></li>-->
-        <!--<li><a class="page-scroll" href="#prices-section">Prices</a></li>-->
-        <!--<li><a class="page-scroll" href="#contact-section">Contact</a></li>-->
+        <!--<li><a href="/essay">主页</a></li>-->
+        <!--<li><a href="/product">作品</a></li>-->
+        <!--<li><a href="/about">留言板</a></li>-->
+        <!--<li><a href="/about">关于</a></li>-->
         <!--</ul>-->
         <!--</div>-->
-        <!--</nav>-->
+        <!--</div>-->
+        <!--</div>-->
+
     </div>
     <div class="text-center animate-box">
         <h1 class="text-uppercase">I'm waiting for the opportunity</h1>
@@ -75,6 +63,17 @@
     </h1>
 
     <main class="container-fluid text-center">
+        <div class="col-md-3 col-sm-6">
+            <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-file-code-o"></i></span>
+
+                <div class="rotate-box-info">
+                    <h4>代码</h4>
+
+                    <p>主要涉及前端代码</p>
+                </div>
+            </a>
+        </div>
         <div class="col-md-3 col-sm-6">
             <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
                 <span class="rotate-box-icon"><i class="fa fa-picture-o"></i></span>
@@ -99,17 +98,6 @@
         </div>
         <div class="col-md-3 col-sm-6">
             <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
-                <span class="rotate-box-icon"><i class="fa fa-file-code-o"></i></span>
-
-                <div class="rotate-box-info">
-                    <h4>代码</h4>
-
-                    <p>主要涉及前端代码</p>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
                 <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
 
                 <div class="rotate-box-info">
@@ -121,49 +109,51 @@
         </div>
     </main>
 </section>
-<section class="section-container animate-box" id="bg_1" data-animation="fadeIn">
+
+<section class="section-container" data-animation="fadeIn" id="product">
+    <div class="container-fluid">
+        <div class="col-xs-4 animate-box">
+            <div class="view">
+                <img src="/public/img/mgear_bg.jpg" class="img-responsive">
+
+                <div class="mask">
+                    <a title="Full Image">敬请关注</a>
+                    <span>title</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 animate-box">
+            <div class="view">
+                <img src="/public/img/mgear_bg.jpg" class="img-responsive">
+
+                <div class="mask">
+                    <a href="#" title="Full Image">敬请关注</a>
+                    <span>title</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 animate-box">
+            <div class="view">
+                <img src="/public/img/mgear_bg.jpg" class="img-responsive">
+
+                <div class="mask">
+                    <a href="#" title="Full Image">敬请关注</a>
+                    <span>title</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-container animate-box reverse" id="bg_1" data-animation="fadeIn">
     <h1 class="animate-box">
         <p class="section-title">关键字</p>
 
-        <p class="text-center">SUB TITLE</p>
+        <p class="text-center">个人标签</p>
     </h1>
     <main class="container-fluid text-center animate-box">
-        XX
+        <div>前端工程师</div>
     </main>
-</section>
-
-<section class="section-container container-fluid" data-animation="fadeIn">
-    <div class="col-xs-4 animate-box">
-        <div class="view">
-            <img src="/public/img/mgear_bg.jpg" class="img-responsive">
-
-            <div class="mask">
-                <a href="#" title="Full Image">Full Image</a>
-                <span>title</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-4 animate-box">
-        <div class="view">
-            <img src="/public/img/mgear_bg.jpg" class="img-responsive">
-
-            <div class="mask">
-                <a href="#" title="Full Image">Full Image</a>
-                <span>title</span>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-4 animate-box">
-        <div class="view">
-            <img src="/public/img/mgear_bg.jpg" class="img-responsive">
-
-            <div class="mask">
-                <a href="#" title="Full Image">Full Image</a>
-                <span>title</span>
-            </div>
-        </div>
-    </div>
-
 </section>
 
 <section class="section-container animate-box" id="join" data-animation="fadeIn">
@@ -175,7 +165,8 @@
     <div class="container-fluid text-center">
         <ul class="list-unstyled join-list">
             <li class="animate-box" data-animation="zoomIn">
-                <a class="rotate-box rotate-box-small" target="_blank" href="http://weibo.com/1575459884/profile?rightmod=1&wvr=6&mod=personinfo">
+                <a class="rotate-box rotate-box-small" target="_blank"
+                   href="http://weibo.com/1575459884/profile?rightmod=1&wvr=6&mod=personinfo">
                     <span class="rotate-box-icon">
                     <i class="fa fa-weibo"></i></span>
                 </a>
@@ -190,45 +181,40 @@
     </div>
 </section>
 
-<section class="section-container animate-box" id="contact" data-animation="fadeIn">
+<section class="section-container animate-box reverse" id="contact" data-animation="fadeIn">
     <div class="cover"></div>
     <h1 class="animate-box">
-        <p class="section-title reverse">联系我</p>
+        <p class="section-title">联系</p>
 
-        <p class="text-center">connect</p>
+        <p class="text-center">下面方式都可以找到我</p>
     </h1>
     <main class="row container-fluid">
         <div class="col-md-6 col-xs-12">
-            <h3>TITLE</h3>
+            <h3>联系方式</h3>
             <ul class="contact-address">
                 <li>
                     <i class="fa fa-map-marker fa-lg"></i>
-                    TITLE,<br>TITLE,<br>TITLE
+                    洪安三街&nbsp;华大公寓<br>盐田区<br>广东省&nbsp;深圳市
                 </li>
-                <li><i class="fa fa-phone"></i>&nbsp; TITLE</li>
-                <li><i class="fa fa-print"></i>&nbsp; TITLE</li>
-                <li><i class="fa fa-envelope"></i> TITLE</li>
-                <li><i class="fa fa-skype"></i>TITLE</li>
+                <li><i class="fa fa-phone"></i>•••••••••••</li>
+                <li><i class="fa fa-envelope"></i>617070839@qq.com</li>
+                <li><i class="fa fa-qq"></i>617070839</li>
             </ul>
         </div>
         <div class="col-md-6 col-xs-12">
-            <h3>TITLE</h3>
+            <h3>发送私信</h3>
 
             <form role="form">
                 <div class="form-group">
-                    <input required name="name" class="form-control input-lg" placeholder="TITLE">
+                    <input required name="name" class="form-control input-lg" placeholder="Your Name">
                 </div>
 
                 <div class="form-group">
-                    <input required name="name" class="form-control input-lg" placeholder="TITLE">
+                    <input required name="email" class="form-control input-lg" placeholder="E-mail">
                 </div>
 
                 <div class="form-group">
-                    <input required name="name" class="form-control input-lg" placeholder="TITLE">
-                </div>
-
-                <div class="form-group">
-                    <textarea required name="name" class="form-control input-lg" placeholder="TITLE"
+                    <textarea required name="message" class="form-control input-lg" placeholder="Message"
                               style="resize: vertical"></textarea>
                 </div>
                 <div class="form-group">
@@ -270,23 +256,21 @@
 </footer>
 
 {{#contentFor 'scripts'}}
-    <!-- build:js  /product/js/index.pkg_version.css -->
+    <!-- build:js  /product/js/index.pkg_version.js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/bower_components/jquery.easing/js/jquery.easing.js"></script>
     <script src="/bower_components/waypoints/lib/jquery.waypoints.js"></script>
     <script src="/product/index.js"></script>
     <!-- endbuild -->
 
-    {{#env product=true}}
-    <!-- build:js  /product/js/birds.pkg_version.css -->
+
+    <!-- build:js  /product/js/birds.pkg_version.js -->
     <script src="/public/libs/three.js/build/three.js"></script>
     <script src="/public/libs/three.js/js/renderers/Projector.js"></script>
     <script src="/public/libs/three.js/js/renderers/CanvasRenderer.js"></script>
     <script src="/public/libs/three.js/obj/Bird.js"></script>
     <script src="/product/birds.js"></script>
     <!-- endbuild -->
-    {{/env}}
 
 {{/contentFor}}
 </body>
