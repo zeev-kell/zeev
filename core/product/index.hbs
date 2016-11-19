@@ -278,6 +278,7 @@
     <script src="/product/index.js"></script>
     <!-- endbuild -->
 
+    {{#env product=true}}
     <!-- build:js  /product/js/birds.pkg_version.css -->
     <script src="/public/libs/three.js/build/three.js"></script>
     <script src="/public/libs/three.js/js/renderers/Projector.js"></script>
@@ -285,5 +286,7 @@
     <script src="/public/libs/three.js/obj/Bird.js"></script>
     <script src="/product/birds.js"></script>
     <!-- endbuild -->
+    {{/env}}
+
 {{/contentFor}}
 </body>
