@@ -1,0 +1,42 @@
+<nav class="navbar user-info-navbar fixed">
+    <ul class="user-info-menu left-links list-inline list-unstyled">
+        <li class="hover-line">
+            <a toggle-menu="toggle"><i class="fa fa-bars"></i> </a>
+        </li>
+        <li class="dropdown user-profile" uib-dropdown>
+            <a uib-dropdown-toggle class="dropdown-toggle">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge badge-green" ng-bind="_$ctrl.messages.length">0</span>
+            </a>
+            <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
+                <li ng-repeat="message in _$ctrl.messages">
+                    <a ng-click="_$ctrl.showMessage(message)">
+                        <i class="fa fa-envelope" uib-tooltip="{{message.name + ' : ' + message.email}}"></i>
+                        {{message.content}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul class="user-info-menu right-links list-inline list-unstyled">
+        <li class="dropdown user-profile" uib-dropdown>
+            <a uib-dropdown-toggle class="dropdown-toggle">
+                <img width="25" class="img-circle img-inline userpic-32" alt="user-image" src="/public/img/zeev.jpg">
+                <span> <i class="fa fa-angle-down"></i></span>
+            </a>
+            <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
+                <li>
+                    <a> <i class="fa fa-edit"></i> New
+                    </a>
+                </li>
+                <li>
+                    <a> <i class="fa fa-edit"></i> New
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a data-toggle="chat" href="#"> <i class="fa fa-comments-o"></i> </a>
+        </li>
+    </ul>
+</nav>

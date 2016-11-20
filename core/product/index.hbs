@@ -64,7 +64,7 @@
 
     <main class="container-fluid text-center">
         <div class="col-md-3 col-sm-6">
-            <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
                 <span class="rotate-box-icon"><i class="fa fa-file-code-o"></i></span>
 
                 <div class="rotate-box-info">
@@ -75,7 +75,7 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
                 <span class="rotate-box-icon"><i class="fa fa-picture-o"></i></span>
 
                 <div class="rotate-box-info">
@@ -86,7 +86,7 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
                 <span class="rotate-box-icon"><i class="fa fa-file-video-o"></i></span>
 
                 <div class="rotate-box-info">
@@ -97,7 +97,7 @@
             </a>
         </div>
         <div class="col-md-3 col-sm-6">
-            <a href="#" class="rotate-box animate-box" data-animation="zoomIn">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
                 <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
 
                 <div class="rotate-box-info">
@@ -112,33 +112,15 @@
 
 <section class="section-container" data-animation="fadeIn" id="product">
     <div class="container-fluid">
-        <div class="col-xs-4 animate-box">
+        <div class="col-md-4 col-xs-12 animate-box">
             <div class="view">
                 <img src="/public/img/mgear_bg.jpg" class="img-responsive">
 
                 <div class="mask">
-                    <a title="Full Image">敬请关注</a>
-                    <span>title</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 animate-box">
-            <div class="view">
-                <img src="/public/img/mgear_bg.jpg" class="img-responsive">
-
-                <div class="mask">
-                    <a href="#" title="Full Image">敬请关注</a>
-                    <span>title</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4 animate-box">
-            <div class="view">
-                <img src="/public/img/mgear_bg.jpg" class="img-responsive">
-
-                <div class="mask">
-                    <a href="#" title="Full Image">敬请关注</a>
-                    <span>title</span>
+                    <h3 title="Full Image">聊天系统</h3>
+                    <a href="/product/chat" target="_blank">
+                        <span class="fa fa-search"></span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -164,7 +146,7 @@
     </h1>
     <div class="container-fluid text-center">
         <ul class="list-unstyled join-list">
-            <li class="animate-box" data-animation="zoomIn">
+            <li class="animate-box" data-animation="zoomIn" data-delay="500">
                 <a class="rotate-box rotate-box-small" target="_blank"
                    href="http://weibo.com/1575459884/profile?rightmod=1&wvr=6&mod=personinfo">
                     <span class="rotate-box-icon">
@@ -188,9 +170,9 @@
 
         <p class="text-center">下面方式都可以找到我</p>
     </h1>
-    <main class="row container-fluid">
+    <main class="container-fluid">
         <div class="col-md-6 col-xs-12">
-            <h3>联系方式</h3>
+            <h3 class="contact-title">联系方式</h3>
             <ul class="contact-address">
                 <li>
                     <i class="fa fa-map-marker fa-lg"></i>
@@ -202,9 +184,9 @@
             </ul>
         </div>
         <div class="col-md-6 col-xs-12">
-            <h3>发送私信</h3>
+            <h3 class="contact-title">发送私信</h3>
 
-            <form role="form">
+            <form role="form" method="POST" action="/message">
                 <div class="form-group">
                     <input required name="name" class="form-control input-lg" placeholder="Your Name">
                 </div>
@@ -214,7 +196,7 @@
                 </div>
 
                 <div class="form-group">
-                    <textarea required name="message" class="form-control input-lg" placeholder="Message"
+                    <textarea required name="content" class="form-control input-lg" placeholder="Message"
                               style="resize: vertical"></textarea>
                 </div>
                 <div class="form-group">
@@ -264,6 +246,7 @@
     <!-- endbuild -->
 
 
+    {{#env product=false}}
     <!-- build:js  /product/js/birds.pkg_version.js -->
     <script src="/public/libs/three.js/build/three.js"></script>
     <script src="/public/libs/three.js/js/renderers/Projector.js"></script>
@@ -271,6 +254,21 @@
     <script src="/public/libs/three.js/obj/Bird.js"></script>
     <script src="/product/birds.js"></script>
     <!-- endbuild -->
+    {{/env}}
+
+
+    {{#env product=true}}
+    <script>
+    (function() {
+      if($(window).width() > 767){
+          var _script = document.createElement("script");
+          _script.src = "/product/js/birds.pkg_version.js";
+          var _s = document.getElementsByTagName("script")[0];
+          _s.parentNode.insertBefore(_script, _s);
+      }
+    })();
+    </script>
+    {{/env}}
 
 {{/contentFor}}
 </body>

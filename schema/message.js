@@ -8,7 +8,7 @@ var ObjectId = Schema.Types.ObjectId;
 var MessageSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
-    content: String,
+    content: { type: String, required: true },
     //--消息提醒--
     //  0: 未读
     //  1: 已读
@@ -16,16 +16,6 @@ var MessageSchema = new mongoose.Schema({
     status: { default: 0, type: Number }
 }, {
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
-})
-
-MessageSchema.pre('save', function(next) {
-    var article = this;
-    if (this.isNew) {
-        this.meta.createAt = this.meta.updateAt = Date.now();
-    } else {
-        this.meta.updateAt = Date.now()
-    }
-    next();
 })
 
 MessageSchema.statics = {

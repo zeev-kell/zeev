@@ -93,43 +93,10 @@
                 </ul>
             </div>
         </section>
-        <ng-include src="'views/navigation.html'"></ng-include>
+        <ng-include src="'views/template/navigation.html'"></ng-include>
     </div>
     <div class="page-content">
-        <nav class="navbar user-info-navbar fixed">
-            <ul class="user-info-menu left-links list-inline list-unstyled">
-                <li class="hover-line">
-                    <a toggle-menu="toggle"><i class="fa fa-bars"></i> </a>
-                </li>
-                <li class="dropdown hover-line">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"> <i
-                            class="fa fa-envelope-o"></i> <span class="badge badge-green"
-                                                                ng-bind="_$ctrl.show">15</span> </a>
-                </li>
-            </ul>
-            <ul class="user-info-menu right-links list-inline list-unstyled">
-                <li class="dropdown user-profile" uib-dropdown>
-                    <a uib-dropdown-toggle class="dropdown-toggle">
-                        <img width="28" class="img-circle img-inline userpic-32" alt="user-image"
-                             src="/public/img/zeev.jpg"> <span>
-                            {{user.token.username}}
-                        <i class="fa fa-angle-down"></i> </span> </a>
-                    <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
-                        <li>
-                            <a> <i class="fa fa-edit"></i> New
-                            </a>
-                        </li>
-                        <li>
-                            <a> <i class="fa fa-edit"></i> New
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a data-toggle="chat" href="#"> <i class="fa fa-comments-o"></i> </a>
-                </li>
-            </ul>
-        </nav>
+        <ng-include src="'views/template/navbar.html'"></ng-include>
         <div class="main-content">
             <div id="loading-bar-container"></div>
             <div class="ui-view-index-container" ui-view=""></div>

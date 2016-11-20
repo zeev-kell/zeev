@@ -21,12 +21,12 @@
     </ul>
 </main>
 <div class="chat-container">
-    <form>
-        <div class="form-group">
-            <textarea class="form-control" style="resize: vertical" required></textarea>
+    <form class="flex-column" style="height:100%">
+        <div class="form-group flex-full">
+            <textarea class="form-control" style="resize: vertical;height:100%" required></textarea>
             <input type="hidden" name="image" value="{{cookies.image}}">
         </div>
-        <div class="pull-right">
+        <div class="text-right">
             <button type="submit" class="btn btn-success">button</button>
         </div>
     </form>
@@ -44,10 +44,13 @@
         socket.on('chat', function (data) {
             var $li = $("#chat-wrap .template").clone().removeClass("template").addClass("chat-item")
             var $container = $(".main-container");
+            var scroll = $container[0].scrollHeight - $container.scrollTop() > $container.height();
             $li.find(".content").html(data.message);
             $li.find(".date").html(data.date);
             $("#chat-wrap").append($li);
-            $container.scrollTop($container[0].scrollHeight);
+            if(!scroll){/* 往上滚动 */
+                $container.scrollTop($container[0].scrollHeight);
+            }
         });
     </script>
 {{/contentFor}}
