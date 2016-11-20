@@ -1,49 +1,132 @@
 @import "../../public/less/theme";
 @import "../../public/less/flex";
 @import "../../public/less/var";
+
 html {
-    height: 100%;
+  height     : 100%;
+  background : #eff0f4;
+  padding    : 15px;
 }
 
 body {
-    .display-flex();
-    .flex-direction-column();
-    .flex(1 0 100%);
-    .transition();
-    height: 100%;
-    padding: 20px;
+  .display-flex();
+  .flex-direction-column();
+  .flex(1 0 100%);
+  .transition();
+  height     : 100%;
+  background : #FFFFFF;
 }
 
 .main-container {
-    .flex(1 1 80%);
-    .transition();
-    overflow-y: auto;
-    margin-bottom: 15px;
+  .flex(1 1 80%);
+  .transition();
+  overflow-y : auto;
+  padding    : 15px;
 }
 
 #chat-wrap {
-    padding: 0;
-    margin: 0;
+  padding    : 0 10px 0 0;
+  margin     : 0;
+  list-style : none;
+  overflow-y : scroll;
+  height     : 100%;
 }
 
 .chat-container {
-    .flex(1 1 20%);
-    .transition();
+  .flex(1 1 20%);
+  .transition();
+  padding : 15px;
 }
 
 .chat-portrait {
-    position: absolute;
-    left: 10px;
-    top: 0px;
-    .portrait-img {
-        width: 48px;
-        height: 48px;
-    }
+  position : absolute;
+  left     : 10px;
+  top      : 0px;
+  .portrait-img {
+    width  : 48px;
+    height : 48px;
+  }
 }
 
 .chat-item {
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 68px;
-    min-height: 58px;
+  margin-bottom : 10px;
+  position      : relative;
+  padding-left  : 75px;
+  min-height    : 58px;
+  .animation(fadeIn 1s linear 0s 1 normal running);
+}
+
+#modal-view {
+  .modal {
+    .display-flex();
+    .justify-content(center);
+    .align-items(center);
+  }
+  .modal-dialog {
+    margin : 0 auto;
+    width  : auto !important;
+  }
+  .modal-content {
+    padding       : 10px 20px;
+    border-radius : 0;
+    box-shadow    : none;
+  }
+  .modal-body {
+    width : 250px;
+  }
+}
+
+.message {
+  border                : 1px solid @theme-color;
+  border-left           : 1px solid @theme-color !important;
+  border-right          : 1px solid @theme-color !important;
+  padding               : 10px !important;
+  border-radius         : 5px;
+  -webkit-border-radius : 5px;
+  position              : relative;
+  display               : inline-block;
+  min-height            : 50px;
+  color                 : #7a7676;
+  .arrow {
+    border-bottom : 8px solid transparent;
+    border-top    : 8px solid transparent;
+    border-right  : 8px solid lighten(@theme-color, 10%) !important;
+    display       : block;
+    height        : 0;
+    left          : -8px;
+    position      : absolute;
+    top           : 15px;
+    width         : 0;
+  }
+  .name {
+    color : @t2-c;
+  }
+  .datetime {
+    color       : #ADADAD;
+    font-size   : 11px !important;
+    font-weight : 400;
+  }
+  .content {
+    word-break : break-all;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity : 0;
+  }
+
+  to {
+    opacity : 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity : 0;
+  }
+
+  to {
+    opacity : 1;
+  }
 }

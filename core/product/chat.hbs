@@ -11,25 +11,56 @@
     <ul id="chat-wrap">
         <li class="template">
             <div class="chat-portrait">
-                <img class="portrait-img" src="{{visitor.image}}">
+                <img class="portrait-img img-circle" src="{{visitor.image}}">
             </div>
-            <div class="date"></div>
-            <div class="content">
+            <div class="message">
+                <span class="arrow"></span>
+                <span class="name"></span>
+                <span class="datetime">at Apr 28, 2014 1:36</span>
 
+                <p class="content">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet
+                    dolore magna aliquam erat volutpat.
+                </p>
             </div>
         </li>
     </ul>
 </main>
 <div class="chat-container">
-    <form class="flex-column" style="height:100%">
+    <form id="chat-form" role="form" class="flex-column" style="height:100%">
         <div class="form-group flex-full">
-            <textarea class="form-control" style="resize: vertical;height:100%" required></textarea>
-            <input type="hidden" name="image" value="{{cookies.image}}">
+            <textarea class="form-control" id="message" name="message" style="resize: vertical;height:100%"
+                      required></textarea>
         </div>
         <div class="text-right">
+            <span class="theme-2" style="margin-right: 10px;">快捷键：Enter + Ctrl</span>
             <button type="submit" class="btn btn-success">button</button>
         </div>
     </form>
+    <input type="hidden" id="image" name="image" value="{{cookies.image}}">
+    <input type="hidden" id="name" name="name" value="{{cookies.name}}">
+</div>
+<div id="modal-view" style="display: none">
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">给自己取个帅气的名字吧！:)</div>
+                <div class="modal-body">
+                    <form role="form" id="sigin-form">
+                        <div class="form-group">
+                            <input type="text" id="enter_name" name="enter_name" required class="form-control"
+                                   placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">确定</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
 </div>
 </body>
 
@@ -38,19 +69,66 @@
     <script src="{{socket '/socket.io/socket.io.js'}}"></script>
     <script>
         var socket = io.connect("{{socket '/chat'}}");
-        socket.on('new', function (data) {
+        socket.on('join', function (data) {
             console.log(data);
         });
         socket.on('chat', function (data) {
-            var $li = $("#chat-wrap .template").clone().removeClass("template").addClass("chat-item")
-            var $container = $(".main-container");
-            var scroll = $container[0].scrollHeight - $container.scrollTop() > $container.height();
+            var $container = $("#chat-wrap");
+            var $li        = $(".template", $container).clone().removeClass("template").addClass("chat-item");
+            var scroll     = $container[0].scrollHeight - $container.scrollTop() > ($container.height() + 30);
+            data.message   = data.message ? data.message.replace(/\n/, "<br/>").replace(/\s/, "&nbsp;") : "";
             $li.find(".content").html(data.message);
-            $li.find(".date").html(data.date);
-            $("#chat-wrap").append($li);
-            if(!scroll){/* 往上滚动 */
+            $li.find(".datetime").html(data.date);
+            $li.find(".name").html(data.name);
+            $li.find(".portrait-img").attr("src", data.image);
+            $container.append($li);
+            if (!scroll) {/* 往上滚动 */
                 $container.scrollTop($container[0].scrollHeight);
             }
         });
+        var name = $("#name").val();
+        if ($.trim(name) == "") {
+            $("#modal-view").fadeIn();
+        } else {
+            $("#message").focus();
+            join(name);
+        }
+        $("#sigin-form").submit(function (e) {
+            e.preventDefault();
+            join($("#enter_name").val());
+            $("#name").val($("#enter_name").val());
+            $("#modal-view").fadeOut();
+        })
+        $("#chat-form").submit(function (e) {
+            e.preventDefault();
+            emit();
+        })
+        $("#message").keydown(function (e) {
+            if (e.ctrlKey && e.keyCode == 13) {
+                e.preventDefault();
+                if (document.getElementById("message").checkValidity()) {
+                    emit();
+                }
+            }
+        })
+        function emit() {
+            var message = $("#message").val();
+            if ($.trim(message) != "") {
+                socket.emit('message', {
+                    message: message,
+                    image  : $("#image").val(),
+                    name   : $("#name").val(),
+                    date   : new Date()
+                });
+            }
+            $("#message").val("");
+        }
+        function join(name) {
+            socket.emit('system', {
+                type: "join",
+                name: name,
+                date: new Date()
+            });
+        }
     </script>
 {{/contentFor}}

@@ -36,11 +36,12 @@ exports.confirm = function (req, res, next) {
 	 */
 	return visitor.findByEmail(req.body.email)
 		.then(function (v) {
+			var time = new Date(Date.now() + 3600000);
 			if (v) {
-				res.cookie('_v', v._id);
-				res.cookie('email', v.email);
-				res.cookie('name', v.name);
-				res.cookie('image', v.image);
+				res.cookie('_v', v._id, { expires: time });
+				res.cookie('email', v.email, { expires: time });
+				res.cookie('name', v.name, { expires: time });
+				res.cookie('image', v.image, { expires: time });
 				req.body._v = v._id;
 				next();
 			} else {
@@ -51,10 +52,10 @@ exports.confirm = function (req, res, next) {
 					image: req.body.image,
 					ip   : req.ip
 				}).then(function (_v) {
-					res.cookie('_v', _v._id);
-					res.cookie('email', _v.email);
-					res.cookie('name', _v.name);
-					res.cookie('image', _v.image);
+					res.cookie('_v', _v._id, { expires: time });
+					res.cookie('email', _v.email, { expires: time });
+					res.cookie('name', _v.name, { expires: time });
+					res.cookie('image', _v.image, { expires: time });
 					req.body._v = _v._id;
 					next();
 				})
