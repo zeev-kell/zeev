@@ -32,9 +32,13 @@
 </main>
 <div class="chat-container">
     <img src="{{cookies.image}}" class="chat-image img-circle">
-    <span id="span_name">{{debug cookies.name}}</span>
+    <span id="span_name">{{cookies.name}}</span>
+
     <form id="chat-form" role="form" class="flex-column" style="height:100%">
-        <div class="form-group flex-full">
+        <div class="flex-row">
+            <button type="button" id="clean-btn" title="清屏">清屏</button>
+        </div>
+        <div class="form-group flex-full flex-row">
             <textarea class="form-control" id="message" name="message" style="resize: vertical;height:100%"
                       required></textarea>
         </div>
@@ -53,7 +57,8 @@
                 <div class="modal-body">
                     <form role="form" id="sigin-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" required class="form-control" value="{{cookies.name}}"
+                            <input type="text" id="name" name="name" required class="form-control"
+                                   value="{{cookies.name}}"
                                    placeholder="Your Name">
                         </div>
                         <div class="form-group">
@@ -73,15 +78,15 @@
     <script src="{{socket '/socket.io/socket.io.js'}}"></script>
     <script>
 
-        var Chat = function(){
+        var Chat = function () {
             this.socket = null;
         }
 
         Chat.prototype = {
-            init : function(){
-                var _this = this;
+            init       : function () {
+                var _this   = this;
                 this.socket = io.connect("{{socket '/chat'}}");
-                var name = $("#name").val();
+                var name    = $("#name").val();
                 if ($.trim(name) == "") {
                     $("#modal-view").fadeIn();
                     $("#name").focus();
@@ -89,40 +94,39 @@
                     $("#message").focus();
                     this.signin(name);
                 }
-                this.socket.on("signinSuccess",function(){
+                this.socket.on("signinSuccess", function () {
                     $("#span_name").html($("#name").val());
                     $("#modal-view").fadeOut();
                 })
-                this.socket.on('system', function(result){
-                    _this.systemMessage(result);
+                this.socket.on('system', function (result) {
+                    _this.scrollWrap(function () {
+                        var $container = $("#chat-wrap");
+                        var $li        = $(".template.chat-system", $container).clone().removeClass("template");
+                        $li.find(".alert").addClass('alert-' + result.alert).html(result.message);
+                        $container.append($li);
+                    })
                 });
                 this.socket.on('chat', function (data) {
-                    var $container = $("#chat-wrap");
-                    var $li        = $(".template.chat-item", $container).clone().removeClass("template");
-                    var scroll     = $container[0].scrollHeight - $container.scrollTop() > ($container.height() + 30);
-                    data.message   = data.message ? data.message.replace(/\n/, "<br/>").replace(/\s/, "&nbsp;") : "";
-                    $li.find(".content").html(data.message);
-                    $li.find(".datetime").html(data.date);
-                    $li.find(".name").html(data.name);
-                    $li.find(".portrait-img").attr("src", data.image);
-                    $container.append($li);
-                    if (!scroll) {/* 往上滚动 */
-                        $container.scrollTop($container[0].scrollHeight);
-                    
-                    }
+                    _this.scrollWrap(function () {
+                        var $container = $("#chat-wrap");
+                        var $li        = $(".template.chat-item", $container).clone().removeClass("template");
+                        data.message   = data.message ? data.message.replace(/\n/, "<br/>").replace(/\s/, "&nbsp;") : "";
+                        $li.find(".content").html(data.message);
+                        $li.find(".datetime").html(data.date);
+                        $li.find(".name").html(data.name);
+                        $li.find(".portrait-img").attr("src", data.image);
+                        $container.append($li);
+                    })
                 });
             },
-            signin : function(name){
-                this.socket.emit('signin',{
-                    name: name,
-                    image  : $("#image").val(),
-                    date: new Date()
+            signin     : function (name) {
+                this.socket.emit('signin', {
+                    name : name,
+                    image: $("#image").val(),
+                    date : new Date()
                 });
             },
-            emitSystem : function(result){
-                this.socket.emit('system',result);
-            },
-            emitMessage : function(){
+            emitMessage: function () {
                 var message = $("#message").val();
                 if ($.trim(message) != "") {
                     this.socket.emit('message', {
@@ -134,30 +138,23 @@
                 }
                 $("#message").val("");
             },
-            systemMessage : function(result){
+            scrollWrap : function (fn) {
                 var $container = $("#chat-wrap");
-                var $li        = $(".template.chat-system", $container).clone().removeClass("template");
                 var scroll     = $container[0].scrollHeight - $container.scrollTop() > ($container.height() + 30);
-                if(result.type == "join"){
-                    $li.find(".alert").addClass("alert-success").html(result.data.name + "加入了聊天系统，大家快和TA打招呼吧！");
-                }else if(result.type == "leave"){
-                    $li.find(".alert").addClass("alert-warning").html(result.data + "离开了聊天系统。");
-                }
-                console.log(result);
-                $container.append($li);
+                fn();
                 if (!scroll) {/* 往上滚动 */
                     $container.scrollTop($container[0].scrollHeight);
                 }
             }
         }
-        
-        $(function(){
+
+        $(function () {
             var chat = new Chat();
             chat.init();
             $("#sigin-form").submit(function (e) {
                 e.preventDefault();
                 var name = $.trim($("#name").val());
-                if(name.length != 0){
+                if (name.length != 0) {
                     chat.signin(name);
                 }
             })
@@ -172,6 +169,9 @@
                         chat.emitMessage();
                     }
                 }
+            })
+            $("#clean-btn").click(function(){
+                $("#chat-wrap li:not(.template)").remove();
             })
         })
     </script>
