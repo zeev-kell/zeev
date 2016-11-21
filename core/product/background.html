@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas - 柯子源</title>
+    <style>
+        html, body {
+            margin  : 0;
+            padding : 0;
+            height  : 100%;
+        }
+
+        body {
+            overflow : hidden;
+        }
+
+        #canvas {
+            position : absolute;
+            top      : 0;
+            left     : 0;
+            z-index  : 1;
+        }
+
+        .example {
+            position   : fixed;
+            bottom     : 10px;
+            right      : 10px;
+            width      : 500px;
+            height     : 200px;
+            background : rgba(255, 255, 255, 1);
+            border     : 5px solid rgba(200, 200, 200, 0.4);
+            z-index    : 10;
+            padding    : 20px;
+        }
+
+        .form > div {
+            margin-bottom : 15px;
+            position      : relative;
+            padding-left  : 80px;
+            line-height   : 1.5;
+            font-size     : 20px;
+        }
+
+        h2 {
+            font-size   : 20px;
+            line-height : 1.5;
+            margin      : 0;
+            text-align  : left;
+            position    : absolute;
+            left        : 0;
+        }
+
+        input[type="range"] {
+            width : 80%;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="example">
+    <form role="form" class="form">
+        <div class="checkbox">
+            <h2>类型</h2>
+            <label>
+                <input type="checkbox" name="type" value="line" onchange="onChanged()">line
+            </label>
+            <label>
+                <input type="checkbox" name="type" value="circle" onchange="onChanged()">circle
+            </label>
+            <label>
+                <input type="checkbox" name="type" value="polygon" checked onchange="onChanged()">polygon
+            </label>
+        </div>
+        <div class="amplitude">
+            <h2>密集度</h2>
+            <input type="range" min="0.5" max="2.5" step="0.1" onchange="onChanged()" name="amplitude" value="1">
+            <span id="amplitude_value">1.5</span>
+        </div>
+        <div class="wave">
+            <h2>零散度</h2>
+            <input type="range" min="10" max="150" step="1" onchange="onChanged()" name="wave" value="100">
+            <span id="wave_value">100</span>
+        </div>
+        <div class="wave">
+            <h2>边数</h2>
+            <input type="number" min="3" max="10" name="sideLength" value="3" required id="sideLength">
+            <label>
+                <input type="checkbox" name="random" onchange="onChanged()" checked>随机
+            </label>
+            <button type="button" onclick="onChanged()">确定</button>
+            <span style="font-size: 14px;color:#0000FF">只对polygon有效</span>
+        </div>
+    </form>
+</div>
+<script src="/product/js/background.js"></script>
+<script>
+    var particle = new Particle();
+    particle.init({
+        canvas   : document.getElementById("canvas"),
+        drawType : ["polygon"],
+        amplitude: 1,
+        wave     : 100
+    })
+    function onChanged() {
+        var config = {
+            drawType: []
+        };
+        var form   = document.forms[0];
+        if (!form["random"].checked && !document.getElementById("sideLength").checkValidity()) {
+            return false;
+        }
+        if (form["random"].checked) {
+            config.getSideLength   = function () {
+                return Math.floor(Math.random() * 10) + 3;
+            };
+            config.getRadius       = function () {
+                return Math.random() * Math.random() * 100
+            };
+        } else {
+            config.getSideLength   = form["sideLength"].value;
+            config.getRadius       = function () {
+                return Math.random() * Math.random() * 100
+            };
+        }
+        var types = form.elements["type"];
+        for (var i = 0; i < types.length; i++) {
+            if (types[i].checked) {
+                config.drawType.push(types[i].value);
+            }
+        }
+        config.amplitude                                     = form["amplitude"].value;
+        document.getElementById("amplitude_value").innerHTML = config.amplitude;
+        config.wave                                          = form["wave"].value;
+        document.getElementById("wave_value").innerHTML      = config.wave;
+        particle.setConfig(config).reset();
+    }
+</script>
+</body>
+</html>

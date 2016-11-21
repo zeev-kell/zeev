@@ -824,6 +824,7 @@ a.rotate-box {
   width: 100%;
   z-index: 5;
   height: 300px;
+  background-size: cover;
 }
 .view > p {
   height: 20px;
