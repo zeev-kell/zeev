@@ -17,7 +17,7 @@ var config = {
 			"./core/views*/error.hbs",
 			"./core/views*/404.hbs"
 		],
-		public: ["./core/public*/**/*", "!*.{less}", "./core/**/*.css"],
+		public: ["./core/public*/**/*", "!*.{less}", "./core/**/*.css", "./core/product*/img/**/*"],
 		admin : {
 			js  : [
 				"./core/admin*/**/*.js"
