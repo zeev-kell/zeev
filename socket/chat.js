@@ -1,34 +1,54 @@
-/**
+ï»¿/**
  * Created by zeev on 2016/11/11 0011.
  */
 
-var _      = require("lodash"),
-	moment = require("moment");
+var _ = require("lodash"),
+    moment = require("moment");
 moment.locale('zh-cn');
 
-module.exports = function (chat) {
-	chat.on('connection', function (socket) {
-		socket.on("message", function (data) {
-			_.extend(data, { date: moment(data.date || new Date()).format("LT") });
-			chat.emit('chat', data);
-			//socket.broadcast.emit('user connected'); ½ö½öÔÚemitºÍsend·½·¨Ç°Ôö¼ÓbroadcastµÄ±êÖ¾¡£¹ã²¥ÒâÎ¶×ÅÏûÏ¢½«»á·¢¸øÈÎºÎÈË³ıÁËÏûÏ¢µÄ·¢ÆğÕß£º
-		})
-		socket.on("system", function (data) {
-			_.extend(data, { date: moment(data.date || new Date()).format("LT") });
-			if(data.type == "join"){
-				chat.emit('join', data);
-			}
-		})
-	});
-	chat.on('disconnect', function (data) {
-		console.log(data);
-		socket.emit('notice', { message: 'hello world !', date: new Date() });
-	});
-	return chat;
+module.exports = function(chat) {
+    chat.on('connection', function(socket) {
+        socket.on("message", function(data) {
+            _.extend(data, { date: moment(data.date || new Date()).format("LT") });
+            chat.emit('chat', data);
+            /**
+             *	socket å½“å‰ç”¨æˆ·
+             *	socket.broadcast é™¤äº†å½“å‰ç”¨æˆ·çš„å…¶ä»–ç”¨æˆ·
+             *	chat æ‰€æœ‰ç”¨æˆ·
+             */
+            //socket.broadcast.emit('user connected'); ä»…ä»…åœ¨emitå’Œsendæ–¹æ³•å‰å¢åŠ broadcastçš„æ ‡å¿—ã€‚å¹¿æ’­æ„å‘³ç€æ¶ˆæ¯å°†ä¼šå‘ç»™ä»»ä½•äººé™¤äº†æ¶ˆæ¯çš„å‘èµ·è€…ï¼š
+        })
+        socket.on("system", function(data) {
+            _.extend(data, { date: moment(data.date || new Date()).format("LT") });
+            if (data.type == "signin") {
+                socket.emit('signinSuccess');
+                chat.emit('system', {
+                    type: "join",
+                    data: data
+                });
+            }
+        })
+        socket.on("signin", function(data) {
+            _.extend(data, { date: moment(data.date || new Date()).format("LT") });
+            socket.name = data.name;
+            socket.emit('signinSuccess');
+            chat.emit('system', {
+                type: "join",
+                data: data
+            });
+        })
+        socket.on("disconnect", function() {
+            socket.broadcast.emit('system', {
+                type: "leave",
+                data: socket.name
+            });
+        })
+    });
+    return chat;
 }
 
-/* ¹ã²¥ÊÂ¼ş */
-module.exports.emit = function () {
-	stream.write(arguments[0] + JSON.stringify(arguments) + '\n');
-	return io.sockets.emit.apply(io.sockets, arguments);
+/* å¹¿æ’­äº‹ä»¶ */
+module.exports.emit = function() {
+    stream.write(arguments[0] + JSON.stringify(arguments) + '\n');
+    return io.sockets.emit.apply(io.sockets, arguments);
 }
