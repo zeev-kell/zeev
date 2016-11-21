@@ -34,17 +34,17 @@
     <img src="{{cookies.image}}" class="chat-image img-circle">
     <span id="span_name">{{cookies.name}}</span>
 
-    <form id="chat-form" role="form" class="flex-column" style="height:100%">
-        <div class="flex-row">
-            <button type="button" id="clean-btn" title="清屏">清屏</button>
+    <form id="chat-form" role="form" class="flex-column">
+        <div class="form-group" style="margin-bottom: 5px;">
+            <button type="button" id="clean-btn" title="清屏" class="btn btn-default btn-sm">清屏</button>
         </div>
-        <div class="form-group flex-full flex-row">
+        <div class="form-group text-area">
             <textarea class="form-control" id="message" name="message" style="resize: vertical;height:100%"
                       required></textarea>
         </div>
         <div class="text-right chat-btn">
             <span class="theme-2" style="margin-right: 10px;">快捷键：Enter + Ctrl</span>
-            <button type="submit" class="btn btn-success">button</button>
+            <button type="submit" class="btn btn-success">发送</button>
         </div>
     </form>
     <input type="hidden" id="image" name="image" value="{{cookies.image}}">
