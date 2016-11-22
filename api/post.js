@@ -99,7 +99,7 @@ exports.findOneAndReview = function (object, options) {
 
 		.then(function (post) {
 			if (!post) {
-				return Promise.reject(new errors.ValidationError("POST 不存在..."))
+				return Promise.reject(new errors.NotFoundError("POST 不存在..."))
 			}
 			return post;
 		})

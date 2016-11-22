@@ -10,22 +10,23 @@ var config = {
 	output: "./dist",
 	admin : "./core/admin",
 	copy  : {
-		font  : ["./bower_components/font-awesome/fonts*/**", "./bower_components/bootstrap/dist/fonts*/**"],
-		hbs   : [
+		font   : ["./bower_components/font-awesome/fonts*/**", "./bower_components/bootstrap/dist/fonts*/**"],
+		hbs    : [
 			"./core/views*/{partials,layout}/**/*.hbs",
 			"./core/product*/chat.hbs",
 			"./core/views*/error.hbs",
 			"./core/views*/404.hbs"
 		],
-		public: ["./core/public*/**/*", "!*.{less}", "./core/**/*.css", "./core/product*/img/**/*"],
-		admin : {
+		public : ["./core/public*/**/*", "!*.{less}", "./core/**/*.css"],
+		product: ["./core/product*/img/**/*", "./core/product*/**/*.html"],
+		admin  : {
 			js  : [
 				"./core/admin*/**/*.js"
 			],
 			html: ["./core/admin*/views/**/*"],
 			css : ["./core/admin*/css/**/*"]
 		},
-		essay : ["./core/essay*/**/*", "!*.{less}"]
+		essay  : ["./core/essay*/**/*", "!*.{less}"]
 	}
 };
 

@@ -98,10 +98,20 @@ errors = {
 
 		// do not cache 404 error
 		res.set({ 'Cache-Control': 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0' });
+
 		if (req.method === 'GET') {
-			var err    = new Error('Not Found');
-			err.status = 404;
-			this.renderErrorPage(404, err, req, res, next);
+			if (/\.((js)|(png)|(css)|(jpg))|bower_components/.test(req.path)) {
+				res.sendStatus(404);
+			} else {
+				var err    = new Error('Not Found');
+				err.status = 404;
+				res.render('views/404', {
+					message: err,
+					code   : 404,
+					req    : req,
+					title  : 'Not Found'
+				})
+			}
 		} else {
 			res.status(404).send(message);
 		}
@@ -111,6 +121,7 @@ errors = {
 		// 500 errors should never be cached
 		res.set({ 'Cache-Control': 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0' });
 
+		console.log(err);
 		if (err.status === 404 || err.code === 404) {
 			return this.error404(req, res, next);
 		}

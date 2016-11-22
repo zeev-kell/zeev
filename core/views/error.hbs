@@ -1,31 +1,77 @@
+<style>
+    body, html {
+        height  : 100%;
+        margin  : 0;
+        padding : 0;
+        font    : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    }
+
+    div {
+        margin  : 0;
+        padding : 0;
+    }
+
+    .table {
+        display        : table;
+        width          : 500px;
+        height         : 80%;
+        vertical-align : middle;
+        margin         : 0 auto;
+    }
+
+    .table-cell {
+        display        : table-cell;
+        vertical-align : middle;
+    }
+
+    .text-center {
+        text-align : center;
+    }
+
+    h1 {
+        font-size : 5rem;
+        margin    : 1rem;;
+    }
+
+    p {
+        color     : #333333;
+        font-size : 1.2rem;
+    }
+
+    .message {
+        font-size   : 2rem;
+        font-weight : bold;
+    }
+
+    .btn-link {
+        text-decoration : none;
+        font-size       : 1.2rem;
+    }
+</style>
 <body>
-<div class="gh-app">
-    <div class="gh-viewport">
-        <div class="gh-view">
-          <section class="error-content error-404 js-error-container">
-            <section class="error-details">
-              <section class="error-message">
-                <h1 class="error-code">{{code}}</h1>
-                <h2 class="error-description">{{message}}</h2>
-                <a class="error-link" href="{{@blog.url}}">返回首页 →</a>
-              </section>
-            </section>
-          </section>
-          {{#if stack}}
-            <section class="error-stack">
-              <h3>Stack Trace</h3>
-              <p><strong>{{message}}</strong></p>
-              <ul class="error-stack-list">
-                {{#each stack}}
-                  <li>
-                    at
-                    {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
-                    <span class="error-stack-file">({{at}})</span>
-                  </li>
-                {{/each}}
-              </ul>
-            </section>
-          {{/if}}
+<div class="table">
+    <div class="table-cell">
+        <div class="">
+            <h1 class="text-center">{{code}}</h1>
+
+            <p><strong>路径：</strong>{{req.path}}</p>
+
+            <p class="message">{{message}}</p>
+            <a class="btn-link" href="http://zeevkell.com/essay/">返回首页 →</a>
+            {{#if stack}}
+                <section class="error-stack">
+                    <h3>Stack Trace</h3>
+                    <ul class="error-stack-list">
+                        {{#each stack}}
+                            <li>
+                                at
+                                {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
+                                <span class="error-stack-file">({{at}})</span>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </section>
+            {{/if}}
         </div>
     </div>
 </div>

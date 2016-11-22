@@ -22,7 +22,7 @@
                 <section id="comments">
                     <h1 class="comments-title">{{post.comments.length}} Comments</h1>
                     <ul class="comments-wrap list-unstyled">
-                        <li class="comments-list clearfix" ng-repeat="comment in post.comments">
+                        <li class="comments-list clearfix repeat-rm" ng-repeat="comment in post.comments">
                             <div class="comment-portrait">
                                 <img class="portrait-img" ng-src="{{::comment.visitor.image}}">
                             </div>
@@ -47,6 +47,9 @@
                                 </button>
                                 <button class="btn btn-success" type="button" ng-if="comment.status < 3"
                                         v-busy-click="eICtrl.updateComment(comment,3)">通过
+                                </button>
+                                <button class="btn btn-danger" type="button"
+                                        v-busy-click="eICtrl.removeComment(comment,$index)">删除
                                 </button>
                             </div>
                         </li>

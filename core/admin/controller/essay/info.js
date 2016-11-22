@@ -13,13 +13,21 @@ angular.module("app.controller", [])
 		})
 		this.updateComment = function (comment, type) {
 			return $http({
-				method: "put",
+				method: "PUT",
 				url   : "comment/" + comment._id,
 				data  : {
 					status: type
 				}
 			}).success(function (data) {
 				comment.status = data.status;
+			})
+		}
+		this.removeComment = function (comment, $index) {
+			return $http({
+				method: "DELETE",
+				url   : "comment/" + comment._id
+			}).success(function (data) {
+				$scope.post.comments.splice($index, 1);
 			})
 		}
 	}])
