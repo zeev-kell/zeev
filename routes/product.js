@@ -6,12 +6,12 @@ var router = require("express").Router();
 
 
 /* product page. */
-router.get('/', function(req, res, next) {
-    res.render('product/index', { title: '' ,list:[1,2,3,4,5,6,7,8,9]});
+router.get('/', function (req, res, next) {
+	res.render('product/index', { title: '作品 - 柯子源的个人网站' });
 });
 
-router.get("/chat", function(req, res, next) {
-    res.render("product/chat", { title: "聊天系统" })
+router.get("/chat", function (req, res, next) {
+	res.render("product/chat", { title: "聊天系统" })
 })
 
 module.exports = router;
