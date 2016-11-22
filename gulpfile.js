@@ -13,20 +13,30 @@ var config = {
 		font   : ["./bower_components/font-awesome/fonts*/**", "./bower_components/bootstrap/dist/fonts*/**"],
 		hbs    : [
 			"./core/views*/{partials,layout}/**/*.hbs",
-			"./core/product*/chat.hbs",
 			"./core/views*/error.hbs",
-			"./core/views*/404.hbs"
+			"./core/views*/404.hbs",
+			"./core/views*/success.hbs"
 		],
-		public : ["./core/public*/**/*", "!*.{less}", "./core/**/*.css"],
-		product: ["./core/product*/img/**/*", "./core/product*/**/*.html"],
+		public : [
+			"./core/public*/css/**/*",
+			"./core/public*/img/**/*",
+			"./core/public*/js/**/*",
+			"./core/public*/svg/**/*",
+			"./core/public*/favicon.ico"
+		],
+		product: [
+			"./core/product*/css/**/*",
+			"./core/product*/img/**/*",
+			"./core/product*/js/**/*",
+			"./core/product*/chat.hbs",
+			"./core/product*/**/*.html"
+		],
 		admin  : {
-			js  : [
-				"./core/admin*/**/*.js"
-			],
-			html: ["./core/admin*/views/**/*"],
-			css : ["./core/admin*/css/**/*"]
+			js  : ["./core/admin*/**/*.js"],
+			html: ["./core/admin*/views/**/*"]
 		},
-		essay  : ["./core/essay*/**/*", "!*.{less}"]
+		essay  : ["./core/essay*/**/*", "!*.{less}"],
+		libs   : ["./core/public*/libs/**/*"]
 	}
 };
 

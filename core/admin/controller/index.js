@@ -3,7 +3,7 @@
  */
 
 "use strict";
-angular.module("app.controller", [])
+angular.module("app.controller")
     .controller("adminController", ["$scope", "$http", "$uibModal", function($scope, $http, $uibModal) {
         var _$ctrl = this;
         $http({

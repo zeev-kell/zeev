@@ -6,3 +6,4 @@
 /config
 /dist
 /logs/**/*.log
+/backup

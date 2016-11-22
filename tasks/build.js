@@ -23,6 +23,11 @@ module.exports = function (gulp, config, banner) {
 	});
 
 	gulp.task('build:copy', ["css:less", "build:clean"], function () {
+
+		gulp.src(config.copy.font)
+			.pipe(gulp.dest(config.output + "/admin"))
+			.pipe(gulp.dest(config.output + "/public"));
+
 		gulp.src(config.copy.hbs)
 			.pipe(gulp.dest(config.output));
 
@@ -31,7 +36,9 @@ module.exports = function (gulp, config, banner) {
 			.pipe(gulpif("*.css", cleanCss()))
 			.pipe(gulp.dest(config.output));
 
-		gulp.src(config.copy.essay)
+		gulp.src(config.copy.product)
+			.pipe(gulpif("*.js", uglify()))
+			.pipe(gulpif("*.css", cleanCss()))
 			.pipe(gulp.dest(config.output));
 
 		gulp.src(config.copy.admin.js)
@@ -41,9 +48,12 @@ module.exports = function (gulp, config, banner) {
 		gulp.src(config.copy.admin.html)
 			.pipe(gulp.dest(config.output));
 
-		gulp.src(config.copy.font)
-			.pipe(gulp.dest(config.output + "/admin"))
-			.pipe(gulp.dest(config.output + "/public"));
+		gulp.src(config.copy.essay)
+			.pipe(gulp.dest(config.output));
+
+		gulp.src(config.copy.libs)
+			.pipe(gulp.dest(config.output));
+
 	});
 
 	gulp.task('build', ["build:copy"], function () {
