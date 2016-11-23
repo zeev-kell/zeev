@@ -100,17 +100,18 @@ errors = {
 		res.set({ 'Cache-Control': 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0' });
 
 		if (req.method === 'GET') {
-			if (/\.((js)|(png)|(css)|(jpg))|bower_components/.test(req.path)) {
+			if (/\.((js)|(png)|(css)|(jpg))$|bower_components/.test(req.path)) {
 				res.sendStatus(404);
 			} else {
 				var err    = new Error('Not Found');
 				err.status = 404;
-				res.render('views/404', {
-					message: err,
-					code   : 404,
-					req    : req,
-					title  : 'Not Found'
-				})
+				//				res.render('views/404', {
+				//					message: err,
+				//					code   : 404,
+				//					req    : req,
+				//					title  : 'Not Found'
+				//				})
+				this.renderErrorPage(404, err, req, res, next)
 			}
 		} else {
 			res.status(404).send(message);
