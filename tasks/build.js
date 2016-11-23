@@ -37,7 +37,6 @@ module.exports = function (gulp, config, banner) {
 			.pipe(gulp.dest(config.output));
 
 		gulp.src(config.copy.product)
-			.pipe(gulpif("*.js", uglify()))
 			.pipe(gulpif("*.css", cleanCss()))
 			.pipe(gulp.dest(config.output));
 
