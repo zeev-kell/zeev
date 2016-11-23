@@ -12,8 +12,8 @@ asset = function (context, options) {
 
 	// replace ".foo" with ".min.foo" in production
 	if (utils.isProduction && minify) {
-		//        context = "http://www.zeevkell.com" + context.replace('.', '.min.');
-		context = context.replace('.', '.min.');
+		context = "http://www.zeevkell.com" + context.replace('.', '.min.');
+		//		context = context.replace('.', '.min.');
 	}
 
 	return context;
