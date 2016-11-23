@@ -51,7 +51,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/bower_components', express.static(utils._path('bower_components')));
-app.get('/bower_components', function (req, res, next) {
+app.all('/bower_components/**/*', function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	next();
 });
