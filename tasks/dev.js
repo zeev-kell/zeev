@@ -1,11 +1,13 @@
-var nodemon     = require('gulp-nodemon'),
-	less        = require('gulp-less'),
-	clean       = require('gulp-clean'),
-	notify      = require('gulp-notify'),
-	plumber     = require('gulp-plumber'),
-	argv        = require('yargs').argv,
-	browserSync = require('browser-sync').create(),
-	reload      = browserSync.reload;
+var nodemon              = require('gulp-nodemon'),
+	less                 = require('gulp-less'),
+	clean                = require('gulp-clean'),
+	notify               = require('gulp-notify'),
+	plumber              = require('gulp-plumber'),
+	argv                 = require('yargs').argv,
+	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+	autoprefixPlugin     = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] }),
+	browserSync          = require('browser-sync').create(),
+	reload               = browserSync.reload;
 
 module.exports = function (gulp, config) {
 	/**

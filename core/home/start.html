@@ -5,41 +5,44 @@
     <meta charset="UTF-8">
     <title>canvas - 柯子源</title>
     <style>
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-    }
-    
-    body {
-        overflow: hidden;
-        background: #000000;
-    }
-    
-    #start {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
+        html,
+        body {
+            margin  : 0;
+            padding : 0;
+            height  : 100%;
+        }
+
+        body {
+            overflow   : hidden;
+            background : #000000;
+        }
+
+        #start {
+            position : absolute;
+            top      : 0;
+            left     : 0;
+            z-index  : 1;
+        }
     </style>
 </head>
 
 <body>
-    <canvas id="start"></canvas>
-    <script src="start.js"></script>
-    <script>
-    var start = window.start = new Start();
-    start.init({
-        canvas: document.getElementById("start")
-    })
-    // setInterval(function() {
-    //     start.updateController({
-    //         way: Math.floor(Math.random() * 2)
-    //     })
-    // }, 2000)
-    </script>
+<canvas id="start"></canvas>
+<script src="start.js"></script>
+<script>
+	var start = window.start = new Start();
+	start.init({
+		canvas: document.getElementById("start")
+	})
+//	setInterval(function () {
+//		start.updateController({
+//			way: Math.floor(Math.random() * 2)
+//		})
+//	}, 2000)
+	start.updateController({
+		way: 1
+	})
+</script>
 </body>
 
 </html>
