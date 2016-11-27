@@ -59,7 +59,9 @@
     <script type="text/javascript">
         $(function () {
             var $template = $(".contents-items .template").clone().removeClass("template");
-            $(".post-content h3").each(function (i) {
+            var _h3 = $(".post-content h3");
+            var _$contents = $(".contents-items");
+            _h3.each(function (i) {
                 var _$template = $template.clone();
                 var _this = $(this);
                 if (!_this.attr("id")) {
@@ -74,8 +76,12 @@
                             var goTo = $(id).offset().top - 30;
                             $("html, body").animate({ scrollTop: goTo }, 500);
                         });
-                $(".contents-items").append(_$template);
+                _$contents.append(_$template);
             })
+            if(_h3.length == 0){
+                var _no_$template = $("<div class='text-left'>暂无目录结构</div>");
+                $(".contents-wrap").append(_no_$template);
+            }
             var contentsTop = $('.contents-aside').offset().top;
             contentsSticky();
             $(window).scroll(function () {

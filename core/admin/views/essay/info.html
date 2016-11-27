@@ -1,14 +1,11 @@
 <section class="row">
     <div class="col-xs-12">
         <article class="hpanel blog-article-box">
-            <div ng-if="post.image" class="bg-img-cover" ng-style={'background-image':'url('+post.image+')'}
-                 style="height: 330px;"></div>
+            <div ng-if="post.image" class="bg-img-cover" ng-style={'background-image':'url({{post.image}})'} style="height: 330px;"></div>
             <div class="panel-body">
                 <div class="art-header">
                     <h1 class="" ng-bind="::post.title"></h1>
-
-                    <div class="info">By {{::post.author.name}} on {{::post.created_at | date }} with
-                        {{::post.comments.length}} Commnets
+                    <div class="info">By {{::post.author.name}} on {{::post.created_at | date }} with {{::post.comments.length}} Commnets
                     </div>
                     <div class="line"></div>
                 </div>
@@ -28,7 +25,8 @@
                             </div>
                             <div class="comment-body">
                                 <header>
-                                    <span class="user"><a ng-bind="::comment.visitor.name"></a> </span>
+                                    <span class="user"><a class="btn-link" ng-bind="::comment.visitor.name" 
+                                    uib-tooltip="{{::comment.visitor.email}}"></a> </span>
                                     <span class="theme-2">•</span>
                                     <span ng-bind="::comment.created_at | moment : 'fromNow'"></span>
                                     <span class="theme-2">•</span>
@@ -37,19 +35,15 @@
                                     <span class="text-success" ng-if="comment.status == 3">审核通过</span>
                                 </header>
                                 <div>
-                                    <div ng-bind="::comment.visitor.email"></div>
                                     <div ng-bind="::comment.content"></div>
                                 </div>
                             </div>
                             <div class="comment-btn pull-right">
-                                <button class="btn btn-default" type="button" ng-if="comment.status == 0"
-                                        v-busy-click="eICtrl.updateComment(comment,1)">标记查看
+                                <button class="btn btn-default" type="button" ng-if="comment.status == 0" v-busy-click="eICtrl.updateComment(comment,1)">标记查看
                                 </button>
-                                <button class="btn btn-success" type="button" ng-if="comment.status < 3"
-                                        v-busy-click="eICtrl.updateComment(comment,3)">通过
+                                <button class="btn btn-success" type="button" ng-if="comment.status < 3" v-busy-click="eICtrl.updateComment(comment,3)">通过
                                 </button>
-                                <button class="btn btn-danger" type="button"
-                                        v-busy-click="eICtrl.removeComment(comment,$index)">删除
+                                <button class="btn btn-danger" type="button" v-busy-click="eICtrl.removeComment(comment,$index)">删除
                                 </button>
                             </div>
                         </li>

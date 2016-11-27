@@ -12,6 +12,15 @@ angular.module("app.controller")
         }).success(function(messages) {
             _$ctrl.messages = messages;
         });
+        $http({
+            method: "GET",
+            url: "comment",
+            params: {
+                limit: 6
+            }
+        }).success(function(comments) {
+            _$ctrl.comments = comments;
+        });
         _$ctrl.showMessage = function(message) {
             $uibModal.open({
                 animation: true,

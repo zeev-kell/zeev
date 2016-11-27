@@ -1,22 +1,21 @@
 var express = require('express');
-var path    = require('path');
+var path = require('path');
 var favicon = require('serve-favicon');
 
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
+var bodyParser = require('body-parser');
 
-var hbs   = require('express-hbs');
+var hbs = require('express-hbs');
 var utils = require("./utils");
 
-var mongodb = require("./mongodb");
-mongodb();
-var app     = express();
-app.use(mongodb.session);
+var app = express(),
+    mongodb = require("./mongodb");
+mongodb.init();
+app.use(mongodb.session());
+global.dbHelper = require('./schema');
 
 // view engine setup
 app.set('views', utils.env_path('views'));
-
-var fp = require('path');
 
 /**
  * Express 4.x template engine compliance.
@@ -33,9 +32,9 @@ var fp = require('path');
  * }
  */
 app.engine('hbs', hbs.express4({
-	partialsDir  : [utils.env_path('views/partials'), utils.env_path('essay')],
-	defaultLayout: utils.env_path('views/layout/default.hbs'),
-	layoutsDir   : utils.env_path('views/layout')
+    partialsDir: [utils.env_path('views/partials'), utils.env_path('essay')],
+    defaultLayout: utils.env_path('views/layout/default.hbs'),
+    layoutsDir: utils.env_path('views/layout')
 }));
 app.set('view engine', 'hbs');
 app.set('views', utils._dist);
@@ -50,9 +49,9 @@ require("./logs")(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.all('/bower_components/**/*', function (req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	next();
+app.all('/bower_components/**/*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    next();
 });
 app.use('/bower_components', express.static(utils._path('bower_components')));
 app.use('/node_modules', express.static(utils._path('node_modules')));

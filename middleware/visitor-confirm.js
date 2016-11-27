@@ -28,7 +28,7 @@ exports.confirm = function (req, res, next) {
 	 * 邮箱校验正确
 	 */
 	if (!validator.isEmail(req.body.email)) {
-		return errors.handlerRenderError(new errors.ValidationError('Email is required !'), req, res, next);
+		return errors.handlerRenderError(new errors.ValidationError('Email 不正确 !'), req, res, next);
 	}
 
 	/**

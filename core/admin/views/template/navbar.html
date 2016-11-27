@@ -11,11 +11,30 @@
             <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
                 <li ng-repeat="message in _$ctrl.messages">
                     <a ng-click="_$ctrl.showMessage(message)">
-                        <i class="fa fa-envelope" uib-tooltip="{{message.name + ' : ' + message.email}}"></i>
+                        <i class="fa fa-envelope"></i>
+                        <span class="text-primary" uib-tooltip="{{message.email}}">{{message.name}}</span>
                         {{message.content}}
                     </a>
                 </li>
                 <li ng-show="_$ctrl.messages && !_$ctrl.messages.length">
+                    <a>暂无信息</a>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown user-profile" uib-dropdown>
+            <a uib-dropdown-toggle class="dropdown-toggle">
+                <i class="fa fa-envelope-o"></i>
+                <span class="badge badge-green" ng-bind="_$ctrl.comments.length">0</span>
+            </a>
+            <ul class="dropdown-menu user-profile-menu list-unstyled" uib-dropdown-menu>
+                <li ng-repeat="comment in _$ctrl.comments">
+                    <a ng-click="_$ctrl.showMessage(comments)">
+                        <i class="fa fa-envelope"></i>
+                        <span class="text-primary" uib-tooltip="{{comment.email}}">{{comment.name}}</span>
+                        {{comment.content}}
+                    </a>
+                </li>
+                <li ng-show="_$ctrl.comments && !_$ctrl.comments.length">
                     <a>暂无消息</a>
                 </li>
             </ul>

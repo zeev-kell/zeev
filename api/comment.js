@@ -73,7 +73,11 @@ exports.updateComment = function (object, options) {
 }
 
 exports.getList = function (object, options) {
+	if(options.limit){
+		options.limit = parseInt(options.limit);
+	}
 	return Comment.find(object)
+		.limit(options.limit)
 		.then(function (comments) {
 			if (comments) {
 				return comments

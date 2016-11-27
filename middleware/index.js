@@ -8,7 +8,7 @@ var debug  = require('debug')('zeev:middleware'),
 exports.authenticateClient = function (req, res, next) {
 	var session = req.session;
 	var method  = req.method;
-	if (!session.user) {
+	if (!session || !session.user) {
 		debug("no signin user", req.method);
 		if (method === 'POST' || method === 'PUT' || method === 'DELETE') {
 			return errors.handleAPIError(new errors.UnauthorizedError('未登录...'), req, res, next);
