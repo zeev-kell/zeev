@@ -92,15 +92,14 @@
         </div>
     </form>
 </div>
-<script src="/product/js/background.js"></script>
+<script src="js/background.js"></script>
 <script>
-    var particle = new Particle();
-    particle.init({
+    var particle = new Particle({
         canvas   : document.getElementById("canvas"),
         drawType : ["polygon"],
         amplitude: 1,
         wave     : 100
-    })
+    });
     function onChanged() {
         var config = {
             drawType: []

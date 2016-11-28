@@ -11,7 +11,7 @@
         winWidth,
         winHeight;
 
-    var Particle = window.Particle = function() {
+    var Particle = window.Particle = function(config) {
         this.increas = 0; //-- 递增值
         this.globalAlpha = 0.5; //-- 透明度，影响效果叠加
         this.amplitude = 1.5; //-- 增幅
@@ -42,6 +42,7 @@
                 }
             });
         })(Particle.prototype, this, this);
+        this.init(config)
     }
 
     Particle.prototype = {
