@@ -82,11 +82,11 @@ body {
   &.is-fixed {
     position         : fixed;
     top              : -60px;
-    background-color : #fff;
+    background-color : #FFF;
     left             : 0;
     width            : 100%;
     background-color : rgba(255, 255, 255, 0.9);
-    border-bottom    : 1px solid #ececec;
+    border-bottom    : 1px solid #ECECEC;
     z-index          : 1000;
   }
   &.is-visible {
@@ -95,11 +95,11 @@ body {
 }
 
 @media all and (max-width : 767px) {
-  /* bootstrap²Ëµ¥ÐèÒªÌí¼ÓµÄÑùÊ½  */
+  /* bootstrapï¿½Ëµï¿½ï¿½ï¿½Òªï¿½ï¿½Óµï¿½ï¿½ï¿½Ê½  */
   .navbar {
     height : 50px;
     &.is-fixed {
-      //top : 0;
+          //top : 0;
       top : -50px;
     }
     &.is-visible {
@@ -178,7 +178,7 @@ a.rotate-box {
   .transition(all 0.2s ease-in-out);
   text-align : center;
   &:hover {
-    color : #676d75;
+    color : #676D75;
     .rotate-box-icon {
       .rotate(0deg);
     }
@@ -202,9 +202,9 @@ a.rotate-box {
   text-align       : center;
   .transition(all 0.2s ease-in-out);
   .rotate(45deg);
-  color            : #ffffff;
+  color            : #FFFFFF;
   &::after {
-    border   : 2px solid #fff;
+    border   : 2px solid #FFF;
     bottom   : 3px;
     content  : " ";
     left     : 3px;
@@ -236,58 +236,51 @@ a.rotate-box {
 }
 
 .view {
-  left            : 0;
-  margin-bottom   : 30px;
-  overflow        : hidden;
-  position        : relative;
-  top             : 0;
-  width           : 100%;
-  z-index         : 5;
-  height          : 300px;
-  background-size : cover;
+  left                : 0;
+  overflow            : hidden;
+  position            : relative;
+  top                 : 0;
+  width               : 100%;
+  z-index             : 5;
+  height              : 300px;
+  background-size     : contain;
+  background-position : center center;
+  background-repeat   : no-repeat;
+  border              : 1px solid #EEEEEE;
   .title {
-    height      : 20px;
-    left        : 50%;
-    margin-left : -100px;
-    margin-top  : -10px;
-    position    : absolute;
-    text-align  : center;
-    top         : 70%;
-    width       : 200px;
-    font-size   : 25px;
-    font-weight : bold;
-    z-index     : 100;
+    left            : 0;
+    position        : absolute;
+    text-align      : center;
+    top             : 70%;
+    font-size       : 18px;
+    font-weight     : bold;
+    z-index         : 11;
     .transition();
-  }
-  > a {
-    color          : #ffffff;
-    font-size      : 20px;
-    font-weight    : normal;
-    padding        : 0 20px;
-    text-transform : uppercase;
-    position       : absolute;
-    z-index        : 100;
-    top            : 80%;
-    left           : 50%;
-    width          : 200px;
-    height         : 20px;
-    margin-left    : -100px;
-    margin-top     : -10px;
-    text-align     : center;
-    opacity        : 0;
-    .transition();
+    background      : @theme-color;
+    color           : @bg-c;
+    height          : 30px;
+    line-height     : 30px;
+    text-decoration : none;
+    padding         : 0 20px;
+    width           : 150px;
+    &:after {
+      width        : 20px;
+      content      : " ";
+      position     : absolute;
+      right        : -30px;
+      height       : 10px;
+      border-color : @theme-color transparent transparent @theme-color;
+      border-style : solid solid solid solid;
+      border-width : 15px;
+      z-index      : 10;
+    }
   }
   &:hover {
     .mask {
-      opacity : 1;
+      opacity : 0.5;
     }
-    > p {
-      top   : 50%;
-      color : #FFFFFF;
-    }
-    > a {
-      opacity : 1;
-      top     : 70%;
+    .title {
+      width : 100%;
     }
   }
 }
@@ -301,11 +294,11 @@ a.rotate-box {
   top        : 0;
   .transition();
   width      : 100%;
-  z-index    : 10;
+  z-index    : 9;
 }
 
 #product {
-  //background : fadeout(@theme-color, 80%);
+              //background : fadeout(@theme-color, 80%);
   padding-top : 0;
 }
 
@@ -317,7 +310,7 @@ a.rotate-box {
 }
 
 #contact {
-  //background : fadein(@theme-color, 80%);
+                   //background : fadein(@theme-color, 80%);
   color            : @bg-c;
   background-image : url("/public/img/map.jpg");
   background-size  : cover;
@@ -365,7 +358,7 @@ a.rotate-box {
 
 .form-control {
   background-color : rgba(200, 200, 200, 0.06);
-  //border-color     : #2a2a2a;
+                   //border-color     : #2a2a2a;
   &:focus {
     background-color : #171717;
     box-shadow       : none;

@@ -5,43 +5,69 @@
     <meta charset="UTF-8">
     <title>canvas - 柯子源</title>
     <style>
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-    }
-    
-    body {
-        overflow: hidden;
-        background: #000000;
-    }
-    
-    #start {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
+        html,
+        body {
+            margin  : 0;
+            padding : 0;
+            height  : 100%;
+        }
+
+        body {
+            overflow   : hidden;
+            background : #000000;
+        }
+
+        #start {
+            position : absolute;
+            top      : 0;
+            left     : 0;
+            z-index  : 1;
+        }
+
+        .panel-body {
+            background  : rgba(255, 255, 255, 0.5);
+            width       : 100px;
+            position    : absolute;
+            top         : 45%;
+            padding     : 20px;
+            z-index     : 100;
+            left        : 50%;
+            margin-left : -50px;
+        }
+
+        label {
+            display : block;
+        }
     </style>
 </head>
 
 <body>
-    <canvas id="start"></canvas>
-    <script src="js/start.js"></script>
-    <script>
-    var start = window.start = new Start({
-        canvas: document.getElementById("start")
-    });
-    //  setInterval(function () {
-    //      start.updateController({
-    //          way: Math.floor(Math.random() * 2)
-    //      })
-    //  }, 2000)
-    start.updateController({
-        way: 1
-    })
-    </script>
+<div class="panel-body">
+    <label>
+        <input type="radio" name="type" value="0" onchange="changeType(this.value)" checked> 旋转
+    </label>
+    <label>
+        <input type="radio" name="type" value="1" onchange="changeType(this.value)"> 3D发散
+    </label>
+</div>
+<canvas id="start"></canvas>
+<script src="js/start.js"></script>
+<script>
+	var start = window.start = new Start({
+		canvas: document.getElementById("start")
+	});
+	//  setInterval(function () {
+	//      start.updateController({
+	//          way: Math.floor(Math.random() * 2)
+	//      })
+	//  }, 2000)
+
+	function changeType(type) {
+		start.updateController({
+			type: Number(type)
+		})
+	}
+</script>
 </body>
 
 </html>
