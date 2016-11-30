@@ -1,7 +1,7 @@
 /**
  * Created by zeev on 2016/10/16 0016.
  */
-var less     = require('gulp-less'),
+const less     = require('gulp-less'),
 	through2 = require('through2'),
 	uglify   = require('gulp-uglify'),
 	gulpif   = require('gulp-if'),
@@ -15,14 +15,14 @@ var less     = require('gulp-less'),
 	time     = new Date().getTime();
 
 
-module.exports = function (gulp, config, banner) {
-	gulp.task('clean', function () {
+module.exports = (gulp, config, banner) => {
+	gulp.task('clean', () => {
 		return gulp.src(config.output, { read: false })
 			.pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
 			.pipe(clean({ force: true }))
 	});
 
-	gulp.task('copy', ["css:less", "clean"], function () {
+	gulp.task('copy', ["css:less", "clean"], () => {
 
 		gulp.src(config.copy.font)
 			.pipe(gulp.dest(config.output + "/admin"))
@@ -55,7 +55,7 @@ module.exports = function (gulp, config, banner) {
 
 	});
 
-	gulp.task('build', ["copy"], function () {
+	gulp.task('build', ["copy"], () => {
 		return gulp.src([
 			'./core/about*/index.hbs',
 			'./core/admin*/index.hbs',
@@ -64,7 +64,7 @@ module.exports = function (gulp, config, banner) {
 			'./core/views*/signin.hbs',
 			'./core/views*/project.hbs'
 		])
-			.pipe(through2.obj(function (file, enc, cb) {
+			.pipe(through2.obj((file, enc, cb) => {
 				if (file.isNull()) {
 					return cb(null, file);
 				}

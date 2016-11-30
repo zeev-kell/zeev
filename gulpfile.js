@@ -1,9 +1,9 @@
 /**
  * Created by keziyuan on 2016/1/5.
  */
-var gulp = require('gulp');
+const gulp = require('gulp');
 
-var config = {
+const config = {
 	watch : ["./core/**/*.{js,html}"],
 	less  : ["./core/about", "./core/admin", "./core/essay", "./core/home", "./core/product", "./core/public"],
 	views : "./core/views",
@@ -40,9 +40,10 @@ var config = {
 	}
 };
 
-var banner = ['/**',
+const banner = ['/**',
 	' * <%= pkg.name %> - ' + new Date,
 	' * @version v<%= pkg.version %>',
+	' * https://github.com/zeev-kell',
 	' */',
 	'\n'
 ].join('\n');

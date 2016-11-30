@@ -1,19 +1,19 @@
-var nodemon              = require('gulp-nodemon'),
-	less                 = require('gulp-less'),
-	clean                = require('gulp-clean'),
-	notify               = require('gulp-notify'),
-	plumber              = require('gulp-plumber'),
-	argv                 = require('yargs').argv,
-// 	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-// 	autoprefixPlugin     = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] }),
-	browserSync          = require('browser-sync').create(),
-	reload               = browserSync.reload;
+const nodemon     = require('gulp-nodemon'),
+	  less        = require('gulp-less'),
+	  clean       = require('gulp-clean'),
+	  notify      = require('gulp-notify'),
+	  plumber     = require('gulp-plumber'),
+	  argv        = require('yargs').argv,
+	  // 	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+	  // 	autoprefixPlugin     = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] }),
+	  browserSync = require('browser-sync').create(),
+	  reload      = browserSync.reload;
 
 module.exports = function (gulp, config) {
 	/**
 	 * 清理打包之后编译的css
 	 */
-	gulp.task('css:clean', function () {
+	gulp.task('css:clean', () => {
 		return gulp.src(config.less.map(function (less) {
 			return less + "*/css"
 		}), { read: false })
@@ -24,7 +24,7 @@ module.exports = function (gulp, config) {
 	/**
 	 * 编译less文件
 	 */
-	gulp.task('css:less', ['css:clean'], function () {
+	gulp.task('css:less', ['css:clean'], () => {
 		return gulp.src(config.less.map(function (less) {
 			return less + "/less/*.less"
 		}))
@@ -35,14 +35,14 @@ module.exports = function (gulp, config) {
 			}))
 	});
 
-	gulp.task('css:watch', ['css:less'], function () {
+	gulp.task('css:watch', ['css:less'], () => {
 		reload();
 	});
 
 	/**
 	 *  启动自动刷新浏览器
 	 */
-	gulp.task('browser-sync', function () {
+	gulp.task('browser-sync', () => {
 		browserSync.init({
 			browser: "firefox",
 			proxy  : "http://localhost:4200/",
@@ -53,8 +53,8 @@ module.exports = function (gulp, config) {
 	/**
 	 *  启动node服务
 	 */
-	gulp.task('start', ['browser-sync'], function () {
-		var stream = nodemon({
+	gulp.task('start', ['browser-sync'], () => {
+		const stream = nodemon({
 			script : './bin/www',
 			ext    : 'js',
 			verbose: true,
@@ -65,11 +65,11 @@ module.exports = function (gulp, config) {
 				"PORT"    : argv.PORT || 4200,
 				"SOCKET"  : argv.SOCKET || 4201
 			}
-		}).on('start', function () {
+		}).on('start', () => {
 			reload();
-		}).on('restart', function () {
+		}).on('restart', () => {
 			//console.log('restarted!')
-		}).on('crash', function () {
+		}).on('crash', () => {
 			console.error('Application has crashed!\n')
 			stream.emit('restart', 10)  // restart the server in 10 seconds
 		})
@@ -79,12 +79,11 @@ module.exports = function (gulp, config) {
 	/**
 	 *  启动watch监听
 	 */
-	gulp.task('default', ['start', 'css:less'], function () {
+	gulp.task('default', ['start', 'css:less'], () => {
 		gulp.watch(config.watch).on('change', reload);
 		gulp.watch(config.less.map(function (less) {
 			return less + "/less/**/*.less"
 		}), ['css:watch']);
-
 	});
 
 }

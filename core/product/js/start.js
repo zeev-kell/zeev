@@ -1,9 +1,10 @@
 ﻿;(function () {
 
 	var _requestAnimationFrame = (function () {
-		return function (callback) {
-			window.setTimeout(callback, 1000 / 25);
-		};
+		//		return function (callback) {
+		//			window.setTimeout(callback, 1000 / 16);
+		//		};
+		return window.requestAnimationFrame
 	})();
 
 	var M      = Math,
@@ -145,10 +146,9 @@
 	function particle(point) {
 		this.point = point || { x: 0, y: 0 };
 		this.R     = M.sqrt(this.point.x * this.point.x + this.point.y * this.point.y);
-		/* 圆点半径 */
-		this.rad = 4 * this.R / winWidth + 0.5;
+		this.refreshRad();
 		/* 速度 */
-		this.speed = random() * 1 + .1;
+		this.speed = random() * 0.5 + .1;
 		/* 透明度 */
 		this.opc = random() / 2 + .3;
 		/* 起点弧度 */
@@ -162,7 +162,12 @@
 			this.radian = -this.radian;
 		}
 		/* 弧度增值 */
-		this.radian_inc = M.PI * random() * random() * random() * 0.5 * 0.02 + .002;
+		this.radian_inc = M.PI * random() * random() * random() * 0.5 * 0.0085 + .0005;
+	}
+
+	particle.prototype.refreshRad = function(){
+		/* 圆点半径 */
+		this.rad = 10 * this.R / winWidth * this.R / winWidth + 0.5;
 	}
 
 	particle.prototype.nextFps = function () {
@@ -196,7 +201,7 @@
 			this.point.y = this.point.x / M.tan(this.radian);
 		}
 		this.R   = M.sqrt(this.point.x * this.point.x + this.point.y * this.point.y);
-		this.rad = 4 * this.R / winWidth + 0.5;
+		this.refreshRad();
 	}
 
 	particle.prototype.draw = function (context) {
