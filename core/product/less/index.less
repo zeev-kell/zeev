@@ -243,7 +243,7 @@ a.rotate-box {
   width               : 100%;
   z-index             : 5;
   height              : 300px;
-  background-size     : contain;
+  background-size     : cover;
   background-position : center center;
   background-repeat   : no-repeat;
   border              : 1px solid #EEEEEE;
@@ -262,7 +262,7 @@ a.rotate-box {
     line-height     : 30px;
     text-decoration : none;
     padding         : 0 20px;
-    width           : 150px;
+    min-width       : 150px;
     &:after {
       width        : 20px;
       content      : " ";
@@ -272,6 +272,7 @@ a.rotate-box {
       border-color : @theme-color transparent transparent @theme-color;
       border-style : solid solid solid solid;
       border-width : 15px;
+      top          : 0;
       z-index      : 10;
     }
   }
@@ -280,7 +281,7 @@ a.rotate-box {
       opacity : 0.5;
     }
     .title {
-      width : 100%;
+      min-width : 100%;
     }
   }
 }
@@ -300,6 +301,9 @@ a.rotate-box {
 #product {
               //background : fadeout(@theme-color, 80%);
   padding-top : 0;
+  > .container-fluid > .animate-box {
+    margin-bottom : 15px;
+  }
 }
 
 .join-list {

@@ -1,9 +1,11 @@
 /**
  * Created by keziyuan on 2016/1/5.
  */
-const gulp = require('gulp');
 
-const config = {
+'use strict';
+let gulp = require('gulp');
+
+let config = {
 	watch : ["./core/**/*.{js,html}"],
 	less  : ["./core/about", "./core/admin", "./core/essay", "./core/home", "./core/product", "./core/public"],
 	views : "./core/views",
@@ -40,7 +42,7 @@ const config = {
 	}
 };
 
-const banner = ['/**',
+let banner = ['/**',
 	' * <%= pkg.name %> - ' + new Date,
 	' * @version v<%= pkg.version %>',
 	' * https://github.com/zeev-kell',

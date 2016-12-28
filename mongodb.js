@@ -1,8 +1,8 @@
 /**
  * Created by zeev on 2016/10/12 0012.
  */
-
-var session = require('express-session'),
+'use strict';
+let session = require('express-session'),
     Promise = require('bluebird'),
     MongoStore = require('connect-mongo')(session),
     mongoose = require('mongoose'),
@@ -14,7 +14,7 @@ module.exports.init = function() {
 }
 
 module.exports.onConnection = function() {
-    var db = mongoose.connection;
+	let db = mongoose.connection;
     return new Promise(function(resolve, reject) {
         db.on('error', function(error) {
             console.log("连接错误！", error);
@@ -24,7 +24,7 @@ module.exports.onConnection = function() {
             console.log("连接成功！");
             resolve();
         });
-    });;
+    });
 }
 
 /*

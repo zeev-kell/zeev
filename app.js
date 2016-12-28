@@ -1,14 +1,15 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
+'use strict';
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
 
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 
-var hbs = require('express-hbs');
-var utils = require("./utils");
+let hbs = require('express-hbs');
+let utils = require("./utils");
 
-var app = express(),
+let app = express(),
     mongodb = require("./mongodb");
 mongodb.init();
 app.use(mongodb.session());
@@ -68,7 +69,7 @@ app.use('/', express.static(utils._dist));
 /* 所有的路由 */
 require('./routes')(app);
 
-var errors = require("./errors");
+let errors = require("./errors");
 
 // 404 Handler
 app.use(errors.error404);

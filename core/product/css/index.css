@@ -821,7 +821,7 @@ a.rotate-box {
   width: 100%;
   z-index: 5;
   height: 300px;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   border: 1px solid #EEEEEE;
@@ -844,7 +844,7 @@ a.rotate-box {
   line-height: 30px;
   text-decoration: none;
   padding: 0 20px;
-  width: 150px;
+  min-width: 150px;
 }
 .view .title:after {
   width: 20px;
@@ -855,13 +855,14 @@ a.rotate-box {
   border-color: #666666 transparent transparent #666666;
   border-style: solid solid solid solid;
   border-width: 15px;
+  top: 0;
   z-index: 10;
 }
 .view:hover .mask {
   opacity: 0.5;
 }
 .view:hover .title {
-  width: 100%;
+  min-width: 100%;
 }
 .mask {
   background: rgba(54, 57, 64, 0.95) none repeat scroll 0 0;
@@ -879,6 +880,9 @@ a.rotate-box {
 }
 #product {
   padding-top: 0;
+}
+#product > .container-fluid > .animate-box {
+  margin-bottom: 15px;
 }
 .join-list li {
   display: inline-block;

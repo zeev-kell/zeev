@@ -1,13 +1,16 @@
-const nodemon     = require('gulp-nodemon'),
-	  less        = require('gulp-less'),
-	  clean       = require('gulp-clean'),
-	  notify      = require('gulp-notify'),
-	  plumber     = require('gulp-plumber'),
-	  argv        = require('yargs').argv,
-	  // 	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
-	  // 	autoprefixPlugin     = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] }),
-	  browserSync = require('browser-sync').create(),
-	  reload      = browserSync.reload;
+
+'use strict';
+
+let nodemon     = require('gulp-nodemon'),
+	less        = require('gulp-less'),
+	clean       = require('gulp-clean'),
+	notify      = require('gulp-notify'),
+	plumber     = require('gulp-plumber'),
+	argv        = require('yargs').argv,
+	// 	LessPluginAutoPrefix = require('less-plugin-autoprefix'),
+	// 	autoprefixPlugin     = new LessPluginAutoPrefix({ browsers: ["last 2 versions"] }),
+	browserSync = require('browser-sync').create(),
+	reload      = browserSync.reload;
 
 module.exports = function (gulp, config) {
 	/**
@@ -44,7 +47,7 @@ module.exports = function (gulp, config) {
 	 */
 	gulp.task('browser-sync', () => {
 		browserSync.init({
-			browser: "firefox",
+			browser: "chrome",
 			proxy  : "http://localhost:4200/",
 			port   : "80"
 		});

@@ -1,7 +1,9 @@
 /**
  * Created by zeev on 2016/10/16 0016.
  */
-const less     = require('gulp-less'),
+'use strict';
+
+let less     = require('gulp-less'),
 	through2 = require('through2'),
 	uglify   = require('gulp-uglify'),
 	gulpif   = require('gulp-if'),
