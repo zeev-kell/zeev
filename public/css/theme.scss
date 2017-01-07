@@ -1,0 +1,84 @@
+@import "import/var";
+@import "mixins/buttons";
+
+html {
+  color : $c-default;
+  font  : 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+  border-radius : 0;
+  border-width  : 0 0 1px;
+  border-color  : $c-border;
+  border-style  : solid;
+  .navbar-brand {
+    padding     : 5px;
+    margin-left : 1rem;
+    > img {
+      height        : 100%;
+      border-radius : 50%;
+    }
+  }
+}
+
+.navbar-toggle {
+  background-color : $c-background;
+  border           : 1px solid $c-blue;
+  border-radius    : 0;
+  .icon-bar {
+    background-color : $c-blue;
+  }
+}
+
+@media (max-width : 767px) {
+  .navbar-collapse {
+    border-top : 1px solid $c-background;
+  }
+}
+
+.navbar-nav.nav > li {
+  > a {
+    background : $c-background;
+    color      : $c-default;
+    transition : all 0.2s ease-in 0s;
+    &:hover {
+      background : lighten($c-blue, 20%);
+      color      : $c-background;
+    }
+  }
+  &.active > a {
+    background : $c-blue;
+    color      : $c-background;
+  }
+}
+
+.container-fluid {
+  width : 100%;
+}
+
+@media (min-width : 1215px) {
+  .container-fluid.layout {
+    width  : 1200px;
+    margin : 0 auto;
+  }
+}
+
+.template {
+  display : none;
+}
+
+.btn, .form-control {
+  border-radius : 1px;
+}
+
+.test-capitalize {
+  text-transform : capitalize;
+}
+
+.btn-orange {
+  @include button-variant($c-border, $c-orange, $c-orange);
+}
+
+.btn-black {
+  @include button-variant($c-border, $c-default, $c-default);
+}

@@ -1,0 +1,261 @@
+{{#contentFor 'styles'}}
+    <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}"/>
+    <link rel='stylesheet' href="{{asset '/bower_components/font-awesome/css/font-awesome.css'}}"/>
+    <link rel='stylesheet' href='/public/css/product.css'/>
+{{/contentFor}}
+
+<body>
+<section id="banner">
+    <div class="profile animate-box" data-animation="flip">
+        <img src="/public/img/profile-picture.jpg">
+    </div>
+    <div class="animate-box" id="nav-container" data-delay="1000" data-animation="fadeIn">
+        <div class="navbar">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a href="/essay">主页</a></li>
+                    <li><a href="/product">作品</a></li>
+                    <li><a href="/about">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="text-center animate-box">
+        <h1 class="text-uppercase">I'm waiting for a opportunity</h1>
+    </div>
+</section>
+<section id="birds-container" style="opacity: 1;" data-stellar-background-ratio="0.5"></section>
+<section class="section-container container-fluid layout">
+    <h1 class="animate-box">
+        <p class="section-title">作品类型</p>
+
+        <p class="text-center">按照爱好分类</p>
+    </h1>
+
+    <main class="container-fluid layout text-center">
+        <div class="col-sm-3 col-xs-12">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-file-code-o"></i></span>
+
+                <div class="rotate-box-info">
+                    <h4>代码</h4>
+
+                    <p>主要涉及前端代码</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-picture-o"></i></span>
+
+                <div class="rotate-box-info">
+                    <h4>图片</h4>
+
+                    <p>工具肯定是著名的 <br> Adobe PhotoShop</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-file-video-o"></i></span>
+
+                <div class="rotate-box-info">
+                    <h4>视频</h4>
+
+                    <p>会声会影 <br> Adobe AfterEffect</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-12">
+            <a class="rotate-box animate-box" data-animation="zoomIn">
+                <span class="rotate-box-icon"><i class="fa fa-mobile"></i></span>
+
+                <div class="rotate-box-info">
+                    <h4>其他</h4>
+
+                    <p>杂乱的东西</p>
+                </div>
+            </a>
+        </div>
+    </main>
+</section>
+<section class="section-container" data-animation="fadeIn" id="product">
+    <div class="container-fluid layout">
+        <div class="col-sm-4 col-xs-12 animate-box">
+            <div class="view" style="background-image: url('/public/img/chat.jpg');">
+                <a href="/product/chat" target="_blank" class="title">
+                    聊天系统
+                </a>
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 animate-box">
+            <div class="view" style="background-image: url('/public/img/canvas.jpg');">
+                <a href="/product/background.html" target="_blank" class="title">
+                    canvas背景
+                </a>
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 animate-box">
+            <div class="view" style="background-image: url('/public/img/start.png');">
+                <a href="/product/start.html" target="_blank" class="title">
+                    canvas动画
+                </a>
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 animate-box">
+            <div class="view" style="background-image: url('/public/img/054204085687D1A46A0A43044E5102DC.jpg');">
+                <a href="http://v.youku.com/v_show/id_XMTQzMzM1NjExMg==.html" target="_blank" class="title">
+                    【记录】【潜游时光】
+                </a>
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 animate-box">
+            <div class="view" style="background-image: url('/public/img/054204085843EC816A0A41046F1632FC.jpg');">
+                <a href="http://v.youku.com/v_show/id_XMTg0ODkyODE1Mg==.html" target="_blank" class="title">
+                    【记录】【宣讲大会】
+                </a>
+                <div class="mask"></div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12 animate-box">
+            <div class="view" style="background-image: url('/public/img/0542040856D72DFF6A0A4604473E4290.jpg');">
+                <a href="http://v.youku.com/v_show/id_XMTQ4ODIxNTQwOA==.html" target="_blank" class="title">
+                    【记录】【20周年校庆】
+                </a>
+                <div class="mask"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-container animate-box reverse" id="keyword" data-animation="fadeIn">
+    <h1 class="animate-box">
+        <p class="section-title">关键字</p>
+
+        <p class="text-center">个人标签</p>
+    </h1>
+    <main class="container-fluid layout text-center animate-box">
+        <div>前端工程师</div>
+    </main>
+</section>
+<section class="section-container animate-box" id="join" data-animation="fadeIn">
+    <h1 class="animate-box">
+        <p class="section-title">其他链接</p>
+
+        <p class="text-center">可以寻找到我足迹的网站</p>
+    </h1>
+    <div class="container-fluid layout text-center">
+        <ul class="list-unstyled join-list">
+            <li class="animate-box" data-animation="zoomIn" data-delay="500">
+                <a class="rotate-box rotate-box-small" target="_blank"
+                   href="http://weibo.com/1575459884/profile?rightmod=1&wvr=6&mod=personinfo">
+                    <span class="rotate-box-icon">
+                    <i class="fa fa-weibo"></i></span>
+                </a>
+            </li>
+            <li class="animate-box" data-animation="zoomIn">
+                <a class="rotate-box rotate-box-small" target="_blank" href="https://github.com/zeev-kell">
+                    <span class="rotate-box-icon">
+                    <i class="fa fa-github"></i></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="section-container animate-box reverse" id="contact" data-animation="fadeIn">
+    <div class="cover"></div>
+    <h1 class="animate-box">
+        <p class="section-title">联系</p>
+
+        <p class="text-center">下面方式都可以找到我</p>
+    </h1>
+    <main class="container-fluid layout animate-box">
+        <div class="col-sm-6 col-xs-12">
+            <h3 class="contact-title">联系方式</h3>
+            <ul class="contact-address">
+                <li>
+                    <i class="fa fa-map-marker fa-lg"></i>
+                    洪安三街&nbsp;华大公寓<br>盐田区<br>广东省&nbsp;深圳市
+                </li>
+                <li><i class="fa fa-phone"></i>•••••••••••</li>
+                <li><i class="fa fa-envelope"></i>617070839@qq.com</li>
+                <li><i class="fa fa-qq"></i>617070839</li>
+            </ul>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <h3 class="contact-title">发送私信</h3>
+
+            <form role="form" method="POST" action="/message">
+                <div class="form-group">
+                    <input required name="name" class="form-control input-lg" placeholder="Your Name">
+                </div>
+
+                <div class="form-group">
+                    <input required name="email" class="form-control input-lg" placeholder="E-mail">
+                </div>
+
+                <div class="form-group">
+                    <textarea required name="content" class="form-control input-lg" placeholder="Message"
+                              style="resize: vertical"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block btn-black">提交</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</section>
+<footer class="animate-box section-footer" data-animation="fadeIn">
+    <div class="container-fluid layout">
+        <div class="footer-main row">
+            <div class="col-xs-4">
+                <h3>网站导航</h3>
+                <ul class="list-unstyled menu-list">
+                    <li><a href="/essay">主页</a></li>
+                    <li><a href="/product">作品</a></li>
+                    <li><a href="/about">留言板</a></li>
+                    <li><a href="/about">关于</a></li>
+                </ul>
+            </div>
+            <div class="col-xs-8">
+                <h3>最近动态</h3>
+                <ul class="list-unstyled">
+                    <li>
+                        <a>暂无</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer text-center">
+        <p class="copyright">柯子源 & <a target="_blank" href="http://www.zeevkell.com">zeevkell</a></p>
+    </div>
+</footer>
+{{#contentFor 'scripts'}}
+
+    <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+    <script src="/bower_components/jquery.easing/js/jquery.easing.min.js"></script>
+    <script src="/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="/public/js/product.js"></script>
+
+    {{#env product=false}}
+        <script src="/public/js/birds.1482929447503.js"></script>
+    {{/env}}
+    {{#env product=true}}
+        <script>
+            (function () {
+                if ($(window).width() > 767) {
+                    var _script = document.createElement("script");
+                    _script.src = "/product/js/birds.1482929447503.js";
+                    var _s      = document.getElementsByTagName("script")[0];
+                    _s.parentNode.insertBefore(_script, _s);
+                }
+            })();
+        </script>
+    {{/env}}
+
+{{/contentFor}}
+</body>

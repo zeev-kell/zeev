@@ -72,7 +72,7 @@ errors = {
 	},
 	renderErrorPage   : function (code, err, req, res, next) {
 		res.status(code || 500);
-		res.render('views/error', {
+		res.render('system/error', {
 			message: err,
 			code   : code,
 			req    : req
@@ -105,7 +105,7 @@ errors = {
 			} else {
 				var err    = new Error('Not Found');
 				err.status = 404;
-				//				res.render('views/404', {
+				//				res.render('404', {
 				//					message: err,
 				//					code   : 404,
 				//					req    : req,
@@ -174,7 +174,7 @@ _.each([
 module.exports                            = errors;
 module.exports.handleError                = function (next) {
 	return function handleError(err) {
-		debug("handleError", err);
+//		debug("handleError", err);
 		// If we've thrown an error message of type: 'NotFound' then we found no path match.
 		if (err.errorType === 'NotFoundError') {
 			return next(err);

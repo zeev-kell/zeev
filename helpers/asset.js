@@ -7,12 +7,12 @@ var hbs   = require('express-hbs'),
 	debug = require('debug')('zeev:helper'),
 	asset;
 
-asset = function (context, options) {
+asset = (context, options) => {
 	var minify = true;
 
 	// replace ".foo" with ".min.foo" in production
 	if (utils.isProduction && minify) {
-		context = "http://www.zeevkell.com" + context.replace('.', '.min.');
+		context = "http://www.zeevkell.com" + context.replace('.js', '.min.js');
 		//		context = context.replace('.', '.min.');
 	}
 

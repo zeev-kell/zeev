@@ -70,12 +70,12 @@ exports.updatePost = function (req, res, next) {
 }
 
 exports.addPost = function (req, res, next) {
-	Post.create({
+	return Post.create({
 		title           : req.body.title,
 		markdown        : req.body.markdown,
 		html            : converter.makeHtml(req.body.markdown || ""),
 		image           : req.body.image,
-		author          : { _id: "570a7073e1eb2b38104f06a0" },
+		author          : req.session.user,
 		meta_title      : req.body.meta_title,
 		meta_description: req.body.meta_description
 	}).then(function (post) {

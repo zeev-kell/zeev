@@ -1,0 +1,19 @@
+<div class="post-dynamic">
+    <ul class="pull-left">
+        {{#if post.author}}
+            <li class="author"><a>{{post.author.name}}</a></li>
+        {{/if}}
+        <li>{{{moment post.created_at fromNow=true}}}</li>
+        <li class="hidden-xs">围观<strong>{{post.comments.length}}</strong>次</li>
+        <li class="hidden-xs"><strong>0</strong> 个不明物体</li>
+    </ul>
+    <div class="post-tags">
+        {{#each post.tags as |tag|}}
+            <div class="tag-item">
+                <a href="/essay/tags/{{tag._id}}">
+                    <span>{{tag.name}}</span>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</div>

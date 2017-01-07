@@ -9,7 +9,11 @@ var router      = express.Router(),
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-	res.render('admin/index', { title: 'zeev admin', layout: false });
+	if (process.env.NODE_ENV === "development") {
+		res.render('admin/index', { title: 'zeev admin', layout: false });
+	}else{
+		res.render('admin/index_', { title: 'zeev admin', layout: false });
+	}
 });
 
 router.put('/comment/:id', commentCtrl.auditingComment);

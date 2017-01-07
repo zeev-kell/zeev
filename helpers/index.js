@@ -20,7 +20,6 @@ module.exports.registerHelpers = function (hbs) {
 		}
 		return moment(context).format(format);
 	});
-
 	hbs.registerHelper('compare', coreHelpers.compare);
 	hbs.registerHelper('asset', coreHelpers.asset);
 	hbs.registerHelper('socket', coreHelpers.socket);

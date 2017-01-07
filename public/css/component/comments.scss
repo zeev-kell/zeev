@@ -1,0 +1,29 @@
+#comments h1.comments-title {
+  font-size     : 1.8rem;
+  font-weight   : 300;
+  line-height   : 3rem;
+  margin-bottom : 10px;
+  border-bottom : 1px solid #EEE;
+}
+
+.comments {
+  &-list {
+    margin-bottom : 1.8rem;
+    position      : relative;
+    transition    : all 200ms ease-in-out 0s;
+  }
+  &-portrait {
+    float        : left;
+    margin-right : 20px;
+    .portrait-img {
+      width  : 48px;
+      height : 48px;
+    }
+  }
+  &-body {
+    float : left;
+  }
+  &-btn {
+    margin-top : 5px;
+  }
+}

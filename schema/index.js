@@ -2,7 +2,8 @@
  * Created by Administrator on 2016/5/8 0008.
  */
 
-var mongoose = require("mongoose");
+'use strict';
+let mongoose = require("mongoose");
 
 /**  Schema  不具备数据库的操作能力
  *              var PersonSchema = new mongoose.Schema({
@@ -47,13 +48,9 @@ mongoose.model("Post", require("./post"));
 mongoose.model("Tag", require("./tag"));
 mongoose.model("Comment", require("./comment"));
 
-var _getModel = function (type) {
-	return mongoose.model(type);
-}
-
 module.exports = {
 	getModel : function (type) {
-		return _getModel(type);
+		return mongoose.model(type);
 	},
 	getSchema: function (type) {
 		return require("./" + type);

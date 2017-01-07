@@ -1,13 +1,13 @@
 /**
  * Created by zeev on 2016/11/11 0011.
  */
-//var io = require('socket.io')
-//	.listen(process.env.SOCKET || '4201');
+	//var io = require('socket.io')
+	//	.listen(process.env.SOCKET || '4201');
 
 var express = require('express'),
 	app = express(),
 	server = require('http').createServer(app),
-	io = require('socket.io').listen(server); //ÒıÈësocket.ioÄ£¿é²¢°ó¶¨µ½·şÎñÆ÷
+	io = require('socket.io').listen(server); //å¼•å…¥socket.ioæ¨¡å—å¹¶ç»‘å®šåˆ°æœåŠ¡å™¨
 server.listen(process.env.SOCKET || '4201')
 
 var chat  = io.of('/chat');

@@ -1,9 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
-/.idea
-/core/bower_components
-/bower_components
 /node_modules
-/config
-/dist
-/logs/**/*.log
-/backup
+.idea
+/public/admin_
+/views/admin/index_.hbs
+/bower_components
+/gulpfile-webpack.js
+/webpack.config.js

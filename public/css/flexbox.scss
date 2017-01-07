@@ -1,0 +1,73 @@
+@import "mixins/flex";
+
+.flex-row {
+  @include display-flex();
+  @include flex(0 1 auto);
+  @include flex-flow(row wrap);
+}
+
+.flex-column {
+  @include display-flex();
+  @include flex(0 1 auto);
+  -webkit-box-direction : normal;
+  -webkit-box-orient    : horizontal;
+  @include flex-wrap(nowrap);
+  @include flex-direction-column();
+}
+
+.flex-p-full {
+  @include flex(1 0 100%);
+  min-height : 100vh;
+}
+
+.flex-full {
+  @include flex(1 1 100%);
+}
+
+.flex-auto {
+  overflow : auto;
+}
+
+.flex-center {
+  @include align-items(center);
+  @include justify-content(center);
+}
+
+[class*="flex-xs"] {
+  -webkit-box-flex : 1;
+  flex-grow        : 1;
+  flex-basis       : 0;
+  max-width        : 100%;
+}
+
+.flex-100 {
+  @include flex(1 0 100vh);
+}
+
+.flex-auto {
+  @include flex(1 0 auto);
+}
+
+@for $i from 0 through 12 {
+  .flex-xs-#{$i} {
+    -webkit-flex-basis : 100% * $i / 12;
+    flex-basis         : 100% * $i / 12;
+    max-width          : 100% * $i / 12;
+  }
+  .flex-xs-offset-#{$i - 1} {
+    margin-left : 100% * ($i - 1) / 12;
+  }
+}
+
+@media screen and (min-width : 767px) {
+  @for $i from 0 through 12 {
+    .flex-sm-#{$i} {
+      -webkit-flex-basis : 100% * $i / 12;
+      flex-basis         : 100% * $i / 12;
+      max-width          : 100% * $i / 12;
+    }
+    .flex-sm-offset-#{$i - 1} {
+      margin-left : 100% * ($i - 1) / 12;
+    }
+  }
+}

@@ -84,7 +84,7 @@ exports.findOneAndReview = function (object, options) {
 		.findOneAndUpdate(object, {
 			$inc: { review: 1 }
 		})
-		.populate({ path: 'author', select: '-_id name' })
+		.populate({ path: 'author', select: '-_id name image' })
 		.populate({ path: 'tags', select: '_id name' })
 		.populate({
 			path    : 'comments',

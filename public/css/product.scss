@@ -1,0 +1,419 @@
+@import "flexbox.scss";
+@import "mixins/flex";
+@import "../../bower_components/animate.css/animate.css";
+@import "mixins/vendor-prefixes";
+@import "import/var";
+@import "animation/animation";
+@import "theme";
+
+html {
+  height : 100%;
+}
+
+body {
+  height : 100%;
+  color  : $c-default;
+}
+
+p {
+  font : 14px/1.5em Roboto;
+}
+
+[data-animation="fadeInUp"] {
+  opacity : 0;
+}
+
+.animate-box, .animate-offset {
+  visibility : hidden;
+  &.animated {
+    visibility : visible;
+  }
+}
+
+.animated {
+  @include animated-duration(1s);
+  @include animation-fill-mode(both);
+}
+
+#banner {
+  height  : 100%;
+  @include display-flex();
+  @extend .flex-center;
+  @include flex-direction-column();
+  padding : 0 2rem;
+  h1 {
+    font-size      : 3rem;
+    font-weight    : bold;
+    pointer-events : none;
+  }
+}
+
+.navbar-nav.nav > li > a {
+  &:hover {
+    background : transparent;
+    color      : $c-default;
+    @include scale(1.2, 1.2);
+  }
+}
+
+#nav-container {
+  text-align : center;
+  position   : relative;
+  z-index    : 1000;
+}
+
+.navbar-nav.nav {
+  margin  : 4px auto;
+  display : inline-block;
+  float   : none;
+  > li > a {
+    background : transparent;
+  }
+}
+
+.nav > li {
+  float : left;
+}
+
+@media all and (max-width : 767px) {
+  #nav-container {
+    position      : absolute;
+    top           : 0;
+    left          : 0;
+    width         : 100%;
+    z-index       : 90;
+    margin-bottom : 0;
+    border        : 0;
+    border-radius : 0;
+    @include transition(top .5s);
+  }
+
+  #navbar-collapse.collapse.in {
+    padding       : 20px 0;
+    background    : rgba(255, 255, 255, 0.90);
+    border-bottom : 1px solid $c-default;
+  }
+}
+
+#navbar-collapse {
+  @include transition(all .5s);
+}
+
+.navbar {
+  @include transition(transform .5s);
+  border : none;
+  height : 60px;
+  &.is-fixed {
+    position         : fixed;
+    top              : -60px;
+    background-color : #FFF;
+    left             : 0;
+    width            : 100%;
+    background-color : rgba(255, 255, 255, 0.9);
+    border-bottom    : 1px solid #ECECEC;
+    z-index          : 1000;
+  }
+  &.is-visible {
+    @include translate3d(0, 100%, 0);
+  }
+}
+
+@media all and (max-width : 767px) {
+  .navbar {
+    height : 50px;
+    &.is-fixed {
+      top : -50px;
+    }
+    &.is-visible {
+      //.transform(translate3d(0, 0, 0));
+    }
+  }
+}
+
+.profile {
+  margin-bottom : 20px;
+  > img {
+    border-radius : 50%;
+    width         : 120px;
+    height        : 120px;
+  }
+}
+
+#birds-container {
+  height              : 100%;
+  width               : 100%;
+  position            : absolute;
+  z-index             : -1;
+  overflow            : hidden;
+  opacity             : 0;
+  top                 : 0;
+  @include transition();
+  background-image    : url("/public/img/bird_bg.jpg");
+  background-repeat   : no-repeat;
+  background-size     : 100%;
+  background-position : center bottom;
+}
+
+.section-title {
+  font-size   : 3rem;
+  text-align  : center;
+  font-weight : bold;
+  color       : $c-default;
+  &:after {
+    display    : block;
+    content    : " ";
+    width      : 15%;
+    bottom     : 0;
+    height     : 2px;
+    margin     : 12px auto;
+    background : lighten($c-default, 50%);
+  }
+  > a {
+    color : inherit;
+  }
+}
+
+.section-container {
+  padding : 50px 0;
+  > main {
+    margin-top : 35px;
+  }
+  &.reverse {
+    color : $c-background;
+    .section-title {
+      color : $c-background;
+      &:after {
+        background : lighten($c-background, 10%);
+      }
+    }
+  }
+}
+
+a.rotate-box {
+  color           : #363940;
+  text-decoration : none;
+}
+
+.rotate-box {
+  display    : inline-block;
+  margin     : 30px 0 0 0;
+  @include transition(all 0.2s ease-in-out);
+  text-align : center;
+  &:hover {
+    color : #676D75;
+    .rotate-box-icon {
+      @include rotate(0deg);
+    }
+    .fa {
+      @include rotate(0deg);
+    }
+  }
+  h4 {
+    font-weight : 400;
+  }
+}
+
+.rotate-box-icon {
+  width            : 75px;
+  height           : 75px;
+  line-height      : 75px;
+  font-size        : 36px;
+  display          : inline-block;
+  background-color : $c-default;
+  margin-bottom    : 15px;
+  text-align       : center;
+  @include transition(all 0.2s ease-in-out);
+  @include rotate(45deg);
+  color            : #FFFFFF;
+  &::after {
+    border   : 2px solid #FFF;
+    bottom   : 3px;
+    content  : " ";
+    left     : 3px;
+    position : absolute;
+    right    : 3px;
+    top      : 3px;
+  }
+  .fa {
+    @include rotate(-45deg);
+    @include transition(all 0.2s ease-in-out);
+  }
+}
+
+.rotate-box-small .rotate-box-icon {
+  width       : 45px;
+  height      : 45px;
+  line-height : 45px;
+  font-size   : 18px;
+}
+
+.rotate-box-info {
+  margin-top : 30px;
+}
+
+#keyword {
+  height     : 350px;
+  width      : 100%;
+  background : #333333;
+}
+
+.view {
+  left                : 0;
+  overflow            : hidden;
+  position            : relative;
+  top                 : 0;
+  width               : 100%;
+  z-index             : 5;
+  height              : 300px;
+  background-size     : cover;
+  background-position : center center;
+  background-repeat   : no-repeat;
+  border              : 1px solid #EEEEEE;
+  .title {
+    left            : 0;
+    position        : absolute;
+    text-align      : center;
+    top             : 70%;
+    font-size       : 18px;
+    font-weight     : bold;
+    z-index         : 11;
+    @include transition();
+    background      : $c-default;
+    color           : $c-background;
+    height          : 30px;
+    line-height     : 30px;
+    text-decoration : none;
+    padding         : 0 20px;
+    min-width       : 150px;
+    &:after {
+      width        : 20px;
+      content      : " ";
+      position     : absolute;
+      right        : -30px;
+      height       : 10px;
+      border-color : $c-default transparent transparent $c-default;
+      border-style : solid solid solid solid;
+      border-width : 15px;
+      top          : 0;
+      z-index      : 10;
+    }
+  }
+  &:hover {
+    .mask {
+      opacity : 0.5;
+    }
+    .title {
+      min-width : 100%;
+    }
+  }
+}
+
+.mask {
+  background : rgba(54, 57, 64, 0.95) none repeat scroll 0 0;
+  height     : 100%;
+  left       : 0;
+  opacity    : 0;
+  position   : absolute;
+  top        : 0;
+  @include transition();
+  width      : 100%;
+  z-index    : 9;
+}
+
+#product {
+              //background : fadeout(@theme-color, 80%);
+  padding-top : 0;
+  > .container-fluid > .animate-box {
+    margin-bottom : 15px;
+  }
+}
+
+.join-list {
+  li {
+    display      : inline-block;
+    margin-right : 20px;
+  }
+}
+
+#contact {
+  color            : $c-background;
+  background-image : url("/public/img/map.jpg");
+  background-size  : cover;
+  position         : relative;
+  z-index          : -1;
+  .cover {
+    background-color : rgba(5, 8, 11, 0.93);
+    z-index          : -1;
+  }
+}
+
+.contact-title {
+  margin-bottom : 20px;
+}
+
+.cover {
+  background-color : rgba(0, 46, 82, 0.15);
+  height           : 100%;
+  left             : 0;
+  padding          : 20px;
+  position         : absolute;
+  top              : 0;
+  width            : 100%;
+}
+
+.contact-address {
+  margin     : 15px 0;
+  padding    : 0;
+  width      : 100%;
+  list-style : none;
+  li {
+    margin   : 0;
+    padding  : 0 0 20px 20px;
+    position : relative;
+    &:last-child {
+      padding-bottom : 0;
+    }
+    i {
+      margin-right : 10px;
+      position     : absolute;
+      left         : 0;
+    }
+  }
+}
+
+.form-control {
+  background-color : rgba(200, 200, 200, 0.06);
+                   //border-color     : #2a2a2a;
+  &:focus {
+    background-color : #171717;
+    box-shadow       : none;
+  }
+}
+
+.input-lg {
+  font-size   : 14px;
+  height      : 46px;
+  line-height : 1.33333;
+  padding     : 10px 16px;
+}
+
+.section-footer {
+  padding          : 30px 0 0 0;
+  background-color : #333333;
+  min-height       : 15%;
+  color            : $c-background;
+}
+
+.footer {
+  background-color : #111111;
+  padding          : 30px 0;
+}
+
+.menu-list {
+  li a {
+    color : $c-default-lighten;
+    &:hover {
+      color : $c-background;
+    }
+  }
+}

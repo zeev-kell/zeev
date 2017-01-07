@@ -1,0 +1,22 @@
+{{> abnormal}}
+<body>
+<h1>{{code}}</h1>
+<h3>{{message}}</h3>
+<p><strong>路径</strong>&nbsp;&nbsp;&nbsp;&nbsp;{{req.path}}
+    <a class="btn-link" href="http://zeevkell.com/essay/">返回首页 →</a>
+</p>
+{{#if stack}}
+    <section class="error-stack">
+        <h3>Stack Trace</h3>
+        <ul class="error-stack-list">
+            {{#each stack}}
+                <li>
+                    at
+                    {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
+                    <span class="error-stack-file">({{at}})</span>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+{{/if}}
+</body>

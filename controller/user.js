@@ -2,10 +2,10 @@
  * Created by zeev on 2016/10/12 0012.
  */
 
-var debug = require('debug')('zeev:user');
-var utils = require("../utils");
+var debug  = require('debug')('zeev:user');
+var utils  = require("../utils");
 var errors = require("../errors");
-var User = global.dbHelper.getModel("User");
+var User   = global.dbHelper.getModel("User");
 
 exports.signin = function (req, res, next) {
 	var _user = {
@@ -22,7 +22,7 @@ exports.signin = function (req, res, next) {
 				res.cookie('role', user.role);
 				return res.sendStatus(200);
 			} else {
-				return res.status(403).send({msg:"用户不存在或权限不够..."});
+				return res.status(403).send({ msg: "用户不存在或权限不够..." });
 			}
 		}).catch(errors.handleError(next))
 }

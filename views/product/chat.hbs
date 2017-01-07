@@ -1,0 +1,176 @@
+{{#contentFor 'styles'}}
+    <link rel='stylesheet' href="{{asset '/bower_components/bootstrap/dist/css/bootstrap.css'}}"/>
+    <link rel='stylesheet' href='/public/css/flexbox.css'/>
+    <link rel='stylesheet' href='/public/css/chat.css'/>
+{{/contentFor}}
+
+<body>
+<main class="main-container">
+    <ul id="chat-wrap">
+        <li class="template chat-system">
+            <div class="alert"></div>
+        </li>
+        <li class="template chat-item">
+            <div class="chat-portrait">
+                <img class="portrait-img img-circle" src="{{visitor.image}}">
+            </div>
+            <div class="message">
+                <span class="arrow"></span>
+                <span class="name"></span>
+                <span class="datetime">at Apr 28, 2014 1:36</span>
+
+                <p class="content">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet dolore magna aliquam erat volutpat. sed diam nonummy nibh euismod tincidunt ut laoreet
+                    dolore magna aliquam erat volutpat.
+                </p>
+            </div>
+        </li>
+    </ul>
+</main>
+<div class="chat-container">
+    <img src="{{cookies.image}}" class="chat-image img-circle">
+    <span id="span_name">{{cookies.name}}</span>
+
+    <form id="chat-form" role="form" class="flex-column">
+        <div class="form-group" style="margin-bottom: 5px;">
+            <button type="button" id="clean-btn" title="清屏" class="btn btn-default btn-sm">清屏</button>
+        </div>
+        <div class="form-group text-area">
+            <textarea class="form-control" id="message" name="message" style="resize: vertical;height:100%"
+                      required></textarea>
+        </div>
+        <div class="text-right chat-btn">
+            <span class="theme-2" style="margin-right: 10px;">快捷键：Enter + Ctrl</span>
+            <button type="submit" class="btn btn-success">发送</button>
+        </div>
+    </form>
+    <input type="hidden" id="image" name="image" value="{{cookies.image}}">
+</div>
+<div id="modal-view" style="display: none">
+    <div class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">给自己取个帅气的名字吧！:)</div>
+                <div class="modal-body">
+                    <form role="form" id="sigin-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required class="form-control"
+                                   value="{{cookies.name}}"
+                                   placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">确定</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade in"></div>
+</div>
+</body>
+
+{{#contentFor 'scripts'}}
+    <script src="{{asset '/bower_components/jquery/dist/jquery.js'}}"></script>
+    <script src="{{socket '/socket.io/socket.io.js'}}"></script>
+    <script>
+
+        var Chat = function () {
+            this.socket = null;
+        }
+
+        Chat.prototype = {
+            init       : function () {
+                var _this   = this;
+                this.socket = io.connect("{{socket '/chat'}}");
+                var name    = $("#name").val();
+                if ($.trim(name) == "") {
+                    $("#modal-view").fadeIn();
+                    $("#name").focus();
+                } else {
+                    $("#message").focus();
+                    this.signin(name);
+                }
+                this.socket.on("signinSuccess", function () {
+                    $("#span_name").html($("#name").val());
+                    $("#modal-view").fadeOut();
+                })
+                this.socket.on('system', function (result) {
+                    _this.scrollWrap(function () {
+                        var $container = $("#chat-wrap");
+                        var $li        = $(".template.chat-system", $container).clone().removeClass("template");
+                        $li.find(".alert").addClass('alert-' + result.alert).html(result.message);
+                        $container.append($li);
+                    })
+                });
+                this.socket.on('chat', function (data) {
+                    _this.scrollWrap(function () {
+                        var $container = $("#chat-wrap");
+                        var $li        = $(".template.chat-item", $container).clone().removeClass("template");
+                        data.message   = data.message ? data.message.replace(/\n/, "<br/>").replace(/\s/, "&nbsp;") : "";
+                        $li.find(".content").html(data.message);
+                        $li.find(".datetime").html(data.date);
+                        $li.find(".name").html(data.name);
+                        $li.find(".portrait-img").attr("src", data.image);
+                        $container.append($li);
+                    })
+                });
+            },
+            signin     : function (name) {
+                this.socket.emit('signin', {
+                    name : name,
+                    image: $("#image").val(),
+                    date : new Date()
+                });
+            },
+            emitMessage: function () {
+                var message = $("#message").val();
+                if ($.trim(message) != "") {
+                    this.socket.emit('message', {
+                        message: message,
+                        image  : $("#image").val(),
+                        name   : $("#name").val(),
+                        date   : new Date()
+                    });
+                }
+                $("#message").val("");
+            },
+            scrollWrap : function (fn) {
+                var $container = $("#chat-wrap");
+                var scroll     = $container[0].scrollHeight - $container.scrollTop() > ($container.height() + 30);
+                fn();
+                if (!scroll) {/* 往上滚动 */
+                    $container.scrollTop($container[0].scrollHeight);
+                }
+            }
+        }
+
+        $(function () {
+            var chat = new Chat();
+            chat.init();
+            $("#sigin-form").submit(function (e) {
+                e.preventDefault();
+                var name = $.trim($("#name").val());
+                if (name.length != 0) {
+                    chat.signin(name);
+                }
+            })
+            $("#chat-form").submit(function (e) {
+                e.preventDefault();
+                chat.emitMessage();
+            })
+            $("#message").keydown(function (e) {
+                if (e.ctrlKey && e.keyCode == 13) {
+                    e.preventDefault();
+                    if (document.getElementById("message").checkValidity()) {
+                        chat.emitMessage();
+                    }
+                }
+            })
+            $("#clean-btn").click(function(){
+                $("#chat-wrap li:not(.template)").remove();
+            })
+        })
+    </script>
+{{/contentFor}}
