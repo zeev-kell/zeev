@@ -27,7 +27,6 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.5",
-    "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-clean-css": "^2.3.2",
