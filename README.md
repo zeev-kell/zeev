@@ -1,3 +1,3 @@
 # The web of zeev
 
-## By zeev
+## Just backup for 2.0
